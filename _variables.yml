@@ -1,0 +1,31 @@
+version: 1.2
+
+email: 
+  office: office@ap-ls.org
+  web: webeditor@ap-ls.org
+  conference: conference@ap-ls.org
+  ce: ce@ap-ls.org
+  corrections: corrections@ap-ls.org
+  dissertation: dissertation@ap-ls.org
+  ecp: ecp@ap-ls.org
+  treasurer: treasurer@ap-ls.org
+  gradaid: grantsinaid@ap-ls.org
+  ugradaid: undergrad_grants@ap-ls.org
+  practice: practice@ap-ls.org
+  social: socialmedia@ap-ls.org
+  students: students@ap-ls.org
+  ttc: ttc@ap-ls.org
+  srp: apls.srp2@gmail.com
+  
+
+
+sm: 
+  twitter: "[twitter](https://twitter.com/apls41)"
+  facebook: "[facebook](https://www.facebook.com/APLS41)"
+  instagram: "[instagram](https://www.instagram.com/apls41/)"
+  bluesky: "[bluesky](https://bsky.app/profile/ap-ls.org)"
+
+contact:
+  phone: "(704) 456-7276"
+  mail: "6510 Telecom Dr, Suite 370 Indianapolis, IN 46278"
+  

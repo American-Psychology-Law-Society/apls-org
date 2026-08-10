@@ -1,0 +1,10 @@
+---
+title: September 2021
+date: 9/1/2021
+image: featured.jpg 
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="sep2021.Rhtml" title="September Newsletter"></iframe>
+```

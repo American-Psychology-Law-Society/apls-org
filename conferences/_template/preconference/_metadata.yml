@@ -1,0 +1,21 @@
+
+# Date format
+date-format: "long"
+
+# Default for table of contents
+toc: false
+
+# Default knitr options
+execute:
+  echo: false
+  message: false
+  warning: false
+
+include-back-link: true
+
+# Workshop pages render their front matter (title, presenters, credits,
+# description, objectives) through the partial in title-block.html.
+format:
+  html:
+    template-partials:
+      - "title-block.html"

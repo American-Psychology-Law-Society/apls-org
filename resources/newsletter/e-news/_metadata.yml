@@ -1,0 +1,33 @@
+# options specified here will apply to all posts in this folder
+
+# freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: auto
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# Alt text for the issue thumbnails shown in listings
+# (newsletter archive pages and the home page news section)
+image-alt: "AP-LS e-news issue cover"
+
+description: "Our monthly Newsletter provides information about activities, upcoming events, and resources to connect the psychology-law community."
+
+# Default for table of contents
+toc: false
+
+
+include-back-link: true
+
+# Default knitr options
+execute:
+  echo: false
+  message: false
+  warning: false
+
+# Collapse-callout blocks
+
+format:
+  html:
+    template-partials:
+      - "title-block.html"

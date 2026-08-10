@@ -1,0 +1,14 @@
+---
+title: October 2023
+date: 10/1/2023
+image: "https://images.pexels.com/photos/5422779/pexels-photo-5422779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1z4-7BHpfHRDf4b7VK8pjz1ZlDC_48Hde/view?usp=drive_link"
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="./oct23.html" title="October Newsletter"></iframe>
+```

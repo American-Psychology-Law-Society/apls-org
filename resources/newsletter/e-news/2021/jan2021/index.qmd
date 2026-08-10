@@ -1,0 +1,11 @@
+---
+title: January 2021
+date: 1/1/2021
+image: featured.png
+categories:
+  - Research Briefs
+---
+
+```{=html}
+<iframe class="news ar4x3" src="jan2021.Rhtml" title="January Newsletter"></iframe>
+```

@@ -1,0 +1,69 @@
+---
+title: "Job Postings"
+toc: true
+toc-title: "Job Type"
+title-block-banner: "../../images/banners/default-banner.png"
+listing:
+  - id: academic
+    contents: academic-jobs.yml
+    sort: "date desc"
+    date-format: short
+    template: job-listing.ejs
+  - id: professional
+    contents: professional-jobs.yml
+    sort: "date desc"
+    date-format: short
+    template: job-listing.ejs
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # rowwise_table()
+library(htmltools) # div(), tags$*, a(), span()
+library(purrr)     # pmap()
+```
+
+::: {.column-page-inset}
+```{r}
+#| label: Submit new jobs
+#| echo: false
+#| message: false
+#| warning: false
+#| classes: '.g-col-lg-6 .g-col-12 .g-col-md-12'
+
+content = rowwise_table(~icon, ~text, ~link,
+          "send",          
+            "Post a job",
+              "https://apls.memberclicks.net/job-posting-request#!/",
+          "clipboard2-pulse",          
+            "Post a Clinical-forensic Postdoc",
+              "https://docs.google.com/forms/d/e/1FAIpQLSeyn6YEW7-mne6RsT-yzTMN8HNSXQjuHYPP1DtW7gQq11H9eA/viewform",
+          "clipboard2-data",          
+            "Post a Research Postdoc",
+              "https://docs.google.com/forms/d/e/1FAIpQLSfF4iosPXi8pDFG46leWvMk70mnu1qxNzxslH5qfp0JxBqL9A/viewform"
+)
+div(class = "feature-grid",
+  pmap(content, function(icon, text, link) {
+    div(class = "feature-grid__item",
+        div(class="feature-grid__icon",
+          a(href = link, class = "feature-grid__link", `aria-label` = text,
+            tags$i(class = sprintf("bi-%s feature-grid__i", icon))
+         )
+       ),
+      text
+    )
+  })
+)
+```
+:::
+
+
+## {{< fa graduation-cap >}} Academic Positions
+
+::: {#academic}
+:::
+
+## {{< fa user-tie >}} Professional Positions
+
+::: {#professional}
+:::

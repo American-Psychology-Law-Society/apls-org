@@ -1,0 +1,24 @@
+---
+date: "2013-23-06"
+title: An Introduction to the Field of Psychology and Law
+subtitle: Introduction to AP-LS Series
+title-block-banner: true
+toc: false
+image: featured.png
+priority: 1
+categories:
+  - apls
+url: https://www.youtube.com/watch?v=2KJ4pZIrRc0
+---
+
+## Overview 
+
+This video provides an overview of the field of Psychology and Law. 
+
+This video was a part of the **Introduction to AP-LS Series** hosted by the BRIDGE Committee (formerly MAC). It features professionals' discussing topics related to diversity in the field of psychology and law. 
+
+<button type="button" class="btn btn-outline-primary">
+<a href="https://www.youtube.com/watch?v=2KJ4pZIrRc0" target="_blank">{{< fa circle-play >}} Link to video</a></button>
+<br></br>
+
+<div id="youtube-frame-2KJ4pZIrRc0" class="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/2KJ4pZIrRc0" title="YouTube video: An Introduction to the Field of Psychology and Law" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>

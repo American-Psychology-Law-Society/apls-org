@@ -1,0 +1,15 @@
+{
+  "hash": "a9299193bd41a22b54de4d9e02a501f6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\npagetitle: \"2027 AP-LS Call for Proposals\"\ntoc: false\ncss: ../index.css\ndescription: |\n  Call for proposals for the 2027 Annual Conference of the American Psychology-Law Society, held March 18-20 in Louisville, Kentucky.\n---\n\n::: column-screen\n::: hero-banner\n::: content-block\n::: heading-guard\n:::\n# 2027 Call for Proposals {.h4}\n\n[Annual Conference of the American Psychology-Law Society]{.h6}\n\n[{{< fa calendar aria-hidden=\"true\" >}} March 18-20, 2027 | {{< fa location-dot aria-hidden=\"true\" >}} Louisville, KY | Marriott Louisville Downtown]{.h6}\n\n::: hero-buttons\n[{{< fa arrow-left-long aria-hidden=\"true\" >}} Back to Conference](../index.qmd){.btn-action .btn .btn-success role=\"button\"}\n:::\n\n:::\n:::\n:::\n\n<!--\nSTAGE 2: when the call for proposals opens in Fall 2026, replace the\nnotice below with the full call. The complete set of content blocks\n(session types, Submission Details callout, first-author limits, and\nreviewer sign-up) is ready to copy from\nconferences/_template/cfp/index.qmd.\n-->\n\n\n\n::: simple-info-center\n\n[The 2027 call for proposals opens in Fall 2026.]{.h5}\n\nThe deadline, submission portal, and session details will be posted here when the call opens.\n\n:::\n\n::: vspace\n:::\n\n>If you have any questions about the call for proposals, please contact the conference co-chairs at [conference@ap-ls.org](mailto:conference@ap-ls.org). Looking forward to seeing everyone in March! <br>\n<br>*2027 AP-LS Conference Co-Chairs*\n\n::: vspace\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

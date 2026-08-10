@@ -1,0 +1,14 @@
+---
+title: June 2022
+date: 6/1/2022
+image: featured.jpg
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1ELJffs3JVq2ugLLjNfhzX-WK0Zkr-uRP/view?usp=sharing"
+---
+
+
+
+{{< html file="../../html/june2022.html" >}}
+

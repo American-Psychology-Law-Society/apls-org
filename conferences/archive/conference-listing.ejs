@@ -1,0 +1,45 @@
+```{=html}
+<div class="list grid" style="column-gap: 10px;">
+  <% for (const item of items) { %>
+  <div class="card event-card quarto-grid-item rounded-3 g-col-12 g-col-sm-6 mb-2" <%= metadataAttrs(item) %>>
+
+    <% if (item.url) { %>
+    <a href="<%- item.url %>">
+      <img src="<%- item.image %>" alt="<%- item.title %>" class="card-img-top"/>
+    </a>
+    <% } else { %>
+    <img src="<%- item.image %>" alt="<%- item.title %>" class="card-img-top"/>
+    <% } %>
+
+    <div class="card-body card-text py-1 px-2">
+
+      <% if (item.title) { %>
+      <h2 class="no-anchor card-title listing-title"><%= item.title %></h2>
+      <% } %>
+
+      <% if (item.location) { %>
+      <div class="card-details">
+        <i class="bi bi-geo-alt-fill" style="color: #e74c3c;"></i> <%= item.location %>
+      </div>
+      <% } %>
+
+    </div>
+
+    <% if (item.url) { %>
+    <div class="card-read-more">
+      <a href="<%= item.url %>" class="btn btn-link btn-block">
+        View More <i class="bi bi-arrow-right-short"></i>
+      </a>
+    </div>
+    <% } else { %>
+    <div class="card-read-more">
+      <span class="btn btn-link btn-block disabled" aria-hidden="true">
+        <i class="bi bi-wifi-off"></i>
+      </span>
+    </div>
+    <% } %>
+
+  </div>
+  <% } %>
+</div>
+```

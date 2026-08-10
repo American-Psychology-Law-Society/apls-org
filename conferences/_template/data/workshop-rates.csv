@@ -1,0 +1,9 @@
+type,status,early_bird,regular
+Full-Day,Member,$000,$000
+Full-Day,Non-Member,$000,$000
+Full-Day,Student Member,$000,$000
+Full-Day,Student Non-member,$000,$000
+Half-Day,Member,$000,$000
+Half-Day,Non-Member,$000,$000
+Half-Day,Student Member,$000,$000
+Half-Day,Student Non-member,$000,$000

@@ -1,0 +1,224 @@
+---
+title: "Committees & Task Forces"
+description: | 
+  List of current committees and task forces for the American Psychology-Law Society.
+title-block-banner: "../images/banners/default-banner.png"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## The Society operates through a number of standing committees that work to carry out its mission and to accomplish particular tasks.
+
+::: {.callout-note appearance="simple"}
+## Executive Committee
+
+Occasionally, the President, in consultation with the Executive Committee, will also establish ad hoc committees and task forces. 
+
+[Learn more about President and Executive Committee](leadership.html)
+:::
+```{r}
+#| label: leadership_tbl
+#| echo: false
+#| warning: false
+#| message: false
+
+library(reactable)
+library(htmltools)
+library(dplyr)
+library(stringr)
+library(googlesheets4)
+
+# ── Auth ──────────────────────────────────────────────────────────────
+gs4_deauth()
+
+# ── Data ──────────────────────────────────────────────────────────────
+cmts <- read_sheet("https://docs.google.com/spreadsheets/d/17aXj7E4OE-vIgnRkNVZyw8BBjJ1MoXuroS71IqJ9rsI/edit?usp=sharing")
+
+leadership_url <- "https://docs.google.com/spreadsheets/d/16RGHgDI7snPwaHfvF1gxTLAMet1V5_kM_4iHog2h7m8/edit?usp=sharing"
+sheet_names <- sheet_names(leadership_url)
+
+combined_data <- bind_rows(
+  lapply(sheet_names, function(sheet_name) {
+    read_sheet(leadership_url, sheet = sheet_name) |>
+      mutate(sheet_name = sheet_name)
+  })
+)
+
+members <- combined_data |>
+  rename(key = sheet_name) |>
+  select(key, Position, Name, Email, Term, Additional)
+
+# ── Helpers ───────────────────────────────────────────────────────────
+
+obfuscate_email <- function(email) {
+  encoded <- base64enc::base64encode(charToRaw(email))
+  tags$a(
+    href = "#",
+    class = "obfuscated-email",
+    `data-email` = encoded,
+    onclick = "this.href='mailto:'+atob(this.dataset.email);",
+    email
+  )
+}
+
+parse_markdown_links <- function(text) {
+  if (is.null(text)) return(NULL)
+  if (length(text) == 0) return(NULL)
+  if (length(text) > 1) text <- text[1]
+  if (is.na(text) || text == "") return(NULL)
+
+  pattern <- "\\[([^\\]]+)\\]\\(([^)]+)\\)"
+
+  if (!str_detect(text, pattern)) return(span(text))
+
+  matches <- str_match_all(text, pattern)[[1]]
+  result_parts <- list()
+  remaining_text <- text
+
+  for (i in seq_len(nrow(matches))) {
+    full_match <- matches[i, 1]
+    link_text  <- matches[i, 2]
+    url        <- matches[i, 3]
+
+    match_pos <- str_locate(remaining_text, fixed(full_match))
+
+    if (match_pos[1] > 1) {
+      result_parts <- c(result_parts, list(str_sub(remaining_text, 1, match_pos[1] - 1)))
+    }
+
+    result_parts <- c(result_parts, list(tags$a(href = url, link_text, target = "_blank")))
+    remaining_text <- str_sub(remaining_text, match_pos[2] + 1)
+  }
+
+  if (nchar(remaining_text) > 0) {
+    result_parts <- c(result_parts, list(remaining_text))
+  }
+
+  tagList(result_parts)
+}
+
+cmt_field <- function(name, content) {
+  if (is.null(content)) return(NULL)
+  if (is.character(content) && length(content) > 1) content <- content[1]
+  if (is.character(content) && (is.na(content) || content == "")) return(NULL)
+  tagList(div(class = "detail-label", name), div(content))
+}
+
+# ── Row details ───────────────────────────────────────────────────────
+
+row_details <- function(index) {
+  cmt <- cmts[index, ]
+
+  # Get chair/co-chair rows
+  chair_rows <- members |> 
+    filter(key == cmt$key[1], Position %in% c("Chair", "Co-chair", "Co-Chair"))
+
+  # Build chair name display
+  chair_name <- if (nrow(chair_rows) > 0) {
+    paste(chair_rows$Name, collapse = " & ")
+  } else {
+    cmt$chair[1]
+  }
+
+  # Build email content for all chairs
+  email_content <- if (nrow(chair_rows) > 0) {
+    emails <- chair_rows$Email
+    result <- list()
+    for (i in seq_along(emails)) {
+      email <- emails[i]
+      if (!is.null(email) && !is.na(email) && grepl("@", email)) {
+        if (i > 1) result <- c(result, list(", "))
+        result <- c(result, list(obfuscate_email(email)))
+      }
+    }
+    result
+  } else if (!is.null(cmt$email[1]) && !is.na(cmt$email[1])) {
+    list(obfuscate_email(cmt$email[1]))
+  } else {
+    NULL
+  }
+
+  detail <- div(
+    class = "committee-detail",
+    div(
+      class = "detail-header", cmt$name[1],
+      span(class = "detail-title", paste("Chair:", chair_name))
+    ),
+    div(class = "detail-description", parse_markdown_links(cmt$description)),
+    cmt_field("Responsibilities", parse_markdown_links(cmt$responsibilities)),
+    cmt_field("Relation to AP-LS Vision, Mission and Values", parse_markdown_links(cmt$values)),
+    cmt_field("Additional", parse_markdown_links(cmt$other)),
+    if (!is.null(email_content) && length(email_content) > 0) {
+      tagList(div(class = "detail-label", "Contact"), div(email_content))
+    }
+  )
+
+  if (any(members$key == cmt$key[1])) {
+    membership <- tagList(
+      div(class = "detail-label", "Committee Members"),
+      reactable(
+        members |> filter(key == cmt$key[1]),
+        pagination = FALSE,
+        defaultColDef = colDef(headerClass = "header"),
+        columns = list(
+          Position   = colDef(name = "Position"),
+          Name       = colDef(name = "Name"),
+          Term       = colDef(name = "Term"),
+          key        = colDef(show = FALSE),
+          Email      = colDef(show = FALSE),
+          Additional = colDef(show = FALSE)
+        ),
+        class = "members-table",
+        theme = reactableTheme(
+          color           = "var(--apls-fg)",
+          backgroundColor = "var(--apls-card-bg)",
+          borderColor     = "var(--apls-border)",
+          cellPadding     = "8px 12px"
+        )
+      )
+    )
+    detail <- tagAppendChild(detail, membership)
+  }
+
+  detail
+}
+
+# ── Table ─────────────────────────────────────────────────────────────
+
+tbl <- reactable(
+  cmts[, c("name")],
+  defaultPageSize = 30,
+  onClick = "expand",
+  defaultColDef = colDef(headerClass = "header"),
+  columns = list(
+    name = colDef(
+      name = "", minWidth = 250, class = "committee-title",
+      cell = function(value) span(title = value, value)
+    )
+  ),
+  details = row_details,
+  wrap = TRUE,
+  class = "committees-table",
+  rowStyle = list(cursor = "pointer"),
+  theme = reactableTheme(
+    color                  = "var(--apls-fg)",
+    backgroundColor        = "var(--apls-card-bg)",
+    borderColor            = "var(--apls-border)",
+    stripedColor           = "var(--apls-card-bg-alt)",
+    highlightColor         = "var(--apls-bg-alt)",
+    inputStyle             = list(backgroundColor = "var(--apls-card-bg)"),
+    selectStyle            = list(backgroundColor = "var(--apls-card-bg)"),
+    pageButtonHoverStyle   = list(backgroundColor = "var(--apls-bg-alt)"),
+    pageButtonActiveStyle  = list(backgroundColor = "var(--apls-bg-alt)"),
+    cellPadding            = "8px 12px"
+  )
+)
+
+div(class = "committee-list", tbl)
+```
+
+```{r echo=FALSE}
+tags$link(href = "https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,700;1,400&display=swap", rel = "stylesheet")
+```

@@ -1,0 +1,60 @@
+---
+title: Clinicians' Travel Grants for American Psychology-Law Society Conference
+date: last-modified
+description: Provides travel awards to APLS members who are clinicians to attend the American Psychology-Law Society Conference.
+categories: 
+  - Early Career Professionals
+  - Conference Travel
+  - Diversity, Equity & Inclusion
+  - Practice
+submission-info:
+  sponsor: AP-LS Practice Committee
+  deadline: "December 1, `r if (Sys.Date() > lubridate::mdy(paste('December 1', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: send
+  name: Apply here
+  url: "https://forms.gle/Knyj3sWNnefF6ArA8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+<hr>
+
+::: panel-tabset 
+## Description
+
+The Practice Committee is sponsoring twenty (20) Clinicians' Travel Grants (CTG) to address disparities in access to funds available to clinicians to attend the AP-LS conference.
+
+Psychologists in academia often have paid time off and can receive university sponsored funds to cover costs associated with attending conferences. On the other hand, practitioners, especially those who work solely in private practice, often lack comparable levels of support. In addition to the costs associated with travel, clinicians may incur a loss of income when they attend a conference. The CTG will address the unique financial barriers clinicians face that make it difficult for them to attend the conference.
+
+::: callout-note
+## Degree of Support
+
+The maximum amount of support provided by the grant will vary depending on the amount of support needed or requested. It will also depend on the applicant's stage of career:
+
+-   **Post-doctoral applicants** may apply for a \$600 maximum amount of support.
+
+-   **Early-career applicants** may apply for a \$500 maximum amount of support.
+
+-   **Mid to Advanced Career applicants** may apply for a \$400 maximum amount of support.
+:::
+
+## Eligibility
+
+Eligible individuals must be AP-LS members. Any practicing psychologist, starting from the Post-Doctoral, Early Career, Mid and Advanced career level, may apply. The applicants will have to self-identify as primarily practicing psychologists (defined below) in the field of psychology and the law. For this purpose, a practicing clinician spends at least 75% of their work week providing direct services associated with psychology and the law or they are in a postdoctoral program training to become a practitioner in the area of psychology and the law.
+
+Preference will be given to psychologists at any level who do not have or have limited institutional support to attend conferences, such as private practitioners or practitioners in public non-academic institutions. Special preference may be given to practicing psychologists who are presenting at the conference and have not previously been granted the grant. The funds shall be used for travel costs associated with attending the AP-LS conference exclusively.
+
+::: callout-note
+AP-LS membership and conference registration status will be checked ***before*** funds are processed
+:::
+
+## How to Apply
+
+Applications are due by December 1, `r format(Sys.Date(), '%Y')`
+
+<a class="btn btn-primary" href="https://forms.gle/Knyj3sWNnefF6ArA8" role="button">Complete CTG Application here</a>
+
+:::

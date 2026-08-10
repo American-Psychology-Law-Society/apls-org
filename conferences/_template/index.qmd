@@ -1,0 +1,364 @@
+---
+pagetitle: "20XX American Psychology-Law Society Conference"
+toc: false
+css: index.css
+editor: source
+description: |
+  The annual conference for the American Psychology-Law Society for 20XX will be held in CITY, ST from March D-D.
+includesource: true
+---
+
+<!--
+================================================================
+AP-LS ANNUAL CONFERENCE PAGE TEMPLATE
+================================================================
+Two kinds of content live on this page:
+
+1. YEARLY FACTS (set once at rollover): year, city, dates, hotel
+   name and address. Find and replace each placeholder in the
+   copied files ("Replace in Files"):
+     20XX, PRIORYEAR, CITY, ST, March D-D 20XX, March D, 20XX,
+     HOTEL NAME, HOTEL ADDRESS, https://HOTEL-WEBSITE-URL
+
+2. THROUGH-THE-YEAR FACTS (updated as details arrive): notes,
+   deadlines, links, and rates. These come from the conference
+   Google Sheet via conferences/_update-conference.R, which writes
+   conferences/data/*.csv. The R chunks on this page read those
+   CSVs. Co-chairs edit the Sheet; nobody edits the values here.
+
+Stage guide for the Sheet (details in README.md):
+  STAGE 2  Call opens: set submissions_note and the cfp_* keys,
+           then update cfp/index.qmd
+  STAGE 3  Room block opens: set hotel_note + hotel_booking_url.
+           The booking callout appears on its own.
+  STAGE 4  Schedule released: set schedule_note
+  STAGE 5  Registration opens: set registration_note +
+           registration_url (a Register button appears on its own)
+           and update the registration-rates tab
+================================================================
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # rowwise_table()
+library(htmltools) # div(), tags$*, a(), span()
+library(purrr)     # pmap()
+library(stringr)   # str_c()
+
+# Sheet-driven facts and rates, refreshed from the conference Google
+# Sheet by conferences/_update-conference.R. The path is built from this
+# document's location so the page keeps reading its own year's data
+# after it moves into the archive.
+library(readr)
+data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "data")
+conf_info <- read_csv(file.path(data_dir, "info.csv"),
+                      col_types = cols(.default = "c"), show_col_types = FALSE)
+info <- setNames(as.list(conf_info$value), conf_info$key)
+info <- lapply(info, function(x) if (is.na(x)) "" else x)
+rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
+                  col_types = cols(.default = "c"), show_col_types = FALSE)
+```
+
+:::::: column-screen
+::::: hero-banner
+:::: content-block
+::: heading-guard
+:::
+# 20XX Annual Conference of the American Psychology-Law Society {.h4}
+
+[{{< fa location-dot aria-hidden="true" >}} CITY, ST]{.h5}
+
+[{{< fa calendar aria-hidden="true" >}} March D-D, 20XX]{.h5}
+
+::::
+:::::
+::::::
+
+::: {.column-screen}
+::: grid
+::: {.alt-background-blue}
+
+```{r toc}
+#| echo: false
+#| warning: false
+#| message: false
+
+content <- rowwise_table(
+  ~name, ~icon, ~link,
+  "General", "info-circle", "#info",
+  "Proposals", "send", "cfp/index.qmd",
+  "Registration", "person-add", "#registration",
+  "Hotel", "airplane", "#hotel",
+  "Schedule", "person-workspace", "#schedule",
+  "Workshops", "easel", "preconference/index.qmd",
+  "Archives", "journal-text", "archive/index.qmd"
+)
+
+div(
+  class = "bg-light",
+  div(
+    class = "bg-breakout",
+    div(
+      class = "inner-container",
+      div(
+        class = "boxed-wrapper",
+        div(
+          class = "boxed-feature-grid",
+          pmap(content, \(name, icon, link) {
+            div(
+              class = "boxed-feature-grid__item",
+              div(
+                class = "boxed-feature-grid__icon",
+                a(
+                  href = link,
+                  class = "boxed-feature-grid__link",
+                  `aria-label` = name,
+                  tags$i(class = str_c("bi-", icon, " boxed-feature-grid__i"))
+                )
+              ),
+              div(class = "boxed-feature-grid__title", name)
+            )
+          })
+        )
+      )
+    )
+  )
+)
+```
+:::
+:::
+:::
+
+::: vspace
+:::
+
+## General Information {#info}
+
+<figure class="text-end">
+
+<blockquote class="blockquote">
+
+<p class="mb-0">
+
+If you have any questions or comments about the conference, please contact the conference co-chairs at [conference\@ap-ls.org](mailto:conference@ap-ls.org) <br>
+
+Looking forward to seeing everyone in March!
+
+<figcaption class="blockquote-footer">
+
+20XX AP-LS Conference Co-Chairs
+
+</figcaption>
+
+</figure>
+
+<!-- STAGE 1: save the conference logo as images/logo.png. -->
+
+![](images/logo.png){fig-alt="20XX AP-LS Conference logo"}
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+::::: column-screen
+:::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+[Want to learn more about the [AP-LS Annual Conference]{.highlight}?]{.h6}
+
+[Learn More {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+:::
+::::
+:::::
+
+::: vspace
+:::
+
+## Submissions {#proposals}
+
+::: vspace
+:::
+
+### Call for proposals
+
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$submissions_note`]{.h5}
+
+[Call for Proposals {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Hotel Information {#hotel}
+
+::: vspace
+:::
+
+### HOTEL NAME
+
+::: vspace
+:::
+
+<!-- STAGE 1: save the hotel photo as images/hotel.png. -->
+
+![Exterior view of the HOTEL NAME](images/hotel.png){fig-align="center" fig-alt="Exterior photograph of the HOTEL NAME conference hotel"}
+
+::: vspace
+:::
+
+[The 20XX AP-LS Conference will be held at the [HOTEL NAME](https://HOTEL-WEBSITE-URL)]{.h6}
+
+**Location:** HOTEL ADDRESS
+
+::: vspace
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+# Room block: when hotel_booking_url is set in the Sheet, the booking
+# callout appears; until then the note shows on its own.
+if (nzchar(info$hotel_booking_url)) {
+  cat(
+    '::: {.callout-important}',
+    '### AP-LS Room Block!',
+    '',
+    info$hotel_note,
+    '',
+    sprintf('[Book Room {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role="button"}',
+            info$hotel_booking_url),
+    ':::',
+    sep = "\n"
+  )
+} else {
+  cat(
+    '::: simple-info-center',
+    '',
+    paste0('[', info$hotel_note, ']{.h5}'),
+    '',
+    ':::',
+    sep = "\n"
+  )
+}
+```
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Schedule {#schedule}
+
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$schedule_note`]{.h5}
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Registration {#registration}
+
+::: {.panel-tabset .box-shadow}
+
+### {{< fa bullhorn >}} Info
+
+```{r}
+#| echo: false
+#| results: asis
+# Registration: when registration_url is set in the Sheet, a Register
+# button appears under the note.
+reg_lines <- c("::: simple-info-center", "",
+               paste0("[", info$registration_note, "]{.h5}"), "")
+if (nzchar(info$registration_url)) {
+  reg_lines <- c(reg_lines,
+                 sprintf("[Register {{< fa arrow-right aria-hidden=\"true\" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role=\"button\"}",
+                         info$registration_url),
+                 "")
+}
+reg_lines <- c(reg_lines, ":::")
+cat(reg_lines, sep = "\n")
+```
+
+::: vspace
+:::
+
+### {{< fa circle-info >}} Pricing
+
+::: vspace
+:::
+
+::: {.callout-note appearance="simple"}
+### REGISTRATION RATES & INCLUSIONS
+
+*`r info$rates_note`*
+
+```{r}
+#| echo: false
+#| results: asis
+cat(knitr::kable(rates,
+                 col.names = c("Status", "Early Bird (before Jan 31)",
+                               "Regular (after Feb 1)"),
+                 align = "lcc"),
+    sep = "\n")
+```
+:::
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Preconference Workshops {#preconference}
+
+::: vspace
+:::
+
+[[{{< fa calendar aria-hidden="true" >}} Wednesday, March D, 20XX]{.highlight}]{.h6}
+
+*Attendees register for preconference workshops with their conference registration.*
+
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$preconference_note`]{.h5}
+
+[Pricing & Details {{< fa arrow-right aria-hidden="true" >}}](preconference/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+
+::: vspace
+:::

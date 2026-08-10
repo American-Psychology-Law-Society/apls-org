@@ -1,0 +1,12 @@
+---
+title: November 2021
+date: 11/1/2021
+image: featured.jpg 
+categories: 
+  - Career Corner
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="nov2021.Rhtml" title="November Newsletter"></iframe>
+```

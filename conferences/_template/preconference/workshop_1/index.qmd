@@ -1,0 +1,44 @@
+---
+title: Workshop 1
+subtitle: |
+  Full workshop title goes here.
+date: 03/11/2026
+author:
+  - "Presenter One, Ph.D."
+  - "Presenter Two, Ph.D."
+categories:
+  - Intermediate
+  - Half Day
+description: |
+  One or two paragraphs describing the workshop: what it covers, who it
+  is for, and what attendees will take away.
+objectives:
+  - "First learning objective."
+  - "Second learning objective."
+  - "Third learning objective."
+event-info:
+  credits: "X CE hours"
+  time: "8:30 AM - 12:00 PM"
+---
+
+<!--
+EXAMPLE WORKSHOP PAGE
+================================================================
+Duplicate this folder for each workshop (workshop_2, workshop_3,
+...) and replace every value in the front matter above.
+
+  title        Short name shown in the workshops grid.
+  subtitle     Full workshop title.
+  date         Workshop date, written MM/DD/YYYY.
+  author       One line per presenter, with credentials.
+  categories   Level (Beginner, Intermediate, Advanced) and length
+               (Half Day or Full Day). These appear as filters.
+  description  Shown on the workshop page.
+  objectives   One line per learning objective.
+  event-info   CE credits and start/end times.
+
+The page builds itself from this front matter. Anything you add below
+this comment appears under the details as regular markdown, so you can
+add an agenda, readings, or presenter bios if you want them.
+================================================================
+-->

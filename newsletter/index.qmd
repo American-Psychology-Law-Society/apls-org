@@ -1,0 +1,28 @@
+---
+title: AP-LS Newsletter
+description: Our monthly newsletter provides information about activities, upcoming events, and resources to connect the psychology-law community.
+title-block-banner: "../images/banners/default-banner.png"
+listing: 
+  - id: newsletter
+    contents: 
+    - "../resources/newsletter/e-news/**/**/index.qmd"
+    type: grid
+    fields: [title, image, categories]
+    sort: "date desc"
+    max-items: 3
+---
+
+
+## Recent News
+
+::: {#newsletter}
+:::
+
+
+::: vspace2
+:::
+
+::: about-link
+[View more newsletters](../resources/newsletter/)
+:::
+

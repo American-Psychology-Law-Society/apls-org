@@ -1,0 +1,9 @@
+---
+title: October 2021
+date: 10/1/2021
+image: featured.jpg 
+---
+
+```{=html}
+<iframe class="news ar4x3" src="oct2021.Rhtml" title="October Newsletter"></iframe>
+```

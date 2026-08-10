@@ -1,0 +1,112 @@
+---
+pagetitle: "20XX AP-LS Preconference Workshops"
+css: ../index.css
+listing:
+    contents:
+      - "**/*.qmd"
+    type: grid
+    grid-columns: 2
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [title, subtitle, categories]
+---
+
+<!--
+================================================================
+PRECONFERENCE WORKSHOPS SUB-PAGE
+================================================================
+Workshops come from the workshops tab of the conference Google
+Sheet. Add a row per workshop, then run
+source("conferences/_update-conference.R"): it writes each
+workshop's folder (workshop_1, workshop_2, ...) and this grid fills
+in on its own. Once workshops exist, set sort-ui and filter-ui
+above to true.
+
+Rates and notes come from the workshop-rates and info tabs of the
+same Sheet. The old copy-paste-a-workshop-folder method still works
+if you need a one-off page: copy
+conferences/_template/preconference/workshop_1/ and edit its front
+matter by hand.
+================================================================
+-->
+
+```{r setup, include=FALSE}
+# Sheet-driven rates and notes, refreshed by
+# conferences/_update-conference.R.
+library(readr)
+library(dplyr)
+data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "..", "data")
+conf_info <- read_csv(file.path(data_dir, "info.csv"),
+                      col_types = cols(.default = "c"), show_col_types = FALSE)
+info <- setNames(as.list(conf_info$value), conf_info$key)
+info <- lapply(info, function(x) if (is.na(x)) "" else x)
+workshop_rates <- read_csv(file.path(data_dir, "workshop-rates.csv"),
+                           col_types = cols(.default = "c"),
+                           show_col_types = FALSE)
+rate_table <- function(day_type) {
+  workshop_rates |>
+    filter(type == day_type) |>
+    select(status, early_bird, regular) |>
+    knitr::kable(col.names = c("Status", "Early Bird (before Jan 31)",
+                               "Regular (after Feb 1)"),
+                 align = "lcc")
+}
+```
+
+::: column-screen
+::: hero-banner
+::: content-block
+::: heading-guard
+:::
+# Preconference Workshops {.h4}
+[Wednesday, March D, 20XX]{.h6}
+
+
+::: hero-buttons
+[{{< fa arrow-left-long aria-hidden="true" >}} Back to Conference](../index.qmd){.btn-action .btn .btn-success role="button"}
+:::
+
+:::
+:::
+:::
+
+
+
+## {{< fa circle-info >}}Pricing Information{#price}
+
+::: {.panel-tabset .box-shadow}
+### REGISTRATION RATES & INCLUSIONS
+
+*`r info$workshop_rates_note`*
+
+#### Full-Day Workshop Rates
+
+```{r}
+#| echo: false
+#| results: asis
+cat(rate_table("Full-Day"), sep = "\n")
+```
+
+#### Half-Day Workshop Rates
+
+```{r}
+#| echo: false
+#| results: asis
+cat(rate_table("Half-Day"), sep = "\n")
+```
+:::
+
+## Descriptions & Details{#details}
+
+> `r info$preconference_note`
+
+*Attendees register for preconference workshops with their conference registration.*
+
+<!-- When the workshop flyer PDF exists, uncomment the download button
+     and add its link.
+[download {{< fa arrow-right-long aria-hidden="true" >}}](https://WORKSHOP-FLYER-URL){.btn .btn-outline-primary .ml-auto role="button"}
+-->
+
+::: {#workshops}
+:::

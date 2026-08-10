@@ -1,0 +1,150 @@
+---
+title: Research to Enhance the Impact and Diversification of Psychology and Law Research
+date: last-modified
+description: Small/seed grants ($1,000-$5,000) and large grants ($15,000-$50,000) for interdisciplinary research that addresses understudied topics in psychology and law.
+categories: 
+  - Research
+submission-info: 
+  sponsor: AP-LS Research Committee
+  deadline: 
+  - "October 15, `r if (Sys.Date() > lubridate::mdy(paste('October 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Pre-proposal)"
+  - "December 16, `r if (Sys.Date() > lubridate::mdy(paste('December 16', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Full-proposal)"
+links:
+- icon: envelope-at
+  name: Contact
+  url: "mailto:research@ap-ls.org"
+- icon: send
+  name: Apply here
+  url: "https://awards.ap-ls.org/default.asp"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+<hr>
+
+:::{.panel-tabset} 
+## Description
+
+The American Psychology-Law Society (AP-LS) invites research proposals for Research to Enhance the Impact and Diversification of Psychology & Law Research. The intent of this grant initiative is to advance a more interdisciplinary science that addresses understudied topics in psychology and law, as well as to broaden the discipline and amplify its practical impact. Proposed projects must investigate new or understudied topics in psychology and law, enhance the diversification of psychology and law research through novel theoretical or methodological approaches that are cross-disciplinary in nature, and/or promote the impact of research by considering novel populations or new problems or processes within the legal system; the proposed project is to include collaboration with practitioners or policymakers. Successful proposals are expected to involve projects with the potential to transform and impact the field by furthering novel lines of research inquiry and/or facilitating new cross-disciplinary collaborations.
+
+As part of the AP-LS initiative toward a more inclusive society, grant applicatios that specifically address disadvantaged groups or understudied topic areas in psychology and law will be given preference. This includes funding scholars from traditionally underprivileged backgrounds.
+
+Proposals may be submitted into one of two funding categories:
+
+-   Small/Seed proposals (\$1,000-\$5,000 for a 12-month research period)
+-   Large proposals (\$15,000-\$50,000 over a 12-18 month research period)
+
+
+::: callout-tip
+Funding should primarily support research activities and data collection efforts. Support for research assistants and necessary travel may be requested, but should not constitute the majority of the requested funds. Applicants may request up to 100% of funds to cover faculty FTE in the form of a stipend. This means that salary support and fringe can be covered.
+
+Funds for successful proposals will be awarded to the PI's academic institution (via the institution's Office of Sponsored Research or Foundation). No institutional indirect cost recovery will be permitted, and proposals submitted for consideration by this program must not be submitted for consideration by other grant programs (including AP-LS programs). 
+
+Proposals submitted but not funded in previous funding cycles may be resubmitted, but all proposals will be evaluated as new proposals.
+:::
+## Eligibility
+Applicants may submit only one small and one large proposal per funding cycle. Each proposal must describe a unique project; you may not submit the same project as both a large and small proposal in the same cycle.
+
+A student cannot be a sole PI on any submission but are allowed to be a co-PI on a submission.
+
+At least one of the co-PIs needs to be an [AP-LS member](../../membership/index.qmd).
+
+## Pre-Proposal Process
+
+Interested researchers should submit a 1,000-word prospectus to the committee by October 15, `r format(Sys.Date(), '%Y')` at 11:59 p.m. PST. All materials are submitted through the Div. 41 (AP-LS) awards page.
+
+<a class="btn btn-primary " href="https://awards.ap-ls.org/default.asp" role="button">Click to Apply</a>
+
+The prospectus should include four sections:
+
+1.  Describe the project in no more than 500 words.
+2.  Describe how the project contributes to the research initiative in no more than 500 words (See review criteria outlined below).
+3.  A reference list (Does not count toward the word limit).
+4.  Suggestions for three proposal reviewers. Suggested reviewers should not include anyone who might have a significant conflict of interest in reviewing the proposal (defined under full proposal "significant collaborators"). Please include the full name and email address of each suggested reviewer.
+
+::: callout-caution
+## Additional requirements
+
+Your pre-proposal submission should also include the PI/co-PI name, title and email address.
+:::
+
+Based on review of the pre-proposals, investigators will be notified by November 15 about whether they are invited to submit a full proposal application. Full proposal applications will be due by December 16, `r format(Sys.Date(), '%Y')` at 11:59 p.m. PST.
+
+### Pre-proposal review criteria
+
+Contribution to the research initiative: To what extent and in what ways does the proposal contribute to the AP-LS research initiative? The specific criteria used ask to what extent does the proposal:
+
+-   investigate **new or understudied topics** in psychology and law;
+
+-   promote the **impact** of research by considering novel populations;
+
+-   use **approaches** that are cross-disciplinary in nature;
+
+-   enhance the diversification of psychology and law research through **novel theoretical** approaches;
+
+-   promote the impact of research by considering **new problems or processes**;
+
+-   enhance the diversification of psychology and law research through **novel methodological** approaches;
+
+-   further **novel lines of research** that have potential to be transformative and impactful to the field; and
+
+-   facilitate **new cross disciplinary collaborations** to be transformative and impactful to the field
+
+## Full proposal process
+
+For investigators invited to submit full proposal applications, full proposal applications are due by December 16, `r format(Sys.Date(), '%Y')` at 11:59pm PST.
+
+<a class="btn btn-primary " href="https://awards.ap-ls.org/default.asp" role="button">Click to Apply</a>
+
+**Proposals should include:**
+
+1.  PI and co-PI contact information and affiliations, and requested award amount/category;
+
+2.  A 500 word abstract that summarizes the proposed project and highlights the project\'s contributions to this Research Initiative;
+
+3.  A 3500 word project summary (for Small/Seed grants) or a 6000 word project summary (for Large grants). The summary should include a rationale for the proposed project; situate the novelty of the project within the existing literature; detail the proposed methods, data analytical approach, and timeline for completing the project; and specify the project\'s contributions to this Research Initiative (see Full Proposal Review Criteria below);
+
+4.  A reference list (does not count toward the word limit);
+
+5.  A two-page CV for each PI and co-PI contributing to the project, including a list of \"significant collaborators\" that includes dissertation and master\'s thesis advisors, current and past students, co-authors within the last 5 years, editors who have edited a book in which you have a chapter published, and authors who have published in a book you have edited;
+
+6.  A proposed budget that details anticipated expenditures and a budget justification that links the requested funds to the proposed activities;
+
+7.  A statement of significant financial interest that discloses whether the researchers have significant financial interest in the outcome of the research proposal.
+
+All submitted proposals will be reviewed by the AP-LS Research Committee and selected proposals will be recommended for funding to the AP-LS Executive Committee. External (ad hoc) peer-review of proposals will be solicited to facilitate the review process. Awards will be made following the March AP-LS annual meeting.
+
+PIs of funded projects are expected to submit annual and final reports to the AP-LS Research Committee Chair that details the activities, findings, and budget expenditures associated with the proposed research. PIs also will be asked to present their findings at the AP-LS annual meeting during a special poster session highlighting this research initiative; the PI or members of the collaborating research team may also submit a symposium or individual paper to be reviewed in accordance with the normal conference review process.
+
+### Proposal review criteria
+
+**Proposal Review Criteria**
+
+1.  **Contribution to the Research Initiative.** To what extent and in what ways does the proposal contribute to the AP-LS Research Initiative? The specific criteria used ask to what extent does the proposal:
+
+    -   investigate new or understudied topics in psychology and law;
+
+    -   promote the impact of research by considering novel populations;
+
+    -   use approaches that are cross-disciplinary in nature;
+
+    -   enhance the diversification of psychology and law research through novel theoretical approaches;
+
+    -   promote the impact of research by considering new problems or processes;
+
+    -   enhance the diversification of psychology and law research through novel methodological approaches;
+
+    -   further novel lines of research that have potential to be transformative and impactful to the field; and
+
+    -   facilitate new cross disciplinary collaborations to be transformative and impactful to the field
+
+2.  **Contribution to the field of psychology and law.** What is the overall contribution to the field of psychology and law? Does this proposal have potential to contribute to advancing knowledge within the field and/or transforming policy or practice?
+
+3.  **Scientific quality of the proposal.** What is the scientific merit of the proposal? Is the proposal methodologically appropriate, thorough, and rigorous? Is the analytical approach appropriate? Is the timeline realistic?
+
+4.  **Overall rating.** What is the overall assessment of the proposal? What is the funding recommendation?
+
+:::

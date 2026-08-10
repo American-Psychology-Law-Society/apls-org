@@ -1,0 +1,9 @@
+---
+title: August 2021
+date: 8/1/2021
+image: featured.jpg 
+---
+
+```{=html}
+<iframe class="news ar4x3" src="aug2021.Rhtml" title="August Newsletter"></iframe>
+```

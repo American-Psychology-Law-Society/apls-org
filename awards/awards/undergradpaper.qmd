@@ -1,0 +1,88 @@
+---
+title: AP-LS Award for Best Undergraduate Paper
+date: last-modified
+description: Recognizes an outstanding undergraduate research paper focused on the interdisciplinary study of psychology and law.
+categories:
+  - Students
+  - Undergraduate
+submission-info:
+  sponsor: AP-LS Undergraduate Paper Award Committee
+  deadline: "June 30, `r if (Sys.Date() > lubridate::mdy(paste('June 30', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: send
+  name: Submit here
+  url: "mailto:undergrad_paper@ap-ls.org"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::: panel-tabset
+## Description
+
+The AP-LS Award for Best Undergraduate Paper is awarded to an outstanding undergraduate research paper that is focused on the interdisciplinary study of psychology and law.
+
+First ($500), second ($200) and third place ($150) winners are conferred annually, and winners will be be encouraged to submit their work as a poster presentation at the AP-LS Annual Conference (as first author).
+
+## Eligibility
+
+To be eligible for an award the student must be the major contributor to a project on a topic relevant to psychology and law (i.e., the student had primary responsibility for initiating and conducting the project even though the project will usually be conducted under the supervision of a mentor).
+
+Data collection should be complete.
+
+Students may submit their work during their first post-undergraduate year as long as the work was conducted during their undergraduate career.
+
+## How to Apply
+
+<a class="btn btn-primary" href="mailto:undergrad_paper@ap-ls.org" role="button"><i class="fa-regular fa-file-word"></i> Submit Here</a>
+
+Submissions (APA-paper and letter of support) must be emailed to to the Chair of the Undergraduate Paper Award Committee at `undergrad_paper@ap-ls.org` as .doc or .docx (Microsoft Word) files. Deadline for receipt of all materials is June 30.
+
+:::{.callout-tip}
+## Submission must include the following:
+1.    One copy of the APA-style paper being submitted for consideration.
+  -   The paper should be a maximum of 25 pages of text (12-point font, one-inch margins), including the abstract and tables/figures.
+  -   The 25-page maximum does not include the title page and references.
+
+2.   A letter of support from the student's faculty mentor.
+  -   Each applicant must have their mentor submit a letter of support to the chair that characterizes the nature and extent of the student's contribution to the project.
+  -   This letter should be a maximum of two pages of text (12-point font, one-inch margins).
+
+Applications that do not meet these requirements for the paper and letters of support will be disqualified.
+:::
+
+## Proposal Review Criteria
+Proposals will be reviewed by members of the AP-LS Undergraduate Paper Award Committee based on independence, originality, contribution to field, soundness of design and analyses and quality of writing.
+
+## Past Recipients
+
+```{r}
+#| label: undergrad-winners
+#| warning: false
+#| echo: false
+library(dplyr)
+library(purrr)
+
+# Data: awards/data/undergrad-paper.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/undergrad-paper.csv") |>
+  mutate(
+    rank = recode(tolower(trimws(award)),
+                  first  = "1st place",
+                  second = "2nd place",
+                  third  = "3rd place",
+                  .default = NA_character_),
+    detail = pmap_chr(list(rank, affiliation, advisor), function(r, a, ad) {
+      parts <- c(r,
+                 if (!is.na(a)  && a  != "") a else NA,
+                 if (!is.na(ad) && ad != "") paste0("advisor: ", ad) else NA)
+      paste(parts[!is.na(parts) & parts != ""], collapse = " · ")
+    })
+  )
+
+awards_table(data, name = "name", detail = "detail")
+```
+:::

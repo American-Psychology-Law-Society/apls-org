@@ -1,0 +1,15 @@
+---
+title: April 2021
+date: 4/1/2021
+image: featured.jpg 
+Categories:
+  - Teaching Corner
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "apr2021.pdf"
+---
+
+```{=html}
+<iframe class="news ar4x3" src="apr2021.pdf" title="April Newsletter"></iframe>
+```

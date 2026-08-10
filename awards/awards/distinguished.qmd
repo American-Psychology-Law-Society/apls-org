@@ -1,0 +1,61 @@
+---
+title: Distinguished Contributions to Psychology and Law
+date: last-modified
+description: Honors one who has made distinguished theoretical, empirical, and/or applied contributions to the field of psychology and law.
+categories: 
+  - Distinguished Career
+submission-info:  
+  sponsor: AP-LS Executive Committee
+  deadline: "December 1, `r if (Sys.Date() > lubridate::mdy(paste('December 1', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: send
+  name: Submit here
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSef301UHyAe44KhBskPecs2r979AqxFU4GP0DDOdUsJhkBYQQ/viewform?usp=dialog"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::: panel-tabset
+## Description
+
+The AP-LS Award for Distinguished Contributions to Psychology and Law honors one who has made distinguished theoretical, empirical and/or applied contributions to the field of psychology and law. This award will not be presented on a regular basis. Rather, it will be reserved for those individuals whose contributions are so unusual as to merit special commendation.
+
+## Eligibility
+
+This award is not exclusively for AP-LS members, and anyone who meets these criteria may be nominated.
+
+## How to Apply
+
+All nominations should be sent in a single file Word or pdf format to AP-LS Past President by January 1.
+
+::: callout-tip
+## Nominations must include:
+
+-   A copy of the nominee's CV
+
+-   A letter detailing the nominee's distinguished contributions to psychology and law
+
+-   Names and addresses of four individuals who are familiar with the nominee's work and who would be able to address the nominee's contributions to the field of psychology and law (or additional letters from these four individuals).
+
+Self-nominations will not be considered.
+:::
+
+## Past Recipients
+
+```{r}
+#| label: distinguished-winners
+#| warning: false
+#| echo: false
+
+# Data: awards/data/distinguished.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/distinguished.csv")
+
+awards_table(data, name = "name")
+```
+
+:::

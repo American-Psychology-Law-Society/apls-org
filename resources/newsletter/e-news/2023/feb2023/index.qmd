@@ -1,0 +1,19 @@
+---
+title: February 2023
+date: 2/1/2023
+image: featured.jpeg
+categories:
+  - Career Corner
+  - Research Briefs
+  - Legal Update
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1mjhz5F4-sQ3mn8tr1u_QDPz2EEPMDOnH/view?usp=sharing"
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="./feb23.html" title="February Newsletter"></iframe>
+```
+

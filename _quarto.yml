@@ -1,0 +1,164 @@
+project:
+  type: website
+  output-dir: docs
+  post-render: scripts/clean-site-libs.R
+  # Only site pages render. Repo docs (README, UPDATING) and the aplsr
+  # package sources in apls-r/ are excluded from the website build.
+  # conference-guide/ is a standalone Quarto book for conference co-chairs
+  # and renders separately.
+  render:
+    - "*.qmd"
+    - "!apls-r"
+    - "!scripts"
+    - "!conference-guide"
+  resources:
+    - "*.css"
+    - "!conferences/_template"
+    - "!conference-guide"
+    - "*.pdf"
+    - "about/imgs/"
+    - "about/presidents/imgs/*"
+    - "resources/newsletter/e-news/html/*"
+
+
+website:
+  title: "The American Psychology-Law Society"
+  favicon: "assets/favicon_io/favicon.ico"
+  search: true
+  
+  navbar:
+    title: false
+    logo: images/logo-light.png
+    logo-alt: "American Psychology-Law Society home"
+    right:
+      - text: About
+        menu:
+          - text: About
+            href: about/index.qmd
+          - text: Leadership
+            href: about/leadership.qmd
+          - text: Committees
+            href: about/committees.qmd
+          - text: Statements
+            href: about/statements.qmd
+          - text: Community Standards
+            href: about/standards.qmd
+          - text: AP-LS Bylaws
+            href: about/bylaws.qmd
+          - text: Contact us
+            href: about/contact.qmd
+      - text: Publications
+        menu:
+          - text: AP-LS Newsletter
+            href: newsletter/index.qmd
+          - text: Publications
+            href: publications/index.qmd
+          - text: Law & Human Behavior
+            href: https://www.apa.org/pubs/journals/lhb/
+      - href: awards/index.qmd
+        text: Awards
+      - text: Conferences
+        menu:
+          - text: 2027 AP-LS Conference
+            href: conferences/index.qmd
+          - text: Preconference Workshops
+            href: conferences/preconference/index.qmd
+          - text: Past Conferences
+            href: conferences/archive/index.qmd
+      - href: resources/index.qmd
+        text: Resources
+      - text: Membership
+        menu: 
+          - text: About
+            href: membership/index.qmd
+          - text: Renew Now! 
+            href: https://apls.memberclicks.net/membership-form#!/
+        
+  sidebar: 
+    - id: about us
+      title: "About AP-LS"
+      style: "docked"
+      collapse-level: 2
+      align: left
+      contents:
+        - section: "Our Mission"
+          href: about/index.qmd
+          contents: 
+            - text: "Policy Statements"
+              href: about/statements.qmd
+            - about/bylaws.qmd
+        - section: "Our History"
+          contents:
+            - about/history.qmd
+            - text: "Presidential archive"
+              href: about/presidents/presidents.qmd
+        - section: "Who we are"
+          contents: 
+            - about/leadership.qmd
+            - about/committees.qmd
+            - about/contact.qmd
+        
+    - id: guidelines
+      title: "Forensic Guidelines"
+      collapse-level: 1
+      contents: 
+        - text: "Basics"
+          href: resources/guidelines/index.qmd
+        - section: "Guidelines"
+          contents: 
+            - resources/guidelines/Introduction.qmd
+            - resources/guidelines/Responsibilities.qmd
+            - resources/guidelines/Competence.qmd
+            - resources/guidelines/Diligence.qmd
+            - resources/guidelines/Relationship.qmd
+            - resources/guidelines/Fees.qmd
+            - resources/guidelines/Consent.qmd
+            - resources/guidelines/Conflicts.qmd
+            - resources/guidelines/Privacy.qmd
+            - resources/guidelines/Methods.qmd
+            - resources/guidelines/Assessment.qmd
+            - resources/guidelines/Communications.qmd
+            - resources/guidelines/References.qmd
+   
+  page-footer:
+    left: |
+      Copyright &copy; 2026 [American Psychology-Law Society](https://apls.memberclicks.net/)
+    center: |
+       [Report an issue](https://docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/viewform?usp=sf_link)
+    right:
+      - text: "{{< iconify fa6-brands bluesky size=1.1em title='Bluesky' >}}"
+        href: https://bsky.app/profile/ap-ls.org
+      - icon: facebook
+        aria-label: Link to Facebook
+        href: https://www.facebook.com/APLS41 
+      - icon: instagram
+        aria-label: Link to Instagram
+        href: https://www.instagram.com/apls41/
+      - icon: youtube
+        aria-label: youtube
+        href: https://www.youtube.com/channel/UCHCZlqNOXNDDUPnMzBqTmQA
+      - icon: envelope
+        aria-label: Link to email
+        href: mailto:office@ap-ls.org
+
+
+brand: _brand.yml
+
+
+format:
+  html:
+    email-obfuscation: javascript
+    link-external-newwindow: true
+    anchor-sections: false
+    theme:
+      light: [default, theme.scss]
+      dark:  [darkly, theme.scss]
+    include-after-body: assets/a11y.html
+    filters:
+      - _filters/deadline-year.lua
+      - panel-accordion
+
+execute:
+    freeze: auto
+    
+

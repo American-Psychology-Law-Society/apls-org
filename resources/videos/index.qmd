@@ -1,0 +1,37 @@
+---
+title: "AP-LS Videos"
+subtitle: | 
+  Archive of videos, webinars and panel discussions related to the American Psychology-Law Society and its members
+title-block-banner: "../../images/banners/default-banner.png"
+listing:
+  id: videos
+  fields: [image, date, title, subtitle]
+  type: default
+  categories: false
+  image-align: left
+  contents: 
+    - careers2022
+    - clinician2013
+    - DEIcorrections2022
+    - diversity2013
+    - expert2013
+    - grad2013
+    - impact2013
+    - jury2013
+    - intro2013
+    - juvenile2013
+    - lbh2013
+    - risk2013
+    - students2013
+    - tele2021
+  sort: "date desc"
+---
+
+<button type="button" class="btn btn-outline-primary">
+<a href="https://youtube.com/@americanpsychology-lawsoci4872" target="_blank">{{< fa circle-play >}} AP-LS Youtube Channel </a></button>
+
+:::vspace2
+:::
+
+::: {#videos}
+:::

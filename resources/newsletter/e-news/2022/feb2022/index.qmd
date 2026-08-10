@@ -1,0 +1,7 @@
+---
+title: February 2022
+date: 2/1/2022
+image: featured.jpg 
+---
+
+{{< html file="../../html/feb2022.html" >}}

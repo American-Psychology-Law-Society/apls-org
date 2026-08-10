@@ -1,0 +1,60 @@
+---
+title: Student Presentation Awards for American Psychology-Law Conference
+date: last-modified
+description: Provides awards to students presenting their work at the American Psychology-Law Society Conference.
+categories: 
+  - Students
+  - Undergraduate
+  - Graduate
+  - Conference Travel
+submission-info:
+  sponsor: AP-LS Student Committee
+  deadline: "February 28, `r if (Sys.Date() > lubridate::mdy(paste('February 28', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: info-circle
+  name: Learn More
+  url: "http://www.apls-students.org/student-presentation-awards.html"
+- icon: send
+  name: Apply here
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSe80sfriAr71KEVvaj5CSVmR-UALYeB04ewjvv8M1NaBsjNIQ/viewform"
+- icon: envelope-at
+  name: Contact
+  url: "mailto:aplsstudents@gmail.com"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+::: vspace
+:::
+
+::: callout-note
+# `r if (Sys.Date() > lubridate::mdy(paste('February 28', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` American Psychology-Law Conference
+
+Student members with an accepted first author presentation for the `r if (Sys.Date() > lubridate::mdy(paste('February 28', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` AP-LS Conference are eligible and highly encouraged to apply for a Student Presentation Award.
+
+The AP-LS Student Committee will be awarding ten (10) student presentation awards at the `r if (Sys.Date() > lubridate::mdy(paste('February 28', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` AP-LS Conference, totaling \$1,750. These awards include:
+
+-   Two (2) Outstanding Student Paper awards (\$200 each);
+
+-   Two (2) Outstanding Student Abbreviated Paper ("Data Blitz") awards (\$175 each);
+
+-   Two (2) Outstanding Student Poster awards (\$150 each); and
+
+-   Four (4) specialty awards, which can be posters, abbreviated papers, or papers.
+
+These include:
+
+-   One (1) Outstanding Student Presentation in Diversity-Related Research award (\$175), for research directly related to underrepresented or marginalized populations.
+
+-   One (1) Outstanding Student Presentation in Corrections Research award (\$175), for research directly related to correctional settings.
+
+-   One (1) Outstanding Student Presentation in Legal Research award (\$175), for research directly related to the law or legal practice.
+
+-   One (1) Outstanding Student Presentation in Novel-Topic Research award (\$175), for research on a topic not traditionally studied in law and psychology.
+
+    Full information on submission criteria, submission instructions, and the evaluation process is available on the [student committee website](https://www.apls-students.org/student-presentation-awards.html).
+
+Completed submissions are due on the date of the deadline by 11:59 PM EST. Late or incomplete submissions will not be considered.

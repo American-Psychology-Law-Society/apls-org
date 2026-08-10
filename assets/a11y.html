@@ -1,0 +1,24 @@
+<script>
+// Quarto generates some listing UI with heading levels that skip the page
+// outline (h5 category labels, h5 card titles sitting under h2 sections).
+// Styling on these elements is class-based, so swapping the tag does not
+// change how anything looks. This runs once on page load.
+document.addEventListener("DOMContentLoaded", function () {
+  // Category sidebar label: it labels a filter control, not page structure.
+  document.querySelectorAll("h5.quarto-listing-category-title").forEach(function (el) {
+    var div = document.createElement("div");
+    div.className = el.className;
+    div.textContent = el.textContent;
+    el.replaceWith(div);
+  });
+
+  // Listing card titles: keep them as real headings, but at a level that
+  // follows the page outline (cards always live inside an h2 section).
+  document.querySelectorAll("h5.card-title.listing-title").forEach(function (el) {
+    var h3 = document.createElement("h3");
+    h3.className = el.className;
+    while (el.firstChild) h3.appendChild(el.firstChild);
+    el.replaceWith(h3);
+  });
+});
+</script>

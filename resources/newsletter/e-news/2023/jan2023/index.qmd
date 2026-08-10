@@ -1,0 +1,14 @@
+---
+title: January 2023
+date: 1/1/2023
+image: featured.jpg 
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1ZL9ggoq-EHWK4KKFSyyW6AOTlCNLCPuz/view?usp=drive_link"
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="jan2023.Rhtml" title="January Newsletter"></iframe>
+```

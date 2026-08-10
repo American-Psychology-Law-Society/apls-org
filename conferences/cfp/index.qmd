@@ -1,0 +1,62 @@
+---
+pagetitle: "2027 AP-LS Call for Proposals"
+toc: false
+css: ../index.css
+description: |
+  Call for proposals for the 2027 Annual Conference of the American Psychology-Law Society, held March 18-20 in Louisville, Kentucky.
+---
+
+::: column-screen
+::: hero-banner
+::: content-block
+::: heading-guard
+:::
+# 2027 Call for Proposals {.h4}
+
+[Annual Conference of the American Psychology-Law Society]{.h6}
+
+[{{< fa calendar aria-hidden="true" >}} March 18-20, 2027 | {{< fa location-dot aria-hidden="true" >}} Louisville, KY | Marriott Louisville Downtown]{.h6}
+
+::: hero-buttons
+[{{< fa arrow-left-long aria-hidden="true" >}} Back to Conference](../index.qmd){.btn-action .btn .btn-success role="button"}
+:::
+
+:::
+:::
+:::
+
+<!--
+STAGE 2: when the call for proposals opens in Fall 2026, replace the
+notice below with the full call. The complete set of content blocks
+(session types, Submission Details callout, first-author limits, and
+reviewer sign-up) is ready to copy from
+conferences/_template/cfp/index.qmd.
+-->
+
+```{r setup, include=FALSE}
+# The note below comes from conferences/data/info.csv, refreshed from the
+# conference Google Sheet by conferences/_update-conference.R.
+library(readr)
+data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "..", "data")
+conf_info <- read_csv(file.path(data_dir, "info.csv"),
+                      col_types = cols(.default = "c"), show_col_types = FALSE)
+info <- setNames(as.list(conf_info$value), conf_info$key)
+info <- lapply(info, function(x) if (is.na(x)) "" else x)
+```
+
+::: simple-info-center
+
+[`r info$cfp_note`]{.h5}
+
+The deadline, submission portal, and session details will be posted here when the call opens.
+
+:::
+
+::: vspace
+:::
+
+>If you have any questions about the call for proposals, please contact the conference co-chairs at [conference@ap-ls.org](mailto:conference@ap-ls.org). Looking forward to seeing everyone in March! <br>
+<br>*2027 AP-LS Conference Co-Chairs*
+
+::: vspace
+:::

@@ -1,0 +1,9 @@
+---
+title: December 2021
+date: 12/1/2021
+image: featured.jpg 
+---
+
+```{=html}
+<iframe class="news ar4x3" src="dec2021.Rhtml" title="December Newsletter"></iframe>
+```

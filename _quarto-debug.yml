@@ -1,0 +1,22 @@
+# Debug project profile: adds axe-core accessibility reports to pages.
+#
+# Quarto 1.8+ ships integrated support for axe-core, the industry-standard
+# accessibility checker. With this profile active, every rendered page runs
+# the checks in the browser and shows a report at the bottom of the page,
+# with each finding labeled by WCAG conformance level.
+#
+# Usage:
+#   quarto preview --profile debug
+#
+# Notes:
+# - axe-core loads from a CDN, so this needs an internet connection.
+# - The reports only exist when this profile is active; the default build
+#   never includes them. Close the preview and run a normal render before
+#   handing off changes, so docs/ holds clean pages.
+# - Other output modes are `output: console` (browser dev tools) and
+#   `output: json` (for browser automation).
+
+format:
+  html:
+    axe:
+      output: document

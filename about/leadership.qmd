@@ -1,0 +1,31 @@
+---
+title: "Leadership"
+title-block-banner: "../images/banners/default-banner.png"
+toc: false
+listing:
+  - id: ec
+    contents: executive-committee.yml
+    template: ../_partials/about/leadership-grid.ejs
+  - id: conf-chairs
+    contents: conf-chairs.yml
+    template: ../_partials/about/leadership-grid.ejs
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## uncomment this to update committee listing based on ec-leadership sheet on google drive
+#source("_update-ec.R")
+```
+
+## Officers of the Executive Committee
+
+::: {#ec}
+:::
+
+### 2027 Conference Co-Chairs
+
+::: {#conf-chairs}
+:::
+
+

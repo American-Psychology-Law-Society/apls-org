@@ -1,0 +1,136 @@
+---
+title: Presidential Archives
+title-block-banner: "../../images/banners/default-banner.png"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+::: {style="max-width: 500px; margin: 0 auto;"}
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: data-prep
+library(janitor)
+library(tidyverse)
+library(gt)
+library(stringr)
+library(purrr)
+library(htmltools)
+library(gtExtras)
+library(dplyr)
+library(here)
+library(webshot2)
+library(googlesheets4)
+library(reactable)
+
+gs4_deauth()
+
+SHEET_ID <- "1iCz2Pss5GxP5J6G-3xA_-ePW-a6RQ4_fgRYvyrpYJTs"
+
+base_path <- here::here("about", "presidents")
+
+pres <- read_sheet(SHEET_ID, sheet = "pres_data") |>
+  clean_names() |>
+  mutate(
+    name = paste(first, last),
+    first_clean = tolower(str_extract(first, "^\\S+")),
+    last_clean = tolower(last),
+    base_path = paste0("imgs/", first_clean, "_", last_clean),
+    image = case_when(
+      file.exists(here("about", "presidents", paste0(base_path, ".png")))  ~ paste0(base_path, ".png"),
+      file.exists(here("about", "presidents", paste0(base_path, ".jpg")))  ~ paste0(base_path, ".jpg"),
+      file.exists(here("about", "presidents", paste0(base_path, ".jpeg"))) ~ paste0(base_path, ".jpeg"),
+      .default = "imgs/placeholder.png"
+    )
+  )
+
+div41 <- read_sheet(SHEET_ID, sheet = "div41_data") |>
+  clean_names() |>
+  select(name, date)
+
+# Table 1 - Main presidents table
+tbl_data <- pres |>
+  select(image, name, date)
+
+tbl1 <- reactable(
+  tbl_data,
+  pagination = FALSE,
+  sortable = FALSE,
+  defaultColDef = colDef(headerClass = "header", align = "left"),
+  columns = list(
+    image = colDef(
+      name = "",
+      width = 120,
+      vAlign = "center",
+      cell = function(value) {
+        img(src = value, height = "100px", width = "100px",
+            style = "border-radius: 50%; object-fit: cover;")
+      }
+    ),
+    name = colDef(
+      name = "",
+      minWidth = 100,
+      vAlign = "center",
+      cell = function(value, row_index) {
+        div(
+          div(style = "font-size: 16px; color: #343A40; font-weight: bold;", value),
+          div(style = "font-size: 11px; color: #737475;", tbl_data$date[row_index])
+        )
+      }
+    ),
+    date = colDef(show = FALSE)
+  ),
+  theme = reactableTheme(
+    cellPadding = "2px 4px",
+    highlightColor = "#FBF9F4",
+    rowStyle = list(alignItems = "center")
+  )
+)
+
+# Table 2 - APLS prior to merger
+tbl_data2 <- div41 |>
+  select(name, date)
+
+tbl2 <- reactable(
+  tbl_data2,
+  pagination = FALSE,
+  sortable = FALSE,
+  defaultColDef = colDef(headerClass = "header", align = "left"),
+  columns = list(
+    name = colDef(
+      name = "",
+      minWidth = 500,
+      cell = function(value, row_index) {
+        div(
+          div(style = "font-size: 18px; color: #343A40; font-weight: bold;", value),
+          div(style = "font-size: 15px; color: #737475;", tbl_data2$date[row_index])
+        )
+      }
+    ),
+    date = colDef(show = FALSE)
+  ),
+  theme = reactableTheme(
+    cellPadding = "8px 12px",
+    highlightColor = "#FBF9F4"
+  )
+)
+div(style = "max-width: 600px; margin: 0 auto;",
+  h2(HTML("List of former <span style='color:#1B3264;'>American Psychology-Law Society</span> & <span style='color:#1B3264;'>APA Div 41</span> Presidents")),
+  tbl1,
+  br(),
+  div(class = "simple-info-blue alt-background-blue",
+    div(class = "content-block-blue")
+  ),
+  br(),
+  h2(HTML("APLS Presidents Prior to Merger with APA Division 41 <span style='color:#1B3264;'>(1969-1983)</span>")),
+  p(style = "font-size: 15px; color: #737475; font-style: italic;",
+    HTML("The American Psychology-Law Society (APLS) operated independently from 1969-1983.<br>APA Division 41 was established in 1981, and APLS merged with it in 1984.")
+  ),
+  tbl2
+)
+```
+
+:::

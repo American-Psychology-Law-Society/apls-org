@@ -1,0 +1,98 @@
+---
+title: Outstanding Teaching and Mentoring in the Field of Psychology and Law
+date: last-modified
+description: Recognizes teaching and mentoring excellence in the field of psychology and law. 
+categories: 
+  - Teaching
+  - Early Career Professionals
+submission-info:
+  sponsor: AP-LS Teaching, Training and Career Committee
+  deadline: "December 15, `r if (Sys.Date() > lubridate::mdy(paste('December 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: send
+  name: Submit here
+  url: "mailto:ttc@ap-ls.org"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::::: panel-tabset
+## Description
+
+The American Psychology-Law Society confers an award for Outstanding Teaching and Mentoring in the Field of Psychology and Law to recognize teaching excellence in a variety of contexts.
+
+Every year Div. 41 (American Psychology-Law Society) confers two awards for Outstanding Teaching and Mentoring in the Field of Psychology and Law to recognize teaching excellence in a variety of contexts: Outstanding Teaching and Mentoring Award and the Early Career Teaching and Mentoring Award. The winner of the awards will be announced at the annual meeting of the American Psychology-Law Society.
+
+In even-numbered awarding years (e.g., applying in December 2025, receiving the award in March 2026), the award will be given to a teacher/mentor from a program/department that is undergraduate-only or MA-terminus (category 1).
+
+In odd-numbered awarding years applying in December 2026, receiving the award in March 2027), the award will be given to a teacher/mentor from a program/department that has taught/mentored doctoral and/or postdoctoral students (category 2) including: law schools, medical schools, and non-university positions such as hospitals, clinics or other organizations.
+
+Recipients of the awards will receive \$500 and a plaque at the AP-LS conference.
+
+## Eligibility
+
+Nominees should be persons who have made substantial contributions to student training in the field of psychology and law.
+
+To be eligible for the Outstanding Teaching and Mentoring Award an individual must have held a Doctoral Degree or Juris Doctorate for 11 years or more, and must have been teaching and/or mentoring students in psychology and law for 11 years or more.
+
+To be eligible for the Early Career Teaching and Mentoring Award, an individual must have held a PhD or JD degree for 10 years or less, and must have been teaching and/or mentoring students in psychology and law for 10 years or less (i.e., AP-LS Early Career Professionals).
+
+::: callout-note
+Nominees cannot apply for both awards.
+:::
+
+## How to Apply
+
+The nomination package should be emailed directly to {{< var email.ttc >}} before the annual December 15 deadline.
+
+::: callout-info
+## The nomination package should include:
+
+1.  Nominee's statement (one--two pages) of teaching/mentoring philosophy, goals, and accomplishments, especially as related to the field of psychology and law (Please state which award you are applying for (Outstanding Teaching and Mentoring Award or the Early Career Teaching and Mentoring Award) and how you meet the criteria for that award.)
+
+2.  Abbreviated curriculum vitae (three pages maximum)
+
+3.  Summarized student evaluations; (student evaluations should be recent and include at least 3 years)
+
+4.  At least one, but no more than three, supporting letters from peer reviewers or students
+
+    </p>
+
+    </li>
+
+5.  Other relevant documentation such as descriptions of current and past student achievements; mentoring in one-on-one teaching contexts (e.g., advising, clinical supervision); teaching in the community (e.g., workshops that bring psychology and law to applied audiences); teaching-related committee work or scholarship; development of new curricula, courses, course materials or instructional methods
+
+The total nomination packages must be no more than 15 pages total.
+
+Self-nominations are encouraged.
+:::
+
+## Past Recipients
+
+```{r}
+#| label: teaching-winners
+#| warning: false
+#| echo: false
+library(dplyr)
+
+# Data: awards/data/teaching.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/teaching.csv") |>
+  mutate(
+    label = case_when(
+      tolower(trimws(type)) == "outstanding" ~ "Outstanding Teaching & Mentoring",
+      tolower(trimws(type)) == "early"       ~ "Early Career Teaching & Mentoring",
+      TRUE                                   ~ as.character(type)
+    ),
+    detail = ifelse(is.na(affiliation) | affiliation == "",
+                    label, paste0(label, " · ", affiliation))
+  )
+
+awards_table(data, name = "name", detail = "detail")
+
+```
+:::::

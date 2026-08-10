@@ -1,0 +1,24 @@
+---
+title: Law and Human Behavior
+embed-resources: true
+format: html
+execute: 
+  echo: false
+  warning: false
+  messages: false
+draft: true
+---
+
+
+```{r}
+library(dplyr)
+library(DT)
+library(purrr)
+library(stringr)
+library(lubridate)
+library(tidyRSS)
+
+lhb <- tidyfeed("https://psycnet.apa.org/journals/lhb.rss")
+
+datatable(lhb)
+```

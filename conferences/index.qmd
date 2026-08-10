@@ -1,0 +1,335 @@
+---
+pagetitle: "2027 American Psychology-Law Society Conference" 
+toc: false
+css: index.css
+editor: source
+description: | 
+  The annual conference for the American Psychology-Law Society for 2027 will be held in Louisville, Kentucky from March 18-20th.
+includesource: true
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # rowwise_table()
+library(htmltools) # div(), tags$*, a(), span()
+library(purrr)     # pmap()
+library(stringr)   # str_c()
+
+# Conference facts and rates come from conferences/data/*.csv, which
+# conferences/_update-conference.R refreshes from the conference Google
+# Sheet. Edit the Sheet and re-run that script; do not edit the values here.
+# The path is built from this document's location so the page keeps reading
+# its own year's data after it moves into the archive.
+library(readr)
+data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "data")
+conf_info <- read_csv(file.path(data_dir, "info.csv"),
+                      col_types = cols(.default = "c"), show_col_types = FALSE)
+info <- setNames(as.list(conf_info$value), conf_info$key)
+info <- lapply(info, function(x) if (is.na(x)) "" else x)
+rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
+                  col_types = cols(.default = "c"), show_col_types = FALSE)
+```
+
+:::::: column-screen
+::::: hero-banner
+:::: content-block
+::: heading-guard
+:::
+# 2027 Annual Conference of the American Psychology-Law Society {.h4}
+
+[{{< fa location-dot aria-hidden="true" >}} Louisville, KY]{.h5}
+
+[{{< fa calendar aria-hidden="true" >}} March 18-20, 2027]{.h5}
+
+::::
+:::::
+::::::
+
+::: {.column-screen}
+::: grid
+::: {.alt-background-blue}
+
+```{r toc}
+#| echo: false
+#| warning: false
+#| message: false
+
+content <- rowwise_table(
+  ~name, ~icon, ~link,
+  "General", "info-circle", "#info",             
+  "Proposals", "send", "cfp/index.qmd",
+  "Registration", "person-add", "#registration",
+  "Hotel", "airplane", "#hotel",
+  "Schedule", "person-workspace", "#schedule",
+  "Workshops", "easel", "preconference/index.qmd",
+  "Archives", "journal-text", "archive/index.qmd"
+)
+
+div(
+  class = "bg-light",
+  div(
+    class = "bg-breakout",
+    div(
+      class = "inner-container",
+      div(
+        class = "boxed-wrapper",
+        div(
+          class = "boxed-feature-grid",
+          pmap(content, \(name, icon, link) {
+            div(
+              class = "boxed-feature-grid__item",
+              div(
+                class = "boxed-feature-grid__icon",
+                a(
+                  href = link, 
+                  class = "boxed-feature-grid__link",
+                  `aria-label` = name,
+                  tags$i(class = str_c("bi-", icon, " boxed-feature-grid__i"))
+                )
+              ),
+              div(class = "boxed-feature-grid__title", name)
+            )
+          })
+        )
+      )
+    )
+  )
+)
+```
+:::
+:::
+:::
+
+::: vspace
+:::
+
+## General Information {#info}
+
+<figure class="text-end">
+
+<blockquote class="blockquote">
+
+<p class="mb-0">
+
+If you have any questions or comments about the conference, please contact the conference co-chairs at [conference\@ap-ls.org](mailto:conference@ap-ls.org) <br>
+
+Looking forward to seeing everyone in March!
+
+<figcaption class="blockquote-footer">
+
+2027 AP-LS Conference Co-Chairs 
+
+</figcaption>
+
+</figure>
+
+![](images/apls2027.png){fig-alt="2027 AP-LS Conference logo"}
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+
+::::: column-screen
+:::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+[Want to learn more about the [AP-LS Annual Conference]{.highlight}?]{.h6}
+
+[Learn More {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+:::
+::::
+:::::
+
+::: vspace
+:::
+
+## Submissions {#proposals}
+
+::: vspace
+:::
+
+### Call for proposals
+
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$submissions_note`]{.h5}
+
+[Call for Proposals {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Hotel Information {#hotel}
+
+::: vspace
+:::
+
+### Marriott Louisville Downtown
+
+::: vspace
+:::
+
+![Exterior view of the Marriott Louisville Downtown in Louisville, Kentucky, showing the main entrance and building facade](images/hotel2027.png){fig-align="center" fig-alt="Exterior photograph of the Marriott Louisville Downtown hotel building in Louisville, Kentucky"}
+
+::: vspace
+:::
+
+[The 2027 AP-LS Conference will be held at the [Louisville Marriott Downtown](https://www.gotolouisville.com/directory/louisville-marriott-downtown/)]{.h6}
+
+**Location:** 280 W Jefferson St, Louisville, KY 40202
+
+::: vspace
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+# Room block: when hotel_booking_url is set in the Sheet, the booking
+# callout appears; until then the note shows on its own.
+if (nzchar(info$hotel_booking_url)) {
+  cat(
+    '::: {.callout-important}',
+    '### AP-LS Room Block!',
+    '',
+    info$hotel_note,
+    '',
+    sprintf('[Book Room {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role="button"}',
+            info$hotel_booking_url),
+    ':::',
+    sep = "\n"
+  )
+} else {
+  cat(
+    '::: simple-info-center',
+    '',
+    paste0('[', info$hotel_note, ']{.h5}'),
+    '',
+    ':::',
+    sep = "\n"
+  )
+}
+```
+
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Schedule {#schedule}
+
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$schedule_note`]{.h5}
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Registration {#registration}
+
+::: {.panel-tabset .box-shadow}
+
+### {{< fa bullhorn >}} Info
+
+```{r}
+#| echo: false
+#| results: asis
+# Registration: when registration_url is set in the Sheet, a Register
+# button appears under the note.
+reg_lines <- c("::: simple-info-center", "",
+               paste0("[", info$registration_note, "]{.h5}"), "")
+if (nzchar(info$registration_url)) {
+  reg_lines <- c(reg_lines,
+                 sprintf("[Register {{< fa arrow-right aria-hidden=\"true\" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role=\"button\"}",
+                         info$registration_url),
+                 "")
+}
+reg_lines <- c(reg_lines, ":::")
+cat(reg_lines, sep = "\n")
+```
+
+::: vspace
+:::
+
+### {{< fa circle-info >}} Pricing
+
+::: vspace
+:::
+
+::: {.callout-note appearance="simple"}
+### REGISTRATION RATES & INCLUSIONS
+
+*`r info$rates_note`*
+
+```{r}
+#| echo: false
+#| results: asis
+cat(knitr::kable(rates,
+                 col.names = c("Status", "Early Bird (before Jan 31)",
+                               "Regular (after Feb 1)"),
+                 align = "lcc"),
+    sep = "\n")
+```
+:::
+
+:::
+
+::: vspace
+:::
+
+<hr>
+
+::: vspace
+:::
+
+## Preconference Workshops {#preconference}
+
+::: vspace
+:::
+
+[[{{< fa calendar aria-hidden="true" >}} Wednesday, March 17, 2027]{.highlight}]{.h6}
+
+*Attendees will have the ability to register for the pre conference workshops with their conference registration.*
+
+::: vspace
+:::
+
+<!-- Workshop pricing and descriptions live on the preconference
+     sub-page (preconference/index.qmd). -->
+
+::: simple-info-center
+
+[`r info$preconference_note`]{.h5}
+
+[Pricing & Details {{< fa arrow-right aria-hidden="true" >}}](preconference/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+
+::: vspace
+:::

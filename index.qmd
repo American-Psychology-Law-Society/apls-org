@@ -1,0 +1,187 @@
+---
+pagetitle: "American Psychology-Law Society"
+page-layout: custom
+section-divs: false
+toc: false
+description: |
+  The American Psychology-Law Society (AP-LS), Division 41 of the American Psychological Association is an organization dedicated to enhancing the well-being, justice, and human rights through the science and practice of psychology in legal contexts.  
+search: true
+listing:
+  - id: latest-news
+    contents: "resources/newsletter/e-news"
+    type: grid
+    grid-columns: 3
+    max-items: 3
+    sort: "date desc"
+    fields: [image, title, date]
+    image-placeholder: images/APLS_general_logo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # carousel(), rowwise_table(), resource_grid()
+library(yaml)      # yaml.load_file() for carousel.yml
+library(htmltools) # div(), tags$*, a(), span(), HTML()
+library(purrr)     # pmap()
+library(data.table) # setkeyv()
+```
+
+
+
+::: {.hero-banner .column-screen}
+::: {.inner-container}
+
+```{r}
+#| classes: '.g-col-lg-6 .g-col-12 .g-col-md-12'
+#| echo: false
+#| warning: false 
+#| message: false
+carousel("gallery-carousel", 5000, 
+         yaml.load_file("carousel.yml"))
+```
+
+
+:::
+:::
+
+::: {.column-screen}
+::: grid
+::: {.alt-background-blue}
+
+```{r}
+#| label: Row of links
+#| echo: false
+#| warning: false
+#| message: false
+content = rowwise_table(~name, ~icon, ~link,
+                        "About", "info-circle-fill", "about/index.html",
+  "Committees", "person-rolodex", "about/committees.html",
+    "Membership", "people-fill", "membership/index.html", 
+    "Funding", "award-fill", "awards/index.html",
+    "Students", "mortarboard-fill", "resources/students/index.html"
+  
+)
+div(class = "bg-light",
+ div(class = "bg-breakout",
+    div(class = "inner-container",
+      div(class = "boxed-wrapper",
+            div(class = "boxed-feature-grid",
+          pmap(content, function(name, icon, link) {
+            div(class = "boxed-feature-grid__item",
+              div(class = "boxed-feature-grid__icon",
+                a(href = link, class = "boxed-feature-grid__link",
+                  "aria-label" = name,
+                  tags$i(class = sprintf("bi-%s boxed-feature-grid__i", icon))
+                )),
+    div(class = "boxed-feature-grid__title", name)
+)
+          })
+        )
+      )
+    )
+  )
+)
+
+```
+:::
+:::
+:::
+
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+::: vspace
+::: 
+
+```{r}
+#| echo: false
+#| fig.alt: "Headshot of AP-LS President Randy Salekin"
+#| out.extra: 'class="avatar img-fluid"'
+knitr::include_graphics("about/presidents/imgs/randy_salekin.jpg")
+```
+
+# Welcome from Our President
+::: vspace
+:::
+
+::: president-intro
+<p>Welcome to the American Psychology-Law Society (AP-LS), Division 41 of the American Psychological Association.</p>
+
+<p>Our organizational mission is to "enhance well-being, justice, and human rights through the science and practice of psychology in legal contexts." AP-LS is the premier organization for students and professionals who are interested in issues at the intersection of psychology and law.</p>
+
+<p>As an organization, we strive to support our members in their work using psychological science and practice to advance justice in our legal system.</p>
+:::
+
+::: about-link
+[MORE FROM THE PRESIDENT](about/presidents/index.html)
+:::
+:::
+
+
+::: column-screen
+::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+::: heading-guard
+:::
+## Get ready for the 2027 American Psychology-Law Society Conference!
+
+Louisville, KY---March 18-20
+
+[Learn more {{< fa arrow-right >}}](conferences/index.html){.btn-action .btn .btn-secondary .btn-lg role="button"}
+:::
+:::
+
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center .latest-news width="70%"}
+
+::: vspace2
+:::
+
+## The Latest from AP-LS News
+
+::: {#latest-news}
+:::
+
+[Browse past issues](newsletter/index.html)
+
+:::
+
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+::: vspace2
+:::
+
+```{r}
+#| include: false
+#| echo: false
+# Text description should be one sentence
+content = rowwise_table(~category, ~name, ~icon, ~url, ~text,
+                        "general", "Publications", "journals", "publications/index.html", "Learn about journals, book series, etc. from APA Division 41",
+   "general", "Newsletter", "newspaper",  "newsletter/index.html", "Read the latest news from our membership",
+    "general", "Job Posts", "briefcase-fill", "resources/job-postings/index.html", "Browse recent job listings",
+      "general", "Community", "person-fill-exclamation", "about/standards.html", "NEW! Learn about the AP-LS Community Standards",
+
+    "general", "Videos", "play-circle", "resources/videos/index.html", "Collection of webinars, talks and videos",
+      "general", "Past Conferences", "chat-dots", "conferences/archive/index.html", "Browse programs from past AP-LS Conferences"
+
+)
+setkeyv(content, "category")
+```
+
+
+
+```{r, echo = FALSE}
+resource_grid(content[.("general")])
+```
+
+:::
+:::
+
+

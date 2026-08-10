@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+docs/
+aplsr.zip
+.wtest
+/.quarto/
+_freeze/
+altdoc/freeze.rds
+_quarto/*
+!_quarto/_freeze/

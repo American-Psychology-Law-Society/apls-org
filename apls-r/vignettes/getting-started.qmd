@@ -1,0 +1,125 @@
+---
+title: "Getting started with aplsr"
+vignette: >
+  %\VignetteIndexEntry{Getting started with aplsr}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+format: html
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Why this package exists
+
+The AP-LS website is a Quarto site, and its pages shared a single
+script, `assets/apls_functions.R`, that every page loaded with `source()`. As the
+site grew, the same helpers were copied into individual pages, and the copies
+drifted apart. `aplsr` collects those helpers in one place so a page can load
+them with `library(aplsr)` and call one tested function on every page.
+
+The package covers three kinds of helper: tables of award recipients, small
+HTML/UI components, and a data-frame utility.
+
+```{r}
+#| label: setup
+library(aplsr)
+```
+
+## Award tables
+
+Each award page reads a CSV of past recipients and renders it with one function.
+`awards_table()` handles the common case of one or more named recipients per
+year.
+
+```{r}
+#| label: awards-table
+saleem <- data.frame(
+  year = c(2026, 2026, 2025),
+  name = c("Alicia Nijdam-Jones", "Laura Smalarz", "Miko Wilford")
+)
+awards_table(saleem)
+```
+
+Pass `detail` to add a muted second column, for example an award type or a
+mentor:
+
+```{r}
+#| label: awards-table-detail
+teaching <- data.frame(
+  year = c(2026, 2026),
+  name = c("Deah Quinlivan", "Cassandra Bailey"),
+  note = c("Outstanding Teaching & Mentoring", "Early Career Teaching & Mentoring")
+)
+awards_table(teaching, detail = "note")
+```
+
+Two awards have their own layout. `book_awards_table()` shows the year, author,
+and a linked title, and `dissertation_table()` lays out first, second, and third
+place across columns.
+
+```{r}
+#| label: book-table
+books <- data.frame(
+  year = "2026",
+  author = "David DeMatteo & Kelly C. Scherr (Eds.)",
+  title = "The Oxford Handbook of Psychology and Law",
+  url = "https://doi.org/10.1093/oxfordhb/9780197649138.001.0001",
+  img = ""
+)
+book_awards_table(books)
+```
+
+```{r}
+#| label: dissertation-table
+diss <- data.frame(
+  year = 2026,
+  first = "Sandy S. Xie",
+  second = "Samantha Rea Bean",
+  third = "Luca Adolfo Tiberi"
+)
+dissertation_table(diss)
+```
+
+All three share one look through `apls_table_theme()`, so a change there updates
+every award page at once.
+
+## HTML and UI helpers
+
+`carousel()` builds a Bootstrap image carousel from a list of slides:
+
+```{r}
+#| label: carousel
+#| eval: false
+slides <- list(
+  list(caption = "2026 conference", image = "img/2026.jpg", link = "conferences/")
+)
+carousel("gallery", duration = 5000, items = slides)
+```
+
+`create_inline_object()` returns an inline icon and link, and
+`generate_info_bar()` returns an info-bar block; both return HTML strings you can
+drop into a page with `cat()` or an inline R expression.
+
+```{r}
+#| label: inline
+create_inline_object("envelope", "Email the office", "mailto:office@ap-ls.org")
+```
+
+## Using a function on a page
+
+A page chunk reads its data and calls the matching function:
+
+```{r}
+#| label: page-usage
+#| eval: false
+library(aplsr)
+
+data <- read.csv("../data/saleem-shah.csv")
+awards_table(data, name = "name")
+```
+
+The recipient CSVs themselves are refreshed from the awards Google Sheet by the
+site's `awards/_update-awards.R` script, which is separate from this package.

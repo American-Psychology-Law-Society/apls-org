@@ -1,0 +1,43 @@
+---
+title: "Resources" 
+sidebar: true
+toc: false
+title-block-banner: "../images/banners/default-banner.png"
+page-layout: article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # rowwise_table(), resource_grid()
+library(htmltools) # div(), tags$*, a(), span()
+library(data.table) # setkeyv()
+```
+
+```{r}
+#| include: false
+#| echo: false
+# Text description should be one sentence
+content = rowwise_table(
+  ~category, ~name, ~icon, ~url, ~text,
+  #"general", "Governance", "info-circle", "committee/index.html", "Resources for Executive Committee & Chairs",
+  "general", "Email list", "envelope-plus", "emails/index.html", "Request use of AP-LS Email list",
+  "general", "Job postings", "briefcase", "job-postings/index.html", "List of job opportunities related to law-psychology",
+  "general", "EC/Chair Resources", "info-circle", "ECCommittee/index.html", "Links & resources for volunteers",
+  "general", "Graduate Training", "info-circle", "training/graduate.html", "Graduate Programs in Psychology & Law",
+  "general", "Newsletter", "newspaper", "newsletter/index.html", "Archive of previous issues",
+  "general", "Students", "question-circle", "http://www.apls-students.org/about.html", "Collection of information for students",
+  "general", "AP-LS Videos", "file-earmark-play", "videos/index.html", "Collection of webinars, talks and videos",
+  "general", "Syllabi", "table", "syllabi/index.html", "Collection of syllabi for courses related to psychology and law",
+  "general", "Telepsychology", "telephone", "telepsychology/telepsychology.html", "Collection of articles and resources about telepsychology",
+  "general", "Reports", "folder", "reports/index.html", "Access reports by AP-LS committees and taskforces", 
+  "general", "Forensic Guidelines", "file-earmark-ruled", "guidelines/index.html", "Specialty Guidelines for Forensic Psychologists from APA",
+  "general", "Pets of AP-LS", "emoji-heart-eyes", "https://emmarshall.github.io/apls-pets/", "Gallery of pets")
+setkeyv(content, "category")
+```
+
+## Stay up to date with the activities of AP-LS and its members.
+
+```{r, echo = FALSE}
+resource_grid(content[.("general")])
+```
+

@@ -1,0 +1,95 @@
+---
+pagetitle: "2027 AP-LS Preconference Workshops"
+css: ../index.css
+listing:
+    contents:
+      - "**/*.qmd"
+    type: grid
+    grid-columns: 2
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [title, subtitle, categories]
+---
+
+<!--
+STAGE 2: when workshops are confirmed (expected Fall 2026), add one
+folder per workshop by copying conferences/_template/preconference/workshop_1/
+and editing its front matter. The grid below fills in automatically.
+Once workshops exist, set sort-ui and filter-ui above to true.
+-->
+
+```{r setup, include=FALSE}
+# Workshop rates and notes come from conferences/data/*.csv, refreshed from
+# the conference Google Sheet by conferences/_update-conference.R.
+library(readr)
+library(dplyr)
+data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "..", "data")
+conf_info <- read_csv(file.path(data_dir, "info.csv"),
+                      col_types = cols(.default = "c"), show_col_types = FALSE)
+info <- setNames(as.list(conf_info$value), conf_info$key)
+info <- lapply(info, function(x) if (is.na(x)) "" else x)
+workshop_rates <- read_csv(file.path(data_dir, "workshop-rates.csv"),
+                           col_types = cols(.default = "c"),
+                           show_col_types = FALSE)
+rate_table <- function(day_type) {
+  workshop_rates |>
+    filter(type == day_type) |>
+    select(status, early_bird, regular) |>
+    knitr::kable(col.names = c("Status", "Early Bird (before Jan 31)",
+                               "Regular (after Feb 1)"),
+                 align = "lcc")
+}
+```
+
+::: column-screen
+::: hero-banner
+::: content-block
+::: heading-guard
+:::
+# Preconference Workshops {.h4}
+[Wednesday, March 17, 2027]{.h6}
+
+
+::: hero-buttons
+[{{< fa arrow-left-long aria-hidden="true" >}} Back to Conference](../index.qmd){.btn-action .btn .btn-success role="button"}
+:::
+
+:::
+:::
+:::
+
+
+
+## {{< fa circle-info >}}Pricing Information{#price}
+
+::: {.panel-tabset .box-shadow}
+### REGISTRATION RATES & INCLUSIONS
+
+*`r info$workshop_rates_note`*
+
+#### Full-Day Workshop Rates
+
+```{r}
+#| echo: false
+#| results: asis
+cat(rate_table("Full-Day"), sep = "\n")
+```
+
+#### Half-Day Workshop Rates
+
+```{r}
+#| echo: false
+#| results: asis
+cat(rate_table("Half-Day"), sep = "\n")
+```
+:::
+
+## Descriptions & Details{#details}
+
+> `r info$preconference_note`
+
+*Attendees register for preconference workshops with their conference registration.*
+
+::: {#workshops}
+:::

@@ -1,0 +1,39 @@
+// ── Home page ─────────────────────────────────────────────────────────
+// Components that appear only on the home page (index.qmd). These rules
+// used to live in an inline <style> block inside the .qmd file.
+
+html {
+  scroll-behavior: smooth;
+}
+
+// Let the hero carousel sit flush under the navbar. Scoped with :has() so
+// other pages keep Quarto's default main spacing.
+#quarto-content main:has(> .hero-banner) {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.carousel.card {
+  padding-top: 2rem;
+}
+
+.carousel img {
+  width: 60%;
+  margin-bottom: 110px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  margin-bottom: 110px;
+}
+
+.carousel-caption {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+// "Latest from AP-LS News" listing section
+.latest-news {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}

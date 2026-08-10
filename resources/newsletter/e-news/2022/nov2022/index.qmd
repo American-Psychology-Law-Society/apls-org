@@ -1,0 +1,14 @@
+---
+title: November 2022
+date: 11/1/2022
+image: featured.jpg 
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1ZEoZmWI4wkPVCvWm_azkXH742XUcTt1z/view?usp=sharing"
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="nov2022.Rhtml" title="November Newsletter"></iframe>
+```

@@ -1,0 +1,14 @@
+---
+title: August 2023
+date: 8/1/2023
+image: featured.jpg 
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: "https://drive.google.com/file/d/1sNWBU1iiYn4XfzX2OBsTll4EM26qF0ER/view?usp=drive_link"
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="aug2023.Rhtml" title="August Newsletter"></iframe>
+```

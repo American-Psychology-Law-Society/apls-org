@@ -1,0 +1,58 @@
+---
+title: Grants-in-Aid for Graduate Students MacArthur Award
+date: last-modified
+description: Additional funding from the MacArthur Foundation to fund promising research in the area of criminal competence.
+categories: 
+  - Students
+  - Graduate 
+  - Research
+  - Grants-in-Aid
+submission-info:
+  sponsor: AP-LS Graduate Grants-in-Aid Committee
+  deadline: 
+  - "January 15, `r if (Sys.Date() > lubridate::mdy(paste('January 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+  - "September 15, `r if (Sys.Date() > lubridate::mdy(paste('September 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: envelope-at
+  name: Contact
+  url: "mailto:grantsinaid@apls.org"
+- icon: send
+  name: Apply here
+  url: "https://awards.ap-ls.org/default.asp"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+<hr>
+
+:::{.panel-tabset}
+## Description
+An extension of the Grants in Aid for Graduate Students outlined above, this award offers additional funding (maximum of $2,000) from the MacArthur Foundation to fund promising research in the area of criminal competence. 
+
+MacArthur Award applications should follow the same submission instructions and timeline provided for the general Grants in Aid applications above.
+
+## Eligibility
+-   Awards are limited to research proposals addressing questions of adjudicative competence in juveniles and adults. Both "seed money" for larger projects and "stand alone" projects are acceptable.
+
+-   Applicants may submit only one application per funding cycle, with preference afforded to those who have never been given the award previously. In rare circumstances, a second award may be given, but only if research using the previous award has been completed.
+
+-   Underrepresented groups include but are not limited to racial and ethnic minorities, first-generation college students, LGBTQIA individuals, and students with physical disabilities. 
+      
+-   As with AP-LS-GIA general funding, recipients must be current members of AP-LS and should submit documentation of prior IRB approval and relevant tax forms. 
+
+-   Although the quality of the research should be the primary determining factor in granting awards, requested budget items must be clearly specified and appropriate. With only the rarest exceptions, travel expenses would ordinarily be excluded. 
+      
+-   The maximum for any individual award is set at $2,000. 
+-   A rejection of a particular proposal by the subcommittee does not exclude its consideration for an AP-LS-GIA award.
+      
+-   If a student submits an application for AP-LS-GIA involving research on adjudicative competence, the chair—at his or her discretion and with the student's written permission—may forward the application for review by the subcommittee for additional funding.
+
+## How to Apply
+
+Interested individuals should follow the application instructions provided on the general [Grants in Aid for Graduate Students award page]("../GRADgrantinaid.qmd").
+
+
+Annual application deadlines are **October 15** and **January 15**
+:::

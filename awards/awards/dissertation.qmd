@@ -1,0 +1,92 @@
+---
+title: Dissertation Awards
+date: last-modified
+description: These awards supports students who complete dissertations involving basic or applied research in psychology and law.
+categories:
+  - Students
+  - Graduate
+  - Dissertation
+submission-info:
+  sponsor: AP-LS Dissertation Award Committee
+  deadline: "December 31, `r if (Sys.Date() > lubridate::mdy(paste('December 31', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: envelope-at
+  name: Contact
+  url: "mailto:dissertation@ap-ls.org"
+- icon: send
+  name: Submit here
+  url: "https://forms.gle/Q2i4nknLaiKMq3fs8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::::: panel-tabset
+## Description
+
+The American Psychology-Law Society confers Dissertation Awards for scientific research and scholarship that is relevant to the promotion of the interdisciplinary study of psychology and law. Students who complete dissertations involving basic or applied research in psychology and law, including its application to public policy, are encouraged to apply for these awards.
+
+First, second and third-place awards are conferred annually, and winners will be invited to present their research at the AP-LS Annual Conference.
+
+## Eligibility
+
+To be eligible for the award, you must be a member of AP-LS and have defended your dissertation during the calendar year of the submission deadline (e.g., if the deadline for submissions is December 31, `r format(Sys.Date(), '%Y')`, then you must have defended your dissertation in `r format(Sys.Date(), '%Y')`).
+
+::: callout-note
+You do not need to have graduated by December 31 to apply.
+:::
+
+## Criteria
+
+-   **Originality**: A dissertation exhibits original work when it brings innovative and unique perspectives, advancing the breadth of knowledge with novel findings or methodologies that challenge and expand upon existing paradigms.
+
+-   **Quality**: Exceptional research is characterized by meticulous attention to detail, sophistication, and a rigorous, well-executed qualitative, quantitative, or mixed-method study design.
+
+-   **Contribution**: The value of a dissertation is measured by its capacity to significantly enhance the field, whether through pioneering ideas or the insightful re-evaluation of established data.
+
+-   **Presentation**: Clarity and structure in the dissertation are essential, with visual elements like tables and figures enhancing the narrative by being self-explanatory and succinct.
+
+-   **Contributions to Equity, Diversity, and Inclusion (EDI)**: The dissertation addresses and furthers AP-LS's commitment to EDI, providing insights that extend to traditionally underrepresented groups. The work may examine specific subgroups and/or propose broader applications that encourage inclusivity and address systemic disparities.
+
+-   **Open-Science Practice**: The dissertation demonstrates transparency, reproducibility, and open science practices (e.g., preregistration, data/materials sharing, clear reporting).
+
+## How to Apply
+
+Please upload your submission to the [AP-LS Dissertation Award Google Form](https://forms.gle/Q2i4nknLaiKMq3fs8) before December 31 annually.
+
+::: callout-tip
+## Submissions should include:
+
+1.  **Copy of Dissertation Submission**: Provide a copy of the dissertation as it was submitted to the student’s university in either Word or PDF format.
+
+2.  **De-identified Dissertation Copy**: Submit a copy of the dissertation with all author, advisor, and school identifying information removed, formatted in either Word or PDF.
+
+3.  **De-identified Letter (2 pages max)**: Include a de-identified letter, limited to two pages in PDF format, addressing the following:
+
+    1.  **Rationale for Dissertation Topic Selection**: Explain the reasons behind the choice of the dissertation topic, including its significance and relevance to the field of study.
+
+    2.  **Involvement in the Research Process**: Describe your comprehensive involvement in all stages of the research process, encompassing conceptualization, methodology design, data collection, analysis, and interpretation.
+
+    3.  **Alignment with Scoring Criteria**: Articulate how the dissertation fulfills each of the scoring categories outlined above, demonstrating its originality, quality, contribution to the field, clarity of presentation, and potential contributions to equity, diversity, and inclusion (EDI). Additionally, applicants may address the alignment of their research with open-science practices, if applicable.
+:::
+
+For more information, please contact the chair of the Dissertation Awards Committee {{< fa envelope title="Email" >}} {{< var email.dissertation >}}.
+
+## Past Recipients
+
+```{r}
+#| label: dissertation-winners
+#| warning: false
+#| echo: false
+
+# Data: awards/data/dissertation.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/dissertation.csv")
+
+dissertation_table(data)
+```
+
+:::::

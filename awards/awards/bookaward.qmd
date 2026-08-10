@@ -1,0 +1,69 @@
+---
+title: Lawrence S. Wrightsman Book Award
+date: last-modified
+description: The American Psychology-Law Society Lawrence S. Wrightsman Book Award is given for a scholarly book devoted to psychology and law issues. The award is intended to recognize outstanding scholarship in psychology and law.
+categories:
+  - Book
+submission-info:
+  sponsor: AP-LS Book Award Committee
+  deadline: 
+  - "November 1, `r if (Sys.Date() > lubridate::mdy(paste('November 1', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: send
+  name: Submit here
+  url: "mailto:Catherine.burke@yale.edu"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::: panel-tabset
+## Description
+
+The Lawrence S. Wrightsman Book Award is given separately for authored and edited books on an annual, rotating basis. During the annual meeting on odd-numbered years, the award will be for authored scholarly books, even numbered years for edited books. The winner of the award will be presented with a plaque and invited to give an award address at the annual meeting of Div. 41 (American Psychology-Law Society).
+
+The AP-LS Book Award was renamed the Lawrence S. Wrightsman Book Award by the American Psychology-Law Society Executive Committee in August 2019 based on Wrightsman's contribution to the field, specifically through his books, as his psychology and law textbook is frequently used in the education of students in the field of psychology and law.
+
+## Eligibility
+
+Books are eligible for consideration if published within the 2 previous years based on the year of the conference.
+
+## How to Apply
+Email nomination letters to the **Chair of the Book Award Committee** before November 1 annually.
+
+:::{.callout-tip} 
+## Submissions should include:
+
+1.  A nomination letter including:
+
+    -   title and publisher of the book
+    -   month and year of publication
+    -   names and addresses of all authors or editors
+
+2.  At least one (preferably two) physical copies of the nominated book sent to the chair of the Book Award Committee
+
+Self nominations are encouraged.
+
+:::
+
+## Past Recipients
+
+```{r}
+#| label: Previous winners table
+#| warning: false
+#| echo: false
+#| cache: false
+
+# Data: awards/data/book_awards.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/book_awards.csv")
+
+book_awards_table(data)
+
+```
+
+:::

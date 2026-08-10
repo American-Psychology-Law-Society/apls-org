@@ -1,0 +1,68 @@
+---
+title: "Email List"
+description: "Requests for use of AP-LS email list"
+title-block-banner: "../../images/banners/default-banner.png"
+categories:
+  - email
+---
+
+::: column-body-outset
+::: {.panel-tabset .box-shadow}
+## Overview
+
+The AP-LS email address list is open to AP-LS members for participation in a research project, calls for papers and information about workshops and conferences.
+
+The mailing list is not be available for any group or individual solely for commercial or for-profit venture(s).
+
+Only AP-LS members and student members are eligible to request an electronic mailing. The text of all emails must be prepared by the member, but will be mailed by the website editor (to prevent duplication or unauthorized release of the email list).
+
+## Request for Research Purposes
+
+### For individuals requesting use of the email list for solicitation of research participants, please read the below guidelines.
+
+-   For individuals requesting the use of the email list for recruiting research participants, please read the below guidelines.
+
+
+-   The request must be made by a current member of AP-LS who has also agreed to also receive research request emails.
+
+
+-   Members can make one request per 12-month period. Each request is allowed one email and one follow-up email. Please email the website editor when you would like your second request.
+
+
+-   All proposals for research must be approved by an Institutional Review Board (IRB). A copy of the IRB approval (even if exempt) is required in this form. You cannot complete the form with it.
+
+-   A \$150 usage fee -- Funds generated from this mailing list will go toward general expenses in the AP-LS budget. This usage fee applies to all requests; there are no exceptions to the usage fee requirement.
+
+To reduce the number of research requests to members, AP-LS will only send one research request per week. Research requests will be emailed in the order they are submitted and paid.
+
+
+[Research Request Form](https://apls.memberclicks.net/research-request#!/){.btn-action-primary .btn-action .btn .btn-primary role="button"}
+
+::: {.callout-tip collapse="true"}
+
+## Information included in email
+-   Email subject line must be "Request for participation in a research project"
+
+-   The text of the email will begin with the following disclaimer: "This email does not describe a request made by the American Psychology-Law Society (AP-LS). AP-LS is neither conducting nor endorsing this research. Instead, AP-LS is sending this on behalf of a member(s) to use the email list to recruit research participants. Any specific questions regarding the participation request should be directed to XXXX\@XXX.EDU."
+
+-   The main body of the email must describe the purpose of the research and include an explanation of whom to contact for answers pertinent to questions about the research and research subjects' rights. Contact information must include full name, email address and a physical address. The body must also include contact information about the Institutional Review Board (IRB) approval and contact for the IRB.
+
+::: callout-note
+Members may request statistics regarding the number of emails sent and number of opened emails but must request this from the website editor prior to the email distribution.
+:::
+
+:::
+
+## Calls for Papers
+
+Calls for papers for submissions to academic journals or conferences may be sent to the AP-LS email list at the request of an AP-LS member.
+
+## Workshops and Conference Information
+
+Information about workshops and conferences may be sent to the AP-LS email list at the request of an AP-LS member, but only if the workshop or conference is sponsored by AP-LS or affiliated organizations such as AAFP.
+
+## Questions?
+
+If you have any questions, contact the [AP-LS Web Editor](mailto:webmaster@ap-ls.org). 
+:::
+:::

@@ -1,0 +1,27 @@
+---
+author: AP-LS
+date: "2022-02-02"
+title: "Diversity Equity and Inclusion in Correctional Psychology"
+subtitle: A panel discussion about the barriers to entry in Correction Psychology. 
+title-block-banner: true
+toc: false
+image: featured.png
+date-format: medium
+categories:
+  - careers
+  - apa
+url: https://www.youtube.com/watch?v=JvtAU3ewoZk
+---
+
+<button type="button" class="btn btn-outline-success">
+<a href="https://www.youtube.com/watch?v=JvtAU3ewoZk" target="_blank">{{< fa circle-play >}} video</a></button>
+<br></br>
+
+## Overview 
+Like many subfields in psychology, there is a great need to promote diversity, equity, and inclusion in the correctional psychology workforce. Some barriers faced by people seeking to enter the field are shared with other subfields of psychology whereas others are unique to corrections. The purpose of this interactive workshop was to highlight some of the potential causes of the lack of diversity, particularly racial and ethnic diversity, in the field and to offer some potential solutions to this problem. Panelists provided suggestions on how to improve recruitment and retention of diverse people in academic, research, and clinical settings. In addition, strategies that individuals can use to address discrimination in their academic or work settings were discussed.
+
+Sponsored by: 
+
+AP-LS Corrections Committee, AP-LS BRIDGE Committee and ICPF
+
+<div id="youtube-frame-JvtAU3ewoZk" class="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/JvtAU3ewoZk" title="YouTube video: Diversity Equity and Inclusion in Correctional Psychology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>

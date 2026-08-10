@@ -1,0 +1,10 @@
+---
+title: July 2021
+date: 7/1/2021
+image: featured.jpg 
+---
+
+
+```{=html}
+<iframe class="news ar4x3" src="july2021.Rhtml" title="July Newsletter"></iframe>
+```

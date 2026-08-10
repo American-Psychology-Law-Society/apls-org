@@ -1,0 +1,228 @@
+---
+title: "Membership"
+description: |
+  AP-LS membership is for the calendar year January 1 - December 31.
+toc: false
+title-block-banner: "../images/banners/default-banner.png"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(aplsr)     # rowwise_table()
+library(htmltools) # div(), tags$*, a(), span()
+library(purrr)     # pmap()
+```
+
+
+
+::: {.column-body-outset}
+
+## Interested in becoming a member?
+
+::: {.grid}
+
+
+::: {.g-col-12 .g-col-md-4}
+<div class="price-card h-100">
+<div class="card-body d-flex flex-column">
+<div class="price-card-header">
+<p class="display-2"><span class="currency">$</span>100<span class="period">/yr</span></p>
+</div>
+<div class="price-card-block">
+<h3 class="price-card-title">
+        Full or Associate
+      </h3>
+<h4 class="price-card-subtitle">
+  Individuals with psych or related degrees: </h4>
+<ul class="list-group">
+  <li class="list-group-item">Doctoral Degree</li>
+  <li class="list-group-item">Juris Doctorate</li>
+  <li class="list-group-item">Master's Degree</li>
+  <li class="list-group-item">Terminal Bachelor's Degree</li>
+</ul>
+<center><a href="https://apls.memberclicks.net/membership-form#!/" class="price-btn price-btn-gradient mt-2">Join now</a></center>
+</div>
+</div>
+</div>
+:::
+
+
+::: {.g-col-12 .g-col-md-4}
+<div class="price-card h-100">
+<div class="card-body d-flex flex-column">
+<div class="price-card-header">
+<p class="display-2"><span class="currency">$</span>50<span class="period">/yr</span></p>
+</div>
+<div class="price-card-block">
+<h3 class="price-card-title"> Early Career </h3>
+<h4 class="price-card-subtitle">
+  Individuals within first 3 years post terminal degree: </h4>
+<ul class="list-group">
+  <li class="list-group-item">Doctoral Degree</li>
+  <li class="list-group-item">Juris Doctorate</li>
+  <li class="list-group-item">Master's Degree</li>
+  <li class="list-group-item">Terminal Bachelor's Degree</li>
+</ul>
+<center><a href="https://apls.memberclicks.net/membership-form#!/" class="price-btn price-btn-gradient mt-2">Join now</a></center>
+</div>
+</div>
+</div>
+:::
+
+::: {.g-col-12 .g-col-md-4}
+<div class="price-card h-100">
+<div class="card-body d-flex flex-column">
+<div class="price-card-header">
+<p class="display-2"><span class="currency">$</span>30<span class="period">/yr</span></p>
+</div>
+<div class="price-card-block">
+<h3 class="price-card-title"> Student </h3>
+<h4 class="price-card-subtitle">
+  Individuals currently enrolled as either: </h4>
+<div style="margin-top: 40px; margin-bottom: 55px;">
+<ul class="list-group">
+  <li class="list-group-item">Undergraduate Student</li>
+  <li class="list-group-item">Graduate Student</li>
+</ul>
+</div>
+<center><a href="https://apls.memberclicks.net/membership-form#!/" class="price-btn price-btn-gradient mt-2">Join now</a></center>
+</div>
+</div>
+</div>
+:::
+
+:::
+
+
+::: {.callout-note appearance="simple"}
+
+### Questions?
+
+If you have any questions about membership, please contact the **American Psychology-Law Society**:
+
+<p>{{< fa phone title="Phone" >}} {{< var contact.phone >}} </br> {{< fa envelope title="Email" >}} {{< var email.office >}} </br> {{< fa location-dot title="Location" >}} {{< var contact.mail >}}</p>
+
+:::
+
+::: vspace
+:::
+
+::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+[Did you receive a renewal notice from the AP-LS Office?]{.h6} 
+
+Please complete this renewal form and continue receiving member benefits with AP-LS.
+
+[Renew Here! {{< fa arrow-right >}}](https://apls.memberclicks.net/membership-renewal-form#!/){.btn-action .btn .btn-secondary .btn-lg role="button"}
+:::
+:::
+
+
+
+:::
+
+::: vspace
+:::
+
+## Why join AP-LS?
+
+The American Psychology-Law Society (AP-LS) is an interdisciplinary organization devoted to scholarship, practice, and public service in psychology and law.
+
+AP-LS is both a free-standing organization as well as a division (Division 41) of the American Psychological Association (APA). Membership in AP-LS is therefore separate and independent from membership in Division 41 of APA, although many members belong to both organizations (AP-LS and APA).
+
+[Members of AP-LS enjoy a variety of benefits including:]{.h6}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| label: benefits table
+#| classes: '.g-col-lg-6 .g-col-12 .g-col-md-12'
+
+content = rowwise_table(~icon, ~text, ~link,
+          "book",
+            "Online access to the official journal of AP-LS, Law and Human Behavior.", 
+              "https://www.apa.org/pubs/journals/lhb/",
+          "newspaper",          
+            "Online subscription to the AP-LS monthly newsletter.",   
+              "../publications/index.html",
+          "award",          
+            "Eligibility to apply for grants, fellowships, and awards.",                                 "../awards/index.html",
+          "credit-card",        
+            "Discounts on AP-LS conference registration.",
+              "../conferences/index.html",
+          "clipboard-data",      
+            "Ability to vote in annual AP-LS elections.",              
+              "../about/leadership.html",
+          "info-circle",        
+            "Access to additional resources and networking opportunities.",                   
+              "../resources/index.html"
+)
+div(class = "feature-grid",
+  pmap(content, function(icon, text, link) {
+    div(class = "feature-grid__item",
+        div(class="feature-grid__icon",
+          a(href = link, class = "feature-grid__link",
+            "aria-label" = text,
+            tags$i(class = sprintf("bi-%s feature-grid__i", icon))
+         )
+       ),
+      text
+    )
+  })
+)
+```
+
+
+
+## Who can join?
+
+Membership is open to interested professionals and students in other disciplines beyond psychology. AP-LS encourages APA members, graduate and undergraduate students, and persons in related fields to consider joining.
+
+
+::: {.callout-note collapse="true" appearance="simple"}
+### Forensic Psychology Diplomat 
+
+If you are interested in obtaining Forensic Psychology Diplomat status in the American Board of Forensic Psychology and American Board of Professional Psychology, please contact: 
+
+ABPP </br>
+600 Market Street, 
+Suite 300 </br>
+Chapel Hill, NC 27516 </br>
+{{< fa phone >}} (919) 537-8031 </br>
+{{< fa fax >}} (919) 537-8034
+
+More information can be found on websites: [American Board of Forensic Psychology](http://www.abfp.com/) and [American Board of Professional Psychology](http://www.abpp.org/).
+:::
+
+
+### Membership Types
+
+[There are ***six*** categories of membership in AP-LS including:]{.h6}
+
+```{r}
+#| echo: false
+content = rowwise_table(~name, ~icon, ~url, ~text,
+  "Full", "person-fill",      "",                                   "Individuals with a doctoral degree (Ph.D., Psy.D., M.D., or Ed.D.) in psych or related field or a Juris Doctorate.",
+    "Associate", "person-fill",      "",                                   "Individuals with a master's degree in psych or related field or a terminal bachelor's degree.",
+    "Early Career", "person-fill",      "",                                   "Individuals within the first 3 years post terminal degree.",
+    "Fellows", "award",      "",                                   "Individuals granted Fellow Status (Full Members) or Distinguished Member status (Full Affiliates) by the society.",
+    "International", "globe", "", "Individuals who reside outside the United States with a relevant doctoral degree. All join as International Affiliates.",
+  "Student",           "mortarboard-fill",  "", 
+  "Individuals currently enrolled in undergraduate or graduate program. All join as Student Affiliates."
+)
+div(class = "grid grid-three",
+  pmap(content, function(name, icon, url, text, objective) {
+      div(class = "grid__item",
+        h3(class = "grid__title",
+          tags$i(class = sprintf("bi-%s grid__title-icon", icon)),
+          span(class = "grid__title-name", name)
+        ),
+        p(class = "grid__text", text),
+        if (url == "") NULL else a(href = url, `aria-label` = name, span(class = "grid__link-box"))
+      )
+  })
+)
+```
+
+For a more detailed description of each category of membership, see the [AP-LS Bylaws](../about/bylaws.html).
+
+
+

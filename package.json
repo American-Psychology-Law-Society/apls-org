@@ -1,0 +1,9 @@
+{
+  "name": "apls-org-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Quarto website for the American Psychology-Law Society (ap-ls.org). The dev script starts Quarto's preview server.",
+  "scripts": {
+    "dev": "quarto preview"
+  }
+}

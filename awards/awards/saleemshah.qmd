@@ -1,0 +1,93 @@
+---
+title: Saleem Shah Early Career Award
+date: last-modified
+description: Recognizes early career excellence and contributions to the field of psychology and law with a focus on forensic practice, research, or public policy.
+categories: 
+  - Early Career Professionals
+  - American Academy of Forensic Psychology
+submission-info:
+  sponsor: AP-LS & American Academy of Forensic Psychology
+  deadline: "November 30, `r if (Sys.Date() > lubridate::mdy(paste('November 30', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+links:
+- icon: info-circle
+  name: Learn More
+  url: " https://aafpforensic.org/awards/saleem-shah-award-for-early-career-excellence-in-psychology-and-law/"
+- icon: book
+  name: History
+  url: "https://drive.google.com/file/d/12-EMOWANyIhRnrAsGaPMx-LSKcP4gYDy/view?usp=sharing"
+- icon: send
+  name: Submit here
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSef301UHyAe44KhBskPecs2r979AqxFU4GP0DDOdUsJhkBYQQ/viewform?usp=dialog"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../../assets/apls_functions.R")
+```
+
+<hr>
+
+::: panel-tabset
+## History
+
+::: {.callout-note collapse="true"}
+## Saleem's Rules
+
+At the 2012 AP-LS Conference there was a session titled:**"Saleem's Rules: Lessons in Mentoring, Knowing What's Right, and Changing the World - Why AP-LS Created a Saleem Shah Award"** with speakers Thomas Grisso, Henry J. Steadman, Edward Mulvey and John Monahan. Dr. Grisso wrote an article about that panel's discussions for the Summer 2012 AP-LS News newsletter.
+
+[Learn More {{< fa arrow-right >}}](https://drive.google.com/file/d/12-EMOWANyIhRnrAsGaPMx-LSKcP4gYDy/view?usp=sharing){.btn-action-primary .btn-action .btn .btn-primary .btn-lg role="button"}
+:::
+
+Saleem A. Shah, who was internationally known for his leadership in the field of law and mental health, died on Nov. 25, 1992, from injuries suffered when his automobile was struck by a drunken driver. Saleem was born on December 2, 1931, in Allahabad, India. After receiving a BA from Allahabad University, he came to the United States on a fellowship and earned his PhD in clinical psychology at Pennsylvania State University in 1957. He served as a graduate psychology intern at Spring Grove State Hospital, outside Baltimore, where he met his wife, Terry, with whom he had six daughters, all of whom survive him. After leaving Penn State, Saleem joined the Legal Psychiatric Services Division of the Department of Public Health in Washington, DC. He rose quickly to the post of chief psychologist and held this position until he joined the staff of the National Institute of Mental Health (NIMH) in 1966.
+
+Saleem remained at NIMH for the rest of his professional life. From 1968 to 1987, he was the chief of an extramural research program originally known as the Center for Studies of Crime and Delinquency and later as the Antisocial and Violent Behavior Branch. The scope of this program was extremely broad, covering such issues as the biology of antisocial behavior, delinquency, violence, and law and mental health studies. Saleem's mastery of this entire interdisciplinary program soon made him a legend inside and outside NIMH, but his greatest interest was always the field of law and mental health, which he saw as encompassing the full range of interactions between the legal and mental health systems (see Law and Mental Health: Major Developments and Research Needs, 1991, with Bruce Sales).
+
+Saleem's personal contributions to his field can perhaps be summed up as follows. He was committed, first and foremost, to the goal of achieving fair and equitable treatment for mentally disordered offenders and other persons whose mental status was at issue before the law. In his numerous scientific publications, he repeatedly drew attention to the tension between the therapeutic and the social control objectives of mental health laws and to the need for careful analysis of underlying constructs to establish a clear ethical and legal basis for policies and programs. As his writings on these topics became widely known, he was increasingly asked to give lectures and consultations in other countries, such as Germany, the former Soviet Union, and China.
+
+What Saleem could not do on his own, he accomplished through others. In 1968 he established law and mental health studies as a formal program priority for NIMH and became the guide and mentor for a new generation of scholars who by their empirical and theoretical work, much of it supported by NIMH, transformed the field of law and mental health studies: Thomas Grisso, John Monahan, Loren Roth, Bruce Sales, Henry Steadman, Linda Teplin, and David Wexler, to name but a few. Saleem also initiated an NIMH monograph series for the purpose of making current knowledge and research findings in law and mental health more readily available to policymakers and other potential users. More than 20 volumes were published during Saleem's lifetime on topics such as clinical prediction of violent behavior, competency to stand trial, mental health services in local jails, and clinical treatment of violent persons.
+
+Saleem received many honors. He was the first recipient of the American Psychology-Law Society Award for Distinguished Contributions to Psychology and Law; he also received the Isaac Ray Award of the American Psychiatric Association for outstanding contributions in law and mental health and six U.S. government awards.
+
+## Description
+
+The Saleem Shah Award recognizes early career excellence and contributions to the field of psychology and law. The focus on the nominee's contributions may be in any area of forensic practice, research or public policy.
+
+Two awards (one clinical one experimental) are conferred annually at the AP-LS Annual Conference. Each recipient receives a plaque and \$1,000. The recipients also delivers the annual Saleem Shah Address at the AP-LS conference.
+
+The award is co-sponsored by the [American Academy of Forensic Psychology](http://aafpforensic.org/) and decisions are made by a Committee (organized by AAFP) that includes joint representation from both AAFP and APLS.
+
+## Eligibility
+
+Eligible individuals must have received a doctoral degree (Ph.D., Psy.D., M.D., or Ed.D.) or Juris Doctorate within the last 10 years.
+
+::: {callout-note}
+If candidate has earned more than one eligible degrees, the latest degree is considered for this award.
+:::
+
+## How to Apply
+
+Email nominations in PDF or Word format to the [President-Elect of AAFP](https://aafpforensic.org/who-we-are/) before midnight EST on November 30.
+
+::: callout-tip
+## Anyone wishing to nominate a candidate should send:
+
+1.  A nomination letter detailing the nominee's contributions to psychology and law
+2.  A copy of the nominee's vita
+:::
+
+Self-nominations will not be considered.
+
+## Past Recipients
+
+
+```{r}
+#| label: Previous winners table
+#| warning: false
+#| echo: false
+
+# Data: awards/data/saleem-shah.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/saleem-shah.csv")
+
+awards_table(data, name = "name")
+```
+:::
