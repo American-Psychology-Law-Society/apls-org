@@ -1,8 +1,8 @@
 {
-  "hash": "3fa7ce9200c1c7ee22c3abaadb5de535",
+  "hash": "fbeefc0501b58d646942e4bcec8820f4",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: AP-LS Newsletter Archives\ntitle-block-banner: \"../../images/banners/default-banner.png\"\npage-layout: full\ntoc: false\nlisting:\n  - id: monthly\n    contents: \n      - e-news\n    type: grid\n    grid-columns: 3\n    sort: \"date desc\"\n    fields: [title, image]\n    image-placeholder: logo.png\n  - id: archive\n    contents: \n      - \"news-archive.yml\"\n    type: grid\n    fields: [title, image]\n    sort: \"date desc\"\n    image-placeholder: logo.png\n---\n\n\n## AP-LS Monthly E-News\n\n::: {#monthly}\n:::\n\n\n## Newsletter Archives\n\n::: {#archive}\n:::\n\n",
+    "markdown": "---\ntitle: AP-LS Newsletter Archives\ntitle-block-banner: \"../../images/banners/default-banner.png\"\npage-layout: full\ntoc: false\nlisting:\n  - id: monthly\n    contents: \n      - e-news\n    type: grid\n    grid-columns: 3\n    sort: \"date desc\"\n    fields: [title, image]\n    image-placeholder: logo.png\n  - id: archive\n    contents: \n      - \"news-archive.yml\"\n    type: grid\n    fields: [title, image]\n    sort: \"date desc\"\n    image-placeholder: logo.png\nresources:\n  - logo.png\n---\n\n\n## AP-LS Monthly E-News\n\n::: {#monthly}\n:::\n\n\n## Newsletter Archives\n\n::: {#archive}\n:::\n\n",
     "supporting": [
       "index_files"
     ],

@@ -1,0 +1,14 @@
+---
+title: April 2026
+date: 04/1/2026
+image: logo.png
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: apr2026.pdf
+
+---
+
+```{=html}
+<iframe class="news ar4x3" src="./apr2026.html" title="April 2026 Newsletter"></iframe>
+```

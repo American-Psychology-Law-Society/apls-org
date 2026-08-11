@@ -1,0 +1,14 @@
+---
+title: November 2025
+date: 11/1/2025
+image: logo.png
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: nov2025.pdf
+
+---
+
+```{=html}
+<iframe class="news ar4x3" src="./nov2025.html" title="November 2025 Newsletter"></iframe>
+```

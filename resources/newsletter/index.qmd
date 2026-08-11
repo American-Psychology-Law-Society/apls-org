@@ -19,6 +19,8 @@ listing:
     fields: [title, image]
     sort: "date desc"
     image-placeholder: logo.png
+resources:
+  - logo.png
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

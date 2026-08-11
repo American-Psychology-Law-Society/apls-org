@@ -225,3 +225,105 @@ awards_timeline <- function(data, label = "year", content = "content",
   cat(":::\n")
   invisible(NULL)
 }
+
+
+#' Member directory table with country flags
+#'
+#' Renders a sortable, searchable directory table showing members with small
+#' circular flag icons next to their names. Uses the shared house style plus
+#' flag images from flagcdn.com.
+#'
+#' @param data A data frame. Required columns: `first_name`, `last_name`,
+#'   `degree`, `city`, `state`, `country`. An optional `deceased` column is
+#'   accepted but hidden.
+#' @param page_size Rows per page. Default `60`.
+#'
+#' @return An [htmltools::div()] wrapping a [reactable::reactable()] widget.
+#' @examples
+#' df <- data.frame(
+#'   first_name = "Jane", last_name = "Doe", degree = "PhD",
+#'   city = "Lincoln", state = "NE", country = "United States",
+#'   stringsAsFactors = FALSE
+#' )
+#' member_directory_table(df)
+#' @export
+member_directory_table <- function(data, page_size = 60) {
+  data <- as.data.frame(data)
+
+  # Build a clean display name
+  data$name <- paste(data$first_name, data$last_name)
+
+  # Build location string
+  data$location <- ifelse(
+    is.na(data$city) & is.na(data$state), "",
+    ifelse(is.na(data$city), as.character(data$state),
+           ifelse(is.na(data$state), as.character(data$city),
+                  paste0(data$city, ", ", data$state)))
+  )
+
+  # Country code for flags — try countrycode if available, else fall back
+  iso2 <- NULL
+  if (requireNamespace("countrycode", quietly = TRUE)) {
+    iso2 <- countrycode::countrycode(
+      data$country, origin = "country.name", destination = "iso2c",
+      warn = FALSE
+    )
+  }
+  if (is.null(iso2)) {
+    iso2 <- toupper(substr(data$country, 1, 2))
+  }
+  data$country_code <- iso2
+
+  tbl <- reactable::reactable(
+    data,
+    defaultPageSize = page_size,
+    static          = TRUE,
+    sortable        = TRUE,
+    searchable      = TRUE,
+    striped         = FALSE,
+    highlight       = TRUE,
+    theme           = apls_table_theme(),
+    defaultColDef   = reactable::colDef(vAlign = "center", align = "left"),
+    columns = list(
+      first_name   = reactable::colDef(show = FALSE),
+      last_name    = reactable::colDef(show = FALSE),
+      city         = reactable::colDef(show = FALSE),
+      state        = reactable::colDef(show = FALSE),
+      country      = reactable::colDef(show = FALSE),
+      country_code = reactable::colDef(show = FALSE),
+      deceased     = reactable::colDef(show = FALSE),
+      name = reactable::colDef(
+        name = "Name", minWidth = 180,
+        style = list(fontWeight = 600, color = "var(--apls-fg, #1f2937)"),
+        cell = function(value, index) {
+          code <- data$country_code[index]
+          flag_url <- if (!is.na(code)) {
+            paste0("https://flagcdn.com/w40/", tolower(code), ".png")
+          } else {
+            ""
+          }
+          htmltools::div(
+            style = "display:flex;align-items:center;gap:10px;",
+            if (nzchar(flag_url)) {
+              htmltools::img(
+                src = flag_url,
+                alt = paste(data$country[index], "flag"),
+                style = "width:22px;height:22px;border-radius:50%;object-fit:cover;"
+              )
+            },
+            htmltools::span(value)
+          )
+        }
+      ),
+      degree = reactable::colDef(
+        name = "Degree", maxWidth = 140,
+        style = list(color = "var(--apls-muted, #6c757d)")
+      ),
+      location = reactable::colDef(
+        name = "Location", minWidth = 160,
+        style = list(color = "var(--apls-muted, #6c757d)")
+      )
+    )
+  )
+  htmltools::div(tbl, style = "max-width: 800px;")
+}

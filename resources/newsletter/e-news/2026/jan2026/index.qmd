@@ -1,0 +1,14 @@
+---
+title: January 2026
+date: 01/1/2026
+image: logo.png
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: jan2026.pdf
+
+---
+
+```{=html}
+<iframe class="news ar4x3" src="./jan2026.html" title="January 2026 Newsletter"></iframe>
+```

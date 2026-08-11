@@ -97,6 +97,10 @@ website:
             - about/leadership.qmd
             - about/committees.qmd
             - about/contact.qmd
+            - text: "Fellows Directory"
+              href: about/fellows-directory.qmd
+            - about/committees.qmd
+            - about/contact.qmd
         
     - id: guidelines
       title: "Forensic Guidelines"

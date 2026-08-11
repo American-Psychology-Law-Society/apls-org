@@ -17,7 +17,7 @@ submission-info:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("../../assets/apls_functions.R")
+library(aplsr)
 ```
 
 <hr>

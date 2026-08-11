@@ -1,0 +1,14 @@
+---
+title: June 2026
+date: 06/1/2026
+image: logo.png
+links:
+- icon: file-earmark-pdf
+  name: Download
+  url: jun2026.pdf
+
+---
+
+```{=html}
+<iframe class="news ar4x3" src="./jun2026.html" title="June 2026 Newsletter"></iframe>
+```

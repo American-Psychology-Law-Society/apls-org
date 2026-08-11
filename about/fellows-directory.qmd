@@ -1,0 +1,85 @@
+---
+title: AP-LS Fellows Directory
+description: Directory of American Psychology-Law Society Fellows.
+title-block-banner: "../../images/banners/default-banner.png"
+---
+
+```{r setup, include=FALSE}
+library(aplsr)
+library(dplyr)
+library(janitor)
+library(readxl)
+library(here)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fellows-data
+
+# Download the Fellows directory spreadsheet from Google Drive.
+# The file is an Excel (.xlsx) stored in Google Drive; we fetch it via
+# the export URL so we do not need to commit the binary to the repo.
+
+SHEET_ID <- "1JDvaNDObypskTAW1rbc7SlWux2eUTOTX"
+xlsx_url <- paste0(
+  "https://docs.google.com/spreadsheets/d/", SHEET_ID,
+  "/export?format=xlsx"
+)
+
+xlsx_path <- here("about", "_fellows-directory.xlsx")
+
+download_if_missing <- function(url, dest) {
+  if (!file.exists(dest)) {
+    tryCatch(
+      download.file(url, dest, mode = "wb", quiet = TRUE),
+      error = function(e) {
+        warning("Could not download Fellows directory: ", conditionMessage(e))
+      }
+    )
+  }
+  file.exists(dest)
+}
+
+has_data <- download_if_missing(xlsx_url, xlsx_path)
+
+if (has_data) {
+  fellows <- read_excel(xlsx_path) |>
+    clean_names() |>
+    mutate(
+      across(everything(), ~ ifelse(is.na(.x), "", as.character(.x))),
+      country = ifelse(country == "", "United States", country),
+      country = ifelse(country == "United States of America", "United States", country)
+    )
+} else {
+  fellows <- data.frame(
+    first_name = character(), last_name = character(), degree = character(),
+    city = character(), state = character(), country = character(),
+    deceased = character(), stringsAsFactors = FALSE
+  )
+}
+```
+
+::: {.callout-note appearance="simple"}
+## About this list
+
+This page lists AP-LS Distinguished Members. If you are seeking to apply for or verify current APA fellow status, that designation is determined by APA based on active APA membership, and is maintained separately by APA. Please visit the [APA Fellows database](https://fellows.apa.org) for that information.
+
+If you notice anything on this list that is missing or incorrect, including a name that should be included, incorrect information listed for a current entry, or a spelling error, please contact the [AP-LS Fellows Committee Chair](mailto:ebrank2@unl.edu) so it can be corrected.
+:::
+
+::: {style="max-width: 900px; margin: 0 auto;"}
+
+```{r}
+#| echo: false
+#| label: fellows-table
+
+if (nrow(fellows) > 0) {
+  member_directory_table(fellows, page_size = 60)
+} else {
+  htmltools::p("Unable to load Fellows directory data. Please check your network connection.")
+}
+```
+
+:::

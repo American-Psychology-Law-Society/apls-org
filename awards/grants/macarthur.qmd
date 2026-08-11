@@ -23,7 +23,7 @@ links:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("../../assets/apls_functions.R")
+library(aplsr)
 ```
 <hr>
 
@@ -51,7 +51,7 @@ MacArthur Award applications should follow the same submission instructions and 
 
 ## How to Apply
 
-Interested individuals should follow the application instructions provided on the general [Grants in Aid for Graduate Students award page]("../GRADgrantinaid.qmd").
+Interested individuals should follow the application instructions provided on the general [Grants in Aid for Graduate Students award page](GRADgrantinaid.qmd).
 
 
 Annual application deadlines are **October 15** and **January 15**

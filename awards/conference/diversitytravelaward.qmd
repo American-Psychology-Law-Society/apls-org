@@ -23,7 +23,7 @@ links:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("../../assets/apls_functions.R")
+library(aplsr)
 ```
 
 <hr>
@@ -50,7 +50,7 @@ For more information about the Diversity Travel Award program, please contact th
 
 Current graduate and undergraduate students from underrepresented groups (i.e., racial and ethnic minorities, first-generation college students, LGBTQIA individuals, and students with disabilities) may apply for this award.
 
-Applicants must be a [Student Affiliate]("../../membership/membership.qmd") member of AP-LS and be presenting research at the annual conference.
+Applicants must be a [Student Affiliate](../../membership/index.qmd) member of AP-LS and be presenting research at the annual conference.
 
 :::{.callout-note} 
 These awards are intended to increase diversity at the conferences, especially among racial and ethnic minorities; in addition, the BRIDGE will consider proposals from first-generation college students, LGBTQIA individuals and physically disabled students. 

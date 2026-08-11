@@ -6,6 +6,8 @@ toc: false
 description: |
   The American Psychology-Law Society (AP-LS), Division 41 of the American Psychological Association is an organization dedicated to enhancing the well-being, justice, and human rights through the science and practice of psychology in legal contexts.  
 search: true
+resources:
+  - images/APLS_general_logo.png
 listing:
   - id: latest-news
     contents: "resources/newsletter/e-news"
