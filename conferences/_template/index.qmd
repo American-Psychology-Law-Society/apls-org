@@ -75,7 +75,6 @@ rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
 ::::::
 
 ::: {.column-screen}
-::: grid
 ::: {.alt-background-blue}
 
 ```{r toc}
@@ -125,7 +124,6 @@ div(
   )
 )
 ```
-:::
 :::
 :::
 

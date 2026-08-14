@@ -12,7 +12,7 @@ dissertation_table(data, page_size = 60)
 \item{page_size}{Rows per page. Default \code{60}.}
 }
 \value{
-An \code{\link[htmltools:builder]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
+An \code{\link[htmltools:div]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
 }
 \description{
 Renders the dissertation awards as a Year / 1st / 2nd / 3rd place table.

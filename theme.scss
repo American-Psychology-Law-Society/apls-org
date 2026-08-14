@@ -96,7 +96,13 @@ body {
   --apls-banner-fg:       #{$cream};
 
   --apls-heading:         #{$headings-color};
-  --apls-muted:           #{$text-muted};
+  // Darker than Bootstrap's $text-muted (#6c757d ≈ 4.0–4.5:1 on cream —
+  // fails WCAG AA for normal text). #5A6268 is ≈5.9:1 on #FBF9F4.
+  // Dark-mode value is overridden in the dark block below.
+  --apls-muted:           #5A6268;
+  // Quarto's own muted text (listing dates, blockquote footer, captions)
+  // reads from --quarto-text-muted, so it must be darkened too.
+  --quarto-text-muted:    #5A6268;
   --apls-link:            #{$link-color};
   --apls-link-hover:      #{$link-hover-color};
 
@@ -110,7 +116,12 @@ body {
   --apls-nav-hl:          #{$yellow};
 
   --apls-card-bg:         color-mix(in srgb, var(--apls-bg) 90%, white 10%);
-  --apls-card-bg-alt:     color-mix(in srgb, var(--apls-bg) 80%, white 10%);
+  // Percentages must total 100% — the previous 80/10 mix rendered the card
+  // background 10% transparent, letting dark bands bleed through the cards.
+  --apls-card-bg-alt:     color-mix(in srgb, var(--apls-bg) 88%, white 12%);
+  // Card hover tint. NOT --apls-bg-alt: in the light compile that is
+  // $secondary = #FBF9F4, identical to the body background (invisible).
+  --apls-card-hover:      #{$blue-90};
 
   --apls-code-bg:         #{$code-bg};
   --apls-code-fg:         #{$body-color};
@@ -130,9 +141,20 @@ body {
 .quarto-dark {
   --apls-banner-bg:    #{$dark-bg-alt};
   --apls-banner-fg:    #{$dark-light};
-  --apls-primary:      #{$blue-40};
+  // _brand.yml's primary.dark (#6B9FD4) is NOT wired into the dark SCSS
+  // compile — without an override here, dark mode falls back to Darkly's
+  // default primary (#375a7f, ~2.2:1 on the dark background). Set the
+  // brand's intended dark primary explicitly: 8.1:1 on #191E29 (AAA).
+  --apls-primary:      #6B9FD4;
   --apls-primary-dark: #{$blue-60};   // #a4adc1 — 7.4:1 on dark-bg (AAA)
   --apls-primary-light: #{$blue-60};
+  // Dark hover tint: lighten the card surface, not $blue-90 (a fixed
+  // near-white that would strand light text on a light fill).
+  --apls-card-hover:   color-mix(in srgb, var(--apls-card-bg) 75%, white 25%);
+  // Muted text must lighten on dark backgrounds: #6c757d would be ~3.5:1
+  // on #191E29 (fails AA). #9AA3B0 is ≈6.4:1 on the dark body background.
+  --apls-muted:        #9AA3B0;
+  --quarto-text-muted: #9AA3B0;
 }
 // ===========================
 // BASE ELEMENT OVERRIDES
@@ -169,6 +191,17 @@ a:visited {
 a:hover,
 a:focus {
   color: var(--apls-muted);
+}
+
+// Dark mode: muted gray hover collapses toward the dark background. Use the
+// AAA-rated light blue instead (#a4adc1 — 7.4:1 on #191E29). More specific
+// hover rules below (listings, TOC, nav-footer) still win on equal
+// specificity because they come later in source order.
+[data-bs-theme="dark"] a:hover,
+[data-bs-theme="dark"] a:focus,
+.quarto-dark a:hover,
+.quarto-dark a:focus {
+  color: var(--apls-primary-light);
 }
 
 // ── Pagination ────────────────────────────────────────────────────────
@@ -300,7 +333,7 @@ code {
 
 .tab-content {
   border: none;
-  padding: 0;
+  padding: 2rem;
   background-color: var(--apls-card-bg);
 }
 

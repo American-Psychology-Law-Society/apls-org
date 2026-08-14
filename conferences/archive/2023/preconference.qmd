@@ -120,7 +120,7 @@ tbl_wks <- reactable(
         cell = merge_column(preconf, 
                             merged_name = "location",
                             merged_size = 16,
-                            merged_color = "gray",
+                            merged_color = "var(--apls-muted, #5A6268)",
                             merged_position = "below")
         ),
     location = colDef(show = FALSE)
@@ -139,7 +139,7 @@ tbl <- tbl_wks |>
     tagList(
       tags$img(src = "../../../images/logo-blue.png", alt = "AP-LS logo", style = "width:50px;height:50px;display:inline-block;vertical-align:middle;"),
       tags$div("Details & Descriptions",  style="font-size:32px;font-weight:bold;margin-left:5px;margin-bottom:0;display:inline-block;vertical-align:middle;"), 
-      tags$h3("Wednesday March 15, 2023", style="font-family:Chivo;margin-bottom:20px;margin-top:0;font-weight:400;color:#8C8C8C;padding-left:40px;")
+      tags$h3("Wednesday March 15, 2023", style="font-family:Chivo;margin-bottom:20px;margin-top:0;font-weight:400;color:#5A6268;padding-left:40px;")
   )
   ) |> 
   #footnote and source
@@ -197,7 +197,7 @@ tags$link(href = "https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght
 .detail-label {
   margin: 1.25rem 0 0.25rem;
   font-size: 1.2rem;
-  color: #95a5a6;
+  color: var(--apls-muted, #5A6268);
   text-transform: uppercase;
 }
 .detail-header {

@@ -17,7 +17,6 @@ library(xml2)
 
 DOCS <- here::here("docs")
 
-# Skip: Quarto machinery, search page, and archived raw email HTML.
 SKIP_PREFIXES <- c("site_libs/", "search.html", "resources/newsletter/e-news/")
 
 add_issue <- function(issues, rule, rel, detail = "") {
@@ -33,8 +32,6 @@ audit_file <- function(path, rel, issues) {
   # Draft pages render as empty stubs and are not public content.
   if (is.na(body) || !nzchar(trimws(html_text2(body)))) return(issues)
 
-  # Quarto puts a default xmlns on the root element, which trips up
-  # html_element(page, "html"); xml_root() is not affected.
   root <- xml_root(page)
   lang <- xml_attr(root, "lang")
   if (is.na(lang) || !nzchar(lang)) {
@@ -60,8 +57,7 @@ audit_file <- function(path, rel, issues) {
     if (nzchar(name)) next
     inner <- xml_find_first(a, ".//img[@alt]")
     if (!is.na(inner) && nzchar(trimws(xml_attr(inner, "alt")))) next
-    # icons with role="img" and aria-label (Bootstrap Icons, iconify)
-    # give the link an accessible name
+    
     icon <- xml_find_first(a, ".//*[@role='img' and @aria-label]")
     if (!is.na(icon) && nzchar(trimws(xml_attr(icon, "aria-label")))) next
     svg_title <- xml_find_first(a, ".//*[local-name()='svg']/*[local-name()='title']")
@@ -83,14 +79,10 @@ audit_file <- function(path, rel, issues) {
   for (h in html_elements(page, "h1, h2, h3, h4, h5, h6")) {
     cls <- html_attr(h, "class")
     cls <- if (is.na(cls)) "" else cls
-    # Quarto component-generated headings: listing item titles and the
-    # categories sidebar label are emitted at fixed levels regardless of
-    # page context (patched at load time by assets/a11y.html).
+    
     if (grepl("listing-title", cls, fixed = TRUE) ||
         grepl("quarto-listing-category-title", cls, fixed = TRUE)) next
-    # Inside a panel-tabset, the tab heading becomes the tab label and is
-    # not rendered as a heading, so pane content legitimately starts one
-    # level below the tab level.
+    # Inside a panel-tabset, the tab heading becomes the tab label
     in_tab <- xml_find_first(h, "ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' tab-pane ')]")
     if (!is.na(in_tab)) next
     level <- as.integer(sub("^h", "", xml_name(h)))

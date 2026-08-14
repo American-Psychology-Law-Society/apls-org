@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Media weight audit of the built site (docs/).
+#
 #
 # Reports total site weight, the heaviest pages (HTML plus the local
 # images they load), the largest individual assets, images that exceed
@@ -18,7 +18,7 @@ write_csvs <- "--csv" %in% commandArgs(trailingOnly = TRUE)
 fmt_mb <- function(bytes) sprintf("%.2f MB", bytes / 1e6)
 fmt_kb <- function(bytes) sprintf("%.0f KB", bytes / 1e3)
 
-# ---- image dimensions without extra packages ------------------------------
+# image dimensions without extra packages
 
 png_dims <- function(path) {
   con <- file(path, "rb")
@@ -51,7 +51,7 @@ jpg_dims <- function(path) {
   c(NA, NA)
 }
 
-# ---- inventory ------------------------------------------------------------
+# inventory
 
 files <- list.files(DOCS, recursive = TRUE, full.names = TRUE)
 sizes <- file.size(files)
@@ -83,13 +83,13 @@ for (g in names(groups)) {
 img <- df[df$ext %in% groups$Images, ]
 pdf_df <- df[df$ext == "pdf", ]
 
-# ---- largest individual assets --------------------------------------------
+# largest individual assets
 
 cat("\n=== 20 largest files ===\n")
 top <- head(df[order(-df$size), ], 20)
 for (i in seq_len(nrow(top))) cat(sprintf("%9s  %s\n", fmt_mb(top$size[i]), top$rel[i]))
 
-# ---- heaviest pages (HTML + local images they reference) ------------------
+# biggest pages (HTML + local images they reference)
 
 cat("\n=== 15 heaviest pages (HTML + images loaded) ===\n")
 html_files <- df$rel[df$ext == "html" & !startsWith(df$rel, "site_libs/")]
@@ -116,9 +116,9 @@ weights <- weights[!is.na(weights)]
 wtop <- head(sort(weights, decreasing = TRUE), 15)
 for (i in seq_along(wtop)) cat(sprintf("%9s  %s\n", fmt_mb(wtop[i]), names(wtop)[i]))
 
-# ---- images over the site guidelines --------------------------------------
+# images that make size go over the site limit
 
-cat("\n=== Images over guidelines (> 300 KB or > 1600 px wide) ===\n")
+cat("\n=== Images over limit (> 300 KB or > 1600 px wide) ===\n")
 dims <- t(vapply(img$rel, function(r) {
   full <- file.path(DOCS, r)
   ext <- tolower(tools::file_ext(r))
@@ -142,7 +142,7 @@ for (i in seq_len(min(15, nrow(bad)))) {
   cat(sprintf("%9s  %-11s  %s (%s)\n", fmt_mb(bad$size[i]), dims_txt, bad$rel[i], bad$flag[i]))
 }
 
-# ---- PDFs over 1 MB --------------------------------------------------------
+# PDFs over 1 MB
 
 cat("\n=== PDFs over 1 MB ===\n")
 big_pdf <- pdf_df[pdf_df$size > 1e6, ]

@@ -4,6 +4,11 @@
   "private": true,
   "description": "Quarto website for the American Psychology-Law Society (ap-ls.org). The dev script starts Quarto's preview server.",
   "scripts": {
-    "dev": "quarto preview"
+    "dev": "quarto preview",
+    "audit": "node scripts/audit-a11y.js"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "puppeteer-core": "^25.6.0"
   }
 }

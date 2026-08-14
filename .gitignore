@@ -5,3 +5,7 @@
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Accessibility audit tooling (installed with npm install, output is local)
+node_modules/
+audit-results.json

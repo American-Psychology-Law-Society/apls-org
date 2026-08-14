@@ -143,3 +143,68 @@ body.quarto-title-banner-page .navbar {
     opacity: 0.85;
   }
 }
+
+// Category chips sit on the banner image/color. This 5-class selector
+// intentionally out-specifies the generic chip rule in _layout.scss.
+.quarto-title-block .quarto-title-banner .quarto-title .quarto-categories .quarto-category {
+  color: var(--apls-banner-fg);
+  border-color: var(--apls-banner-fg);
+  background-color: transparent;
+  opacity: 0.9;
+}
+
+// Breadcrumbs render on top of the banner photo; default navy links are
+// illegible there, so use the banner foreground and gold hover.
+.quarto-title-banner .quarto-title-breadcrumbs {
+  .breadcrumb-item,
+  .breadcrumb-item::before,
+  .breadcrumb-item a {
+    color: var(--apls-banner-fg);
+  }
+
+  // Quarto greys out the final (current-page) breadcrumb link with
+  // `.breadcrumb li:last-of-type a { color: $text-muted }` — a
+  // higher-specificity selector than the rule above. On the navy banner
+  // that gray is ~1.8:1 (fails WCAG AA), so override it explicitly.
+  .breadcrumb li:last-of-type a {
+    color: var(--apls-banner-fg);
+  }
+
+  .breadcrumb-item a:hover,
+  .breadcrumb-item a:focus {
+    color: var(--apls-nav-hl);
+  }
+}
+
+// Pages WITHOUT a title banner (e.g. the guidelines series) show the
+// breadcrumbs directly on the body background. Quarto's current-page gray
+// (#6c757d, 4.48:1 on cream) fails AA there too — use the AA-safe muted
+// token instead.
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a {
+  color: var(--apls-muted);
+}
+
+// Pages with a sidebar ALSO render a second breadcrumb copy inside the
+// slim .quarto-secondary-nav bar, which is navy. Both the plain links and
+// the current-page link must use the on-navy foreground there. This
+// selector (0,4,2) deliberately outranks the global override above.
+.quarto-secondary-nav .quarto-page-breadcrumbs {
+  .breadcrumb-item,
+  .breadcrumb-item::before,
+  .breadcrumb-item a,
+  .breadcrumb li:last-of-type a {
+    color: var(--apls-nav-fg);
+  }
+
+  .breadcrumb-item a:hover,
+  .breadcrumb-item a:focus {
+    color: var(--apls-nav-hl);
+  }
+}
+
+// Breathing room between the title banner and page content. The flush
+// rules above remove the navbar-to-banner gap; this restores the gap
+// AFTER the banner.
+#quarto-content #title-block-header {
+  margin-bottom: 2rem;
+}

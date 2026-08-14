@@ -15,7 +15,7 @@ carousel(id, duration, items)
 \code{link} elements.}
 }
 \value{
-An \code{\link[htmltools:builder]{htmltools::div()}} containing the carousel markup.
+An \code{\link[htmltools:div]{htmltools::div()}} containing the carousel markup.
 }
 \description{
 Builds a Bootstrap 5 "carousel" component from a list of items.

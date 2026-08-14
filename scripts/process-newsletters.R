@@ -3,13 +3,13 @@
 #
 # Run from project root:
 #   Rscript scripts/process-newsletters.R
+#   Rscript scripts/process-newsletters.R --skip-pdf
 #
 # Reads HTML files from:  resources/newsletter/_new_newsletters/
 # Writes Quarto pages to:  resources/newsletter/e-news/YYYY/monYYYY/
 #
 # Requirements:
 #   - R packages: here, fs, yaml, stringr, xml2, httr, base64enc
-#   - pagedown + Chrome/Chromium (for PDF generation; auto-detects Playwright)
 #
 # The script skips Gmail inbox saves (>1MB without email body) and only
 # processes single-email HTML saves. For future months, save the newsletter
@@ -26,6 +26,9 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------
 # Config
 # ------------------------------------------------------------------
+
+args <- commandArgs(trailingOnly = TRUE)
+skip_pdf <- "--skip-pdf" %in% args
 
 input_dir  <- here("resources", "newsletter", "_new_newsletters")
 output_dir <- here("resources", "newsletter", "e-news")
@@ -78,15 +81,20 @@ parse_filename <- function(fname) {
   )
 }
 
-write_index_qmd <- function(out_path, info, pdf_name) {
+write_index_qmd <- function(out_path, info, pdf_name = NULL) {
+  links <- list()
+  if (!is.null(pdf_name)) {
+    links <- list(list(icon = "file-earmark-pdf", name = "Download", url = pdf_name))
+  }
+
   frontmatter <- list(
     title = info$title,
     date  = info$date,
-    image = "logo.png",
-    links = list(
-      list(icon = "file-earmark-pdf", name = "Download", url = pdf_name)
-    )
+    image = "logo.png"
   )
+  if (length(links) > 0) {
+    frontmatter$links <- links
+  }
 
   body <- sprintf(
     "```{=html}\n<iframe class=\"news ar4x3\" src=\"./%s.html\" title=\"%s Newsletter\"></iframe>\n```",
@@ -119,6 +127,10 @@ if (length(html_files) == 0) {
 message("Found ", length(html_files), " file(s) to process:\n",
         paste("  -", path_file(html_files), collapse = "\n"))
 
+if (skip_pdf) {
+  message("\n(PDF generation skipped; use Print → Save as PDF in a browser to archive.)\n")
+}
+
 for (f in html_files) {
   info <- parse_filename(f)
 
@@ -145,7 +157,8 @@ for (f in html_files) {
   logo_path <- path(issue_dir, "logo.png")
   result <- system2(
     command = "Rscript",
-    args    = c(shQuote(extractor), shQuote(f), shQuote(out_html), shQuote(logo_path)),
+    args    = c(shQuote(extractor), shQuote(f), shQuote(out_html),
+                shQuote(logo_path), shQuote(paste0(info$title, " Newsletter"))),
     stdout  = TRUE,
     stderr  = TRUE
   )
@@ -161,24 +174,27 @@ for (f in html_files) {
     message("  Note: ", paste(result, collapse = "; "))
   }
 
-  # Generate PDF
-  message("  Generating PDF...")
-  pdf_result <- system2(
-    command = "Rscript",
-    args    = c(shQuote(pdf_converter), shQuote(out_html), shQuote(out_pdf)),
-    stdout  = TRUE,
-    stderr  = TRUE
-  )
-  pdf_exit <- if (!is.null(attr(pdf_result, "status"))) attr(pdf_result, "status") else 0
+  # Generate PDF (unless skipped)
+  pdf_name <- NULL
+  if (!skip_pdf) {
+    message("  Generating PDF...")
+    pdf_result <- system2(
+      command = "Rscript",
+      args    = c(shQuote(pdf_converter), shQuote(out_html), shQuote(out_pdf)),
+      stdout  = TRUE,
+      stderr  = TRUE
+    )
+    pdf_exit <- if (!is.null(attr(pdf_result, "status"))) attr(pdf_result, "status") else 0
 
-  if (pdf_exit != 0) {
-    warning("Failed to generate PDF for ", path_file(f), ":\n", paste(pdf_result, collapse = "\n"), call. = FALSE)
-  } else {
-    message("  PDF: ", path_rel(out_pdf, here()))
+    if (pdf_exit != 0) {
+      warning("Failed to generate PDF for ", path_file(f), ":\n", paste(pdf_result, collapse = "\n"), call. = FALSE)
+    } else {
+      message("  PDF: ", path_rel(out_pdf, here()))
+      pdf_name <- paste0(info$folder, ".pdf")
+    }
   }
 
   # Write index.qmd
-  pdf_name <- paste0(info$folder, ".pdf")
   write_index_qmd(out_index, info, pdf_name)
   message("  Done.")
 }

@@ -17,8 +17,7 @@ url: https://www.youtube.com/watch?v=Ys3hG91Vl_0
 
 This video was a part of the **Introduction to AP-LS Series** hosted by the BRIDGE Committee (formerly MAC). It features professionals' discussing topics related to diversity in the field of psychology and law. 
 
-<button type="button" class="btn btn-outline-primary">
-<a href="https://www.youtube.com/watch?v=Ys3hG91Vl_0" target="_blank">{{< fa circle-play >}} Link to video</a></button>
+<a class="btn btn-outline-primary" href="https://www.youtube.com/watch?v=Ys3hG91Vl_0" target="_blank" role="button">{{< fa circle-play >}} Link to video</a>
 <br></br>
 
 

@@ -41,11 +41,7 @@ This program includes a multidisciplinary group of panelists who will provide re
 Moderator/Discussant Info:\
 Alexander M. Millkey, PsyD- Northwest Forensic Institute, LLC
 
-<button type="button" class="btn btn-outline-primary">
-
-<a href="https://www.youtube.com/watch?v=U0V36sGUalo" target="_blank">{{< fa circle-play >}} Link to video</a>
-
-</button>
+<a class="btn btn-outline-primary" href="https://www.youtube.com/watch?v=U0V36sGUalo" target="_blank" role="button">{{< fa circle-play >}} Link to video</a>
 
 <br></br>
 

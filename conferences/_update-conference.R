@@ -13,6 +13,9 @@
 # Tab "info"                 columns: key, value
 #   keys: submissions_note, cfp_note, cfp_deadline, submission_portal_url,
 #         reviewer_form_url, hotel_note, hotel_booking_url, schedule_note,
+#         schedule_preview, registration_note, registration_url,
+#         preconference_note, rates_note, workshop_rates_note
+#         reviewer_form_url, hotel_note, hotel_booking_url, schedule_note,
 #         registration_note, registration_url, preconference_note,
 #         rates_note, workshop_rates_note
 #

@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # Build and verify the AP-LS website in one command.
 #
-# What it does, in order:
+# What it does:
 #   1. Pull the conference Google Sheet into local CSVs and rebuild the
 #      workshop pages (conferences/_update-conference.R). Safe to run any
 #      time: until a SHEET_ID is set in that script, it only rebuilds the
@@ -26,10 +26,7 @@ run_step <- function(label, code) {
   force(code)
 }
 
-# The link checker always reports a handful of references buried inside the
-# original archived email HTML (old template paths, a spark-mail URL). They
-# predate this repo and can't be fixed without rewriting historical emails.
-# Anything above this count is new and needs a look.
+# link checker
 KNOWN_EMAIL_ARCHIVE_REFS <- 8L
 
 do_update <- function() {
@@ -52,9 +49,6 @@ do_render <- function() {
 do_checks <- function() {
   failures <- 0L
 
-  # check scripts exit 1 whenever they find anything, even the known
-  # archived-email references, so suppress system2's status warning and
-  # judge by the parsed output below instead.
   a11y <- suppressWarnings(
     system2("Rscript", c(here::here("scripts", "check-a11y.R")),
             stdout = TRUE, stderr = TRUE)

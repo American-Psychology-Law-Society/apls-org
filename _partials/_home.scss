@@ -7,33 +7,225 @@ html {
 }
 
 // Let the hero carousel sit flush under the navbar. Scoped with :has() so
-// other pages keep Quarto's default main spacing.
-#quarto-content main:has(> .hero-banner) {
+// other pages keep Quarto's default main spacing. Note: the homepage uses
+// page-layout: custom, which renders no <main> element — the hero is a
+// direct child of #quarto-content.
+#quarto-content:has(> [role="main"] > .hero-banner) {
   margin-top: 0;
   padding-top: 0;
 }
 
+// ── Hero Carousel ─────────────────────────────────────────────────────
+
 .carousel.card {
-  padding-top: 2rem;
+  padding-top: 0;
+  border: none;
+  background: transparent;
 }
 
-.carousel img {
-  width: 60%;
-  margin-bottom: 110px;
+// Image container: maintain a consistent 16:9 aspect ratio
+.carousel-inner {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-width: 860px;        // keep the slide from stretching edge-to-edge
+  aspect-ratio: 4 / 3;     // squarer frame instead of a wide banner crop
+  object-fit: contain;     // never crop logo-style slides
+  object-position: center;
+  margin-inline: auto;
+  display: block;
+}
+
+// Caption: gradient backdrop for text readability over any image.
+// Width matches the slide image (max 860px, centered) instead of the full
+// hero width, so the gradient bar aligns with the image in both themes.
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  width: min(860px, 100%);
+  transform: translateX(-50%);
+  padding: 2.5rem 2rem 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--apls-nav-fg);      // cream/white text for contrast on dark overlay
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    transparent 100%
+  );
+  backdrop-filter: blur(2px);      // subtle blur for modern browsers
+
+  h3, .h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  p {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    margin-bottom: 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+}
+
+// Controls: larger, more visible hit areas with better hover feedback
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  margin-bottom: 110px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+  margin-bottom: 0;   // remove old fixed offset
 }
 
-.carousel-caption {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+// Indicators: larger, more visible dots
+.carousel-indicators {
+  bottom: 1rem;
+  margin-bottom: 0;
+
+  [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 6px;
+    background-color: rgba(255,255,255,0.5);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.8);
+    }
+  }
+
+  .active {
+    background-color: var(--apls-accent);   // gold highlight
+    border-color: var(--apls-accent);
+    transform: scale(1.15);
+  }
+}
+
+// Dark-mode carousel: adjust caption text for consistency
+[data-bs-theme="dark"],
+.quarto-dark {
+  // Re-assert the borderless carousel: the generic dark .card border in
+  // _cards.scss would otherwise frame the slide image.
+  .carousel.card {
+    border: none;
+  }
+
+  // Slides carry Bootstrap's .border utility, whose light-gray frame reads
+  // as a stray outline against the dark hero band. Hide it (the utility is
+  // !important, so this must be too).
+  .carousel-item img {
+    border-color: transparent !important;
+  }
+
+  .carousel-caption {
+    color: var(--apls-nav-fg);
+  }
+
+  .carousel-indicators [data-bs-target] {
+    background-color: rgba(255,255,255,0.4);
+    border-color: rgba(255,255,255,0.2);
+
+    &:hover, &.active {
+      background-color: var(--apls-accent);
+      border-color: var(--apls-accent);
+    }
+  }
 }
 
 // "Latest from AP-LS News" listing section
 .latest-news {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+// Soft blue background for the hero / carousel area
+.hero-banner.hero-bg-soft {
+  background-color: $blue-90;
+}
+.hero-bg-soft {
+  background-color: $blue-90;
+}
+
+// Dark mode: $blue-90 is a fixed near-white tint, so the hero would stay
+// light while body text flips to near-white. Swap to the brand's dark
+// banner surface (#0B0E14) — note --apls-bg-alt is unusable here: in the
+// dark compile it falls back to Darkly's medium gray (#424649), which
+// reads as an unfinished gray slab.
+[data-bs-theme="dark"] .hero-banner.hero-bg-soft,
+[data-bs-theme="dark"] .hero-bg-soft,
+.quarto-dark .hero-banner.hero-bg-soft,
+.quarto-dark .hero-bg-soft {
+  background-color: var(--apls-banner-bg);
+}
+
+// Consistent built-in spacing between home-page sections. The homepage
+// wraps all sections in a single div[role="main"] (page-layout: custom
+// renders no <main> element, and axe requires the landmark), so the
+// vertical rhythm applies to its direct children.
+#quarto-content > [role="main"] > * + * {
+  margin-top: 2.5rem;
+}
+
+// Welcome section: president intro text beside a ~20% avatar column.
+// Quarto renders .column divs as inline-block with inline width styles,
+// so responsive stacking must override the inline width with !important.
+.welcome-text,
+.welcome-avatar {
+  vertical-align: middle;
+}
+
+.welcome-avatar {
+  text-align: center;
+
+  // The base .avatar rule floats left with a right margin (legacy in-text
+  // layout); in its own column it should sit centered instead.
+  .avatar {
+    float: none;
+    margin-right: 0;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .welcome-spacer {
+    display: none;
+  }
+
+  .welcome-text,
+  .welcome-avatar {
+    display: block;
+    width: 100% !important;
+    padding-inline: 1.5rem;
+  }
+
+  .welcome-avatar {
+    margin-top: 1.5rem;
+  }
 }

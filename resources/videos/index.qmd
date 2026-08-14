@@ -27,8 +27,7 @@ listing:
   sort: "date desc"
 ---
 
-<button type="button" class="btn btn-outline-primary">
-<a href="https://youtube.com/@americanpsychology-lawsoci4872" target="_blank">{{< fa circle-play >}} AP-LS Youtube Channel </a></button>
+<a class="btn btn-outline-primary" href="https://youtube.com/@americanpsychology-lawsoci4872" target="_blank" role="button">{{< fa circle-play >}} AP-LS Youtube Channel </a>
 
 :::vspace2
 :::

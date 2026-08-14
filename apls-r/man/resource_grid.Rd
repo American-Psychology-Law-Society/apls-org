@@ -4,15 +4,21 @@
 \alias{resource_grid}
 \title{Resource card grid}
 \usage{
-resource_grid(content)
+resource_grid(content, title_level = 3L)
 }
 \arguments{
 \item{content}{A data frame with columns \code{category}, \code{name}, \code{icon},
 \code{url}, and \code{text}, typically built with \code{\link[=rowwise_table]{rowwise_table()}}. \code{icon} is a
 Bootstrap Icons name without the \verb{bi-} prefix.}
+
+\item{title_level}{Heading level for the card titles (integer 2–6,
+default 3). Card titles are real headings, so choose the level that
+continues the page outline: one below the heading of the section
+containing the grid. Styling is class-based (\code{.grid__title}), so the
+level does not change the cards' appearance.}
 }
 \value{
-An \code{\link[htmltools:builder]{htmltools::div()}} containing the grid markup.
+An \code{\link[htmltools:div]{htmltools::div()}} containing the grid markup.
 }
 \description{
 Builds a grid of link cards, each with a Bootstrap icon, a title, and a
@@ -23,4 +29,5 @@ content <- rowwise_table(~category, ~name, ~icon, ~url, ~text,
                          "general", "Job Posts", "briefcase-fill",
                          "jobs/", "Browse recent job listings")
 resource_grid(content)
+resource_grid(content, title_level = 2L)  # grid sitting directly under an h1
 }

@@ -2,19 +2,19 @@ project:
   type: website
   output-dir: docs
   post-render: scripts/clean-site-libs.R
-  # Only site pages render. Repo docs (README, UPDATING) and the aplsr
+  # Only site pages render. Repo docs (like the README) and the aplsr
   # package sources in apls-r/ are excluded from the website build.
-  # conference-guide/ is a standalone Quarto book for conference co-chairs
-  # and renders separately.
+  # apls-website-guide/ is a standalone Quarto book (the AP-LS Webeditor
+  # Guide) and renders separately.
   render:
     - "*.qmd"
     - "!apls-r"
     - "!scripts"
-    - "!conference-guide"
+    - "!apls-website-guide"
   resources:
     - "*.css"
     - "!conferences/_template"
-    - "!conference-guide"
+    - "!apls-website-guide"
     - "*.pdf"
     - "about/imgs/"
     - "about/presidents/imgs/*"
@@ -65,8 +65,32 @@ website:
             href: conferences/preconference/index.qmd
           - text: Past Conferences
             href: conferences/archive/index.qmd
-      - href: resources/index.qmd
-        text: Resources
+      - text: Resources
+        menu:
+          - text: All Resources
+            href: resources/index.qmd
+          - text: Forensic Guidelines
+            href: resources/guidelines/index.qmd
+          - text: Graduate Programs
+            href: resources/training/graduate.qmd
+          - text: Student Committee
+            href: resources/students/index.qmd
+          - text: Campus Representatives
+            href: resources/students/campus_reps.qmd
+          - text: Email List Requests
+            href: resources/emails/index.qmd
+          - text: Job Postings
+            href: resources/job-postings/index.qmd
+          - text: Syllabi Collection
+            href: resources/syllabi/index.qmd
+          - text: Telepsychology
+            href: resources/telepsychology/index.qmd
+          - text: Reports
+            href: resources/reports/index.qmd
+          - text: AP-LS Videos
+            href: resources/videos/index.qmd
+          - text: Newsletter Archive
+            href: resources/newsletter/index.qmd
       - text: Membership
         menu: 
           - text: About

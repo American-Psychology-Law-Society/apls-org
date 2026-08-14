@@ -56,11 +56,16 @@ typography:
       source: google
       weight: [400, 600, 700]
       style:  [normal, italic]
+    - family: lato
+      source: google
+      weight: [400, 600, 700]
+      style:  [normal, italic]
+    
 
   base:
-    family: Proza Libre
-    size:   1rem
-    weight: 300
+    family: lato
+    size:   1.1rem
+    weight: 400
 
   headings:
     family: Proza Libre #H2-H6

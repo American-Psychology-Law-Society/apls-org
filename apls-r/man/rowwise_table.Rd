@@ -11,7 +11,7 @@ rowwise_table(..., .key = NULL)
 in row-major order.}
 
 \item{.key}{Optional character vector of key columns passed to
-\code{\link[data.table:setkey]{data.table::setkeyv()}}.}
+\code{\link[data.table:setkeyv]{data.table::setkeyv()}}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}}.

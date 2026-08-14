@@ -1,3 +1,11 @@
+# aplsr 0.2.2
+
+* `resource_grid()` gains a `title_level` argument (default 3, unchanged
+  behavior) so pages can match card titles to the surrounding heading
+  outline. The homepage grid sits directly under an h1, so its h3 titles
+  skipped a level (axe heading-order violation); it now uses
+  `title_level = 2`.
+
 # aplsr 0.2.1
 
 * `carousel()` slides now carry their caption as the image `alt` text.

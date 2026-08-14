@@ -9,6 +9,8 @@ The field of psychology and law involves the application of scientific and profe
 
 While mental health professionals and behavioral scientists have been involved with the legal system in a variety of ways for many years, the decade of the 1970s witnessed the beginning of more formalized interactions. These interactions included the establishment of the first psychology-law program at the University of Nebraska at Lincoln, the formation of the American Psychology-Law Society (now Division 41 of the American Psychological Association), the initiation of an interdisciplinary journal (Law and Human Behavior) and a book series (Perspectives in Law & Psychology). Additionally, the American Board of Forensic Psychology was established in 1978 for the credentialing of psychologists specializing in forensic issues. Since that time the field has grown steadily, with an increased number of pre-doctoral and post-doctoral training programs, more journals and books devoted to psychology and law, the development of a specialized set of ethical guidelines for forensic psychologists, a regular conference held every March in addition to the annual summer meeting at the American Psychological Association convention, the involvement of psychologists in filing amicus briefs before the U.S. Supreme Court on issues relevant to psychology and law, and the presentation of a regular workshop series in clinical-forensic psychology by the American Academy of Forensic Psychology.
 
+::: {.panel-accordion multiple="true"}
+
 ### Subspecialties
 
 **Clinical-forensic psychologists** who are primarily interested in forensic practice may work in secure forensic units, community mental health centers providing specialized services, jails, prisons, court services units, specialized agencies, or in private practice conducting forensic assessment and treatment relevant to legal decision-making. They may also be involved in teaching, training, or supervision in a department of psychology, a medical school, a hospital, an interdisciplinary institute, or a clinic. Such professionals may also be involved in conducting research and scholarship in areas such as violence risk assessment, treatment needs and response, and decision-making strategies.
@@ -49,7 +51,11 @@ Forensic psychology, and the larger area of psychology and law, have both enjoye
 
 Psychology and law has also grown steadily within academic areas. Although some programs are specifically devoted to this specialty, it is more common to find faculties with one or two members who are interested in some aspect of psychology and law (see Graduate Programs in Psychology and Law for a listing of specialty programs). It is likely that the availability of these kinds of positions will be subject to other influences (such as the availability of faculty positions generally), but such availability should compare favorably with most other specialties.
 
+:::
+
 ## **Subspecialties in psychology and law: A closer look**
+
+::: {.panel-accordion multiple="true"}
 
 ## Clinical and Forensic Psychology
 
@@ -134,6 +140,8 @@ The community psychology approach uses an ecological perspective to examine issu
 ### **Educational and Training Requirements**
 
 Community psychologists working in law-related areas are typically trained in community psychology graduate programs, several of which have special emphasis on law or policy. During graduate school, students usually work with a faculty member on research projects relevant to psychology and law. A number of community psychology programs emphasize field placements that integrate research and action, so students often obtain experience in state or local government, non-profit, or advocacy settings on research, policy, or intervention issues. Some graduate students develop additional expertise in other areas of psychology such as developmental, social, and quantitative. A few obtain law or policy degrees, but they are not required. The PhD is required for employment at a college or university, and for some jobs in other settings. Students who obtain a master\'s degree may be able to find employment in advocacy, policy, service, or community action settings.
+
+:::
 
 ## **Training opportunities in psychology and law**
 

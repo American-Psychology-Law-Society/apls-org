@@ -192,7 +192,7 @@ tbl <- reactable(sd,
                                      subtitle <- if (!is.na(subtitle)) subtitle else ""
                                      div(
                                        div(style = "font-weight: 900; line-height: 1.3; font-size: .875rem; color: #343a40", value),
-                                       div(style = "font-size: .775rem; color: #737475", subtitle)
+                                       div(style = "font-size: .775rem; color: var(--apls-muted, #5A6268)", subtitle)
                                      )
                                    }
                                  ),

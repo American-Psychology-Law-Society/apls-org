@@ -39,8 +39,8 @@ data <- tele |>
   mutate(col_colors = case_when(
     type == 'Forensic' ~ '#4271B3',
     type == 'Non-forensic' ~ '#1B3264',
-    type == 'General' ~ 'gray',
-             TRUE ~ '#FBF9F4'),
+    type == 'General' ~ '#5A6268',
+             TRUE ~ '#5A6268'),
     img = knitr::image_uri("link.png")
 ) |> 
   select(type, name, img, url, cite, col_colors)
@@ -59,7 +59,7 @@ tbl <- reactable(
         name = "Type",
         cell = pill_buttons(
           data,
-          opacity = 0.8,
+          opacity = 1,
           color_ref = 'col_colors',
           text_size = 14,
       ),
@@ -85,7 +85,7 @@ tbl <- reactable(
         filterable = FALSE,
         html = TRUE,
         cell = function(value, index) {
-        sprintf('<a href="%s" target="_blank"><image src="%s" style="width:30px;height:30px;"/></a>', data$url[index], value)
+        sprintf('<a href="%s" target="_blank" aria-label="Open resource link"><image src="%s" alt="" style="width:30px;height:30px;"/></a>', data$url[index], value)
       }
     ),
     

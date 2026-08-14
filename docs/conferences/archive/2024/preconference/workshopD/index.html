@@ -49,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-68b8bdb5329f7db499b052c84b40a032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-c91b007edb4c75716c5e119d8f0c24be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-dark-6b3e3a6dfd2caf8713a10399d1bcb21c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../../site_libs/bootstrap/bootstrap-c91b007edb4c75716c5e119d8f0c24be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-64ff3d620504c0fba8f85a7bbd2ee756.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-7131681b6da8cd3cd3d0585670121841.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../../site_libs/bootstrap/bootstrap-64ff3d620504c0fba8f85a7bbd2ee756.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../../site_libs/quarto-contrib/panel-accordion-0.0.1/panel-accordion.js"></script>
 <script src="../../../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
@@ -342,10 +342,61 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../../resources/index.html"> 
-<span class="menu-text">Resources</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/index.html">
+ <span class="dropdown-text">All Resources</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/guidelines/index.html">
+ <span class="dropdown-text">Forensic Guidelines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/training/graduate.html">
+ <span class="dropdown-text">Graduate Programs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/students/index.html">
+ <span class="dropdown-text">Student Committee</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/students/campus_reps.html">
+ <span class="dropdown-text">Campus Representatives</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/emails/index.html">
+ <span class="dropdown-text">Email List Requests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/job-postings/index.html">
+ <span class="dropdown-text">Job Postings</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/syllabi/index.html">
+ <span class="dropdown-text">Syllabi Collection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/telepsychology/index.html">
+ <span class="dropdown-text">Telepsychology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/reports/index.html">
+ <span class="dropdown-text">Reports</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/videos/index.html">
+ <span class="dropdown-text">AP-LS Videos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../resources/newsletter/index.html">
+ <span class="dropdown-text">Newsletter Archive</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-membership" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Membership</span>
@@ -506,6 +557,62 @@ document.addEventListener("DOMContentLoaded", function () {
     el.replaceWith(h3);
   });
 });
+
+// Widget accessibility fixes for client-rendered htmlwidgets. These run
+// after the widgets mount, so a MutationObserver re-applies them whenever
+// a reactable/crosstalk widget (re)draws.
+(function () {
+  function fixWidgets() {
+    // reactable sets role="table" on .rt-table but gives its header/body
+    // containers no rowgroup role, so rows are orphaned (axe
+    // aria-required-children, serious). Add the missing roles.
+    document.querySelectorAll(".rt-table .rt-thead:not([role]), .rt-table .rt-tbody:not([role])").forEach(function (el) {
+      el.setAttribute("role", "rowgroup");
+    });
+
+    // reactable parks its aria-live status announcer INSIDE the
+    // role="table" container, where a generic div is not an allowed child
+    // (axe aria-required-children). Moving it out of the table keeps the
+    // announcements working — a live region does not need to sit inside
+    // the widget to be announced.
+    document.querySelectorAll(".rt-table div[aria-live]").forEach(function (el) {
+      var widget = el.closest(".ReactTable");
+      if (widget && widget !== el.parentElement) widget.appendChild(el);
+    });
+
+    // reactable's search box is an unlabeled text input (axe label).
+    document.querySelectorAll(".rt-search:not([aria-label])").forEach(function (el) {
+      el.setAttribute("aria-label", "Search table");
+    });
+
+    // crosstalk filter dropdowns build selectize inputs without labels
+    // (axe label). Name them from the filter group's visible label; the
+    // stock crosstalk markup ships an empty <label>, so fall back to the
+    // group id when it has no text.
+    document.querySelectorAll(".selectize-input > input:not([data-a11y-done])").forEach(function (el) {
+      var group = el.closest(".crosstalk-input") || el.closest("[id]");
+      var label = group && group.querySelector("label");
+      var text = label && label.textContent.trim();
+      if (!text && group && group.id) text = "Filter by " + group.id.replace(/_/g, " ");
+      el.setAttribute("aria-label", text || "Filter table");
+      // Mark as handled: selectize re-creates its input on redraw, but the
+      // :not() guard above keeps us from re-adding a label it already has.
+      el.setAttribute("data-a11y-done", "1");
+    });
+  }
+
+  var scheduled = false;
+  var observer = new MutationObserver(function () {
+    if (scheduled) return;
+    scheduled = true;
+    setTimeout(function () { scheduled = false; fixWidgets(); }, 150);
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    fixWidgets();
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

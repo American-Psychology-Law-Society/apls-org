@@ -7,6 +7,7 @@ description: |
   The annual conference for the American Psychology-Law Society for 2027 will be held in Louisville, Kentucky from March 18-20th.
 includesource: true
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(aplsr)     # rowwise_table()
@@ -17,8 +18,6 @@ library(stringr)   # str_c()
 # Conference facts and rates come from conferences/data/*.csv, which
 # conferences/_update-conference.R refreshes from the conference Google
 # Sheet. Edit the Sheet and re-run that script; do not edit the values here.
-# The path is built from this document's location so the page keeps reading
-# its own year's data after it moves into the archive.
 library(readr)
 data_dir <- file.path(dirname(knitr::current_input(dir = TRUE)), "data")
 conf_info <- read_csv(file.path(data_dir, "info.csv"),
@@ -27,6 +26,20 @@ info <- setNames(as.list(conf_info$value), conf_info$key)
 info <- lapply(info, function(x) if (is.na(x)) "" else x)
 rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
                   col_types = cols(.default = "c"), show_col_types = FALSE)
+
+# Derive CFP status for the banner
+# Priority: if submission_portal_url is set → "open"
+#           if cfp_deadline is in the past → "closed"
+#           otherwise → "upcoming"
+cfp_status <- "upcoming"
+if (nzchar(info$submission_portal_url)) {
+  cfp_status <- "open"
+} else if (nzchar(info$cfp_deadline)) {
+  deadline <- as.Date(info$cfp_deadline, optional = TRUE)
+  if (!is.na(deadline) && deadline < Sys.Date()) {
+    cfp_status <- "closed"
+  }
+}
 ```
 
 :::::: column-screen
@@ -40,12 +53,36 @@ rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
 
 [{{< fa calendar aria-hidden="true" >}} March 18-20, 2027]{.h5}
 
+```{r hero-buttons}
+#| echo: false
+#| results: asis
+
+# Build hero buttons dynamically based on what info is available
+hero_btns <- character(0)
+
+if (cfp_status == "open" && nzchar(info$submission_portal_url)) {
+  hero_btns <- c(hero_btns,
+    sprintf('[Submit a Proposal {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-action-primary .btn-lg role="button"}',
+            info$submission_portal_url))
+}
+if (nzchar(info$registration_url)) {
+  hero_btns <- c(hero_btns,
+    sprintf('[Register {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role="button"}',
+            info$registration_url))
+}
+
+if (length(hero_btns) > 0) {
+  cat("::: hero-buttons\n")
+  cat(paste(hero_btns, collapse = "\n"), "\n")
+  cat(":::\n")
+}
+```
+
 ::::
 :::::
 ::::::
 
 ::: {.column-screen}
-::: grid
 ::: {.alt-background-blue}
 
 ```{r toc}
@@ -53,19 +90,17 @@ rates <- read_csv(file.path(data_dir, "registration-rates.csv"),
 #| warning: false
 #| message: false
 
+# Five navigation items — Hotel and Archives are now inside tabset sections
 content <- rowwise_table(
   ~name, ~icon, ~link,
-  "General", "info-circle", "#info",             
-  "Proposals", "send", "cfp/index.qmd",
+  "General", "info-circle", "#info",
+  "Proposals", "send", "#proposals",
   "Registration", "person-add", "#registration",
-  "Hotel", "airplane", "#hotel",
   "Schedule", "person-workspace", "#schedule",
-  "Workshops", "easel", "preconference/index.qmd",
-  "Archives", "journal-text", "archive/index.qmd"
+  "Workshops", "easel", "#preconference"
 )
 
 div(
-  class = "bg-light",
   div(
     class = "bg-breakout",
     div(
@@ -97,87 +132,24 @@ div(
 ```
 :::
 :::
-:::
 
 ::: vspace
 :::
 
 ## General Information {#info}
 
-<figure class="text-end">
+::: {.panel-tabset .box-shadow}
 
-<blockquote class="blockquote">
+### {{< fa circle-info >}} Conference
 
-<p class="mb-0">
-
-If you have any questions or comments about the conference, please contact the conference co-chairs at [conference\@ap-ls.org](mailto:conference@ap-ls.org) <br>
-
-Looking forward to seeing everyone in March!
-
-<figcaption class="blockquote-footer">
-
-2027 AP-LS Conference Co-Chairs 
-
-</figcaption>
-
-</figure>
+> If you have any questions or comments about the conference, please contact the conference co-chairs at [conference\@ap-ls.org](mailto:conference@ap-ls.org)  
+> Looking forward to seeing everyone in March!
+>
+> — **2027 AP-LS Conference Co-Chairs**
 
 ![](images/apls2027.png){fig-alt="2027 AP-LS Conference logo"}
 
-::: vspace
-:::
-
-<hr>
-
-::: vspace
-:::
-
-
-::::: column-screen
-:::: {.simple-info-blue .alt-background-blue}
-::: content-block-blue
-[Want to learn more about the [AP-LS Annual Conference]{.highlight}?]{.h6}
-
-[Learn More {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
-:::
-::::
-:::::
-
-::: vspace
-:::
-
-## Submissions {#proposals}
-
-::: vspace
-:::
-
-### Call for proposals
-
-::: vspace
-:::
-
-::: simple-info-center
-
-[`r info$submissions_note`]{.h5}
-
-[Call for Proposals {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
-
-:::
-
-::: vspace
-:::
-
-<hr>
-
-::: vspace
-:::
-
-## Hotel Information {#hotel}
-
-::: vspace
-:::
-
-### Marriott Louisville Downtown
+### {{< fa hotel >}} Hotel
 
 ::: vspace
 :::
@@ -190,9 +162,6 @@ Looking forward to seeing everyone in March!
 [The 2027 AP-LS Conference will be held at the [Louisville Marriott Downtown](https://www.gotolouisville.com/directory/louisville-marriott-downtown/)]{.h6}
 
 **Location:** 280 W Jefferson St, Louisville, KY 40202
-
-::: vspace
-:::
 
 ```{r}
 #| echo: false
@@ -223,30 +192,148 @@ if (nzchar(info$hotel_booking_url)) {
 }
 ```
 
+:::
 
 ::: vspace
 :::
 
-<hr>
+---
 
 ::: vspace
 :::
 
-## Schedule {#schedule}
+## Submissions {#proposals}
+
+::: {.panel-tabset .box-shadow}
+
+### {{< fa envelope-open-text >}} Overview
+
+```{r cfp-banner}
+#| echo: false
+#| results: asis
+
+# CFP status banner — styled callout based on derived status
+if (cfp_status == "open") {
+  cat(
+    '::: {.callout-important appearance="minimal"}',
+    '### Call for Proposals is Open',
+    '',
+    sprintf('**Deadline:** %s', ifelse(nzchar(info$cfp_deadline), info$cfp_deadline, "See submission portal for deadline")),
+    '',
+    info$submissions_note,
+    '',
+    sprintf('[Submit a Proposal {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-action-primary .btn-lg role="button"}',
+            info$submission_portal_url),
+    ':::\n',
+    sep = "\n"
+  )
+} else if (cfp_status == "closed") {
+  cat(
+    '::: {.callout-note appearance="minimal"}',
+    '### Call for Proposals is Closed',
+    '',
+    'Submissions are no longer being accepted. Thank you to everyone who submitted!',
+    '',
+    sprintf('[View CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}'),
+    ':::\n',
+    sep = "\n"
+  )
+} else {
+  # upcoming
+  cat(
+    '::: {.callout-tip appearance="minimal"}',
+    '### Call for Proposals Coming Soon',
+    '',
+    info$submissions_note,
+    '',
+    sprintf('[View CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}'),
+    ':::\n',
+    sep = "\n"
+  )
+}
+```
+
+### {{< fa file-lines >}} Details
 
 ::: vspace
 :::
 
 ::: simple-info-center
 
-[`r info$schedule_note`]{.h5}
+[`r info$cfp_note`]{.h5}
+
+[Full CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
 
 :::
 
 ::: vspace
 :::
 
-<hr>
+:::
+
+::: vspace
+:::
+
+---
+
+::: vspace
+:::
+
+## Schedule {#schedule}
+
+::: {.panel-tabset .box-shadow}
+
+### {{< fa calendar-days >}} Overview
+
+::: simple-info-center
+
+[`r ifelse(nzchar(info$schedule_preview), info$schedule_preview, info$schedule_note)`]{.h5}
+
+:::
+
+### {{< fa list-check >}} At a Glance
+
+::: {.alt-background-blue}
+::: content-block-blue
+
+#### Conference at a Glance
+
+::: {.grid .grid-three}
+
+::: {.grid__item}
+##### Thursday, March 18
+
+- Preconference Workshops
+- Evening Welcome Reception
+:::
+
+::: {.grid__item}
+##### Friday, March 19
+
+- Morning Plenary
+- Paper & Symposium Sessions
+- Evening Poster Session
+:::
+
+::: {.grid__item}
+##### Saturday, March 20
+
+- Morning Paper & Symposium Sessions
+- Data Blitz
+- Closing Events
+:::
+
+:::
+
+:::
+:::
+
+:::
+
+::: vspace
+:::
+
+---
 
 ::: vspace
 :::
@@ -257,22 +344,25 @@ if (nzchar(info$hotel_booking_url)) {
 
 ### {{< fa bullhorn >}} Info
 
+::: vspace
+:::
+
+::: simple-info-center
+
+[`r info$registration_note`]{.h5}
+
 ```{r}
 #| echo: false
 #| results: asis
-# Registration: when registration_url is set in the Sheet, a Register
-# button appears under the note.
-reg_lines <- c("::: simple-info-center", "",
-               paste0("[", info$registration_note, "]{.h5}"), "")
 if (nzchar(info$registration_url)) {
-  reg_lines <- c(reg_lines,
-                 sprintf("[Register {{< fa arrow-right aria-hidden=\"true\" >}}](%s){.btn-action .btn .btn-secondary .btn-lg role=\"button\"}",
-                         info$registration_url),
-                 "")
+  cat(
+    sprintf("[Register {{< fa arrow-right aria-hidden=\"true\" >}}](%s){.btn-action .btn .btn-action-primary .btn-lg role=\"button\"}",
+            info$registration_url)
+  )
 }
-reg_lines <- c(reg_lines, ":::")
-cat(reg_lines, sep = "\n")
 ```
+
+:::
 
 ::: vspace
 :::
@@ -283,7 +373,7 @@ cat(reg_lines, sep = "\n")
 :::
 
 ::: {.callout-note appearance="simple"}
-### REGISTRATION RATES & INCLUSIONS
+### Registration Rates & Inclusions
 
 *`r info$rates_note`*
 
@@ -303,15 +393,16 @@ cat(knitr::kable(rates,
 ::: vspace
 :::
 
-<hr>
+---
 
 ::: vspace
 :::
 
 ## Preconference Workshops {#preconference}
 
-::: vspace
-:::
+::: {.panel-tabset .box-shadow}
+
+### {{< fa circle-info >}} About
 
 [[{{< fa calendar aria-hidden="true" >}} Wednesday, March 17, 2027]{.highlight}]{.h6}
 
@@ -320,16 +411,51 @@ cat(knitr::kable(rates,
 ::: vspace
 :::
 
-<!-- Workshop pricing and descriptions live on the preconference
-     sub-page (preconference/index.qmd). -->
-
 ::: simple-info-center
 
 [`r info$preconference_note`]{.h5}
 
+:::
+
+### {{< fa chalkboard-user >}} Workshops
+
+::: vspace
+:::
+
+::: simple-info-center
+
+Workshop topics, presenters, and pricing details are available on the preconference workshops page.
+
 [Pricing & Details {{< fa arrow-right aria-hidden="true" >}}](preconference/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
 
 :::
+
+::: vspace
+:::
+
+:::
+
+::: vspace
+:::
+
+---
+
+::: vspace
+:::
+
+::::: column-screen
+:::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+
+### Looking for past conferences?
+
+Explore proceedings, programs, and photos from previous AP-LS annual conferences in our archives.
+
+[Browse Archives {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+::::
+:::::
 
 ::: vspace
 :::

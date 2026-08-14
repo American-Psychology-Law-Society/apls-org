@@ -74,13 +74,17 @@ local function iframe_helper(file_name, height, full_screen_link, template, type
     <p><a href=%q target="_blank">View %s in full screen</a></p>
   ]]
 
+  -- iframes require a title for screen readers (axe frame-title); name it
+  -- after the embedded file
+  local iframe_title = "Embedded " .. type .. ": " .. file_name
+
   -- Combine the template with file name and height to generate HTML code
   local combined_str = string.format(
     [[%s %s]], 
     -- Include full-screen link if specified
     (full_screen_link == "true" and string.format(template_full_screen, file_name, type) or ""), 
-    -- Insert the iframe template with file name and height
-    string.format(template, file_name, height)
+    -- Insert the iframe template with file name, height, and title
+    string.format(template, file_name, height, iframe_title)
   )
   
   -- Return the combined HTML as a pandoc RawBlock
@@ -100,7 +104,7 @@ local function html(args, kwargs, meta, raw_args)
   -- Define the template for embedding HTML files
   local template_html = [[
     <div>
-      <iframe src=%q height=%q></iframe>
+      <iframe src=%q height=%q title=%q></iframe>
     </div>
   ]]
 
@@ -124,7 +128,7 @@ local function revealjs(args, kwargs, meta, raw_args)
   -- Define the template for embedding Reveal.js slides
   local template_revealjs = [[
     <div>
-      <iframe class="slide-deck" src=%q height=%q></iframe>
+      <iframe class="slide-deck" src=%q height=%q title=%q></iframe>
     </div>
   ]]
 

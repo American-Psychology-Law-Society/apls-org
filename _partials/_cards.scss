@@ -42,6 +42,59 @@
   }
 }
 
+// ── Listing grid cards ────────────────────────────────────────────────
+// Pin background and foreground together so cards can never end up with
+// dark text on a dark background.
+
+.quarto-grid-item.card {
+  background-color: var(--apls-card-bg);
+  color: var(--apls-fg);
+
+  .card-title,
+  .listing-title,
+  .listing-title a {
+    color: var(--apls-heading);
+  }
+
+  .card-text,
+  .listing-description,
+  .listing-description p {
+    color: var(--apls-fg);
+  }
+
+  .listing-categories .listing-category {
+    color: var(--apls-heading);
+    border-color: var(--apls-heading) !important;
+    background-color: transparent;
+  }
+}
+
+// Explicit coordinated hover for listing grid cards: subtle surface tint
+// with text colors pinned, so hover can never strand dark text on a dark
+// fill (or light text on a light fill).
+.quarto-grid-item.card:hover,
+.quarto-grid-link:hover .quarto-grid-item.card,
+.quarto-grid-link:focus .quarto-grid-item.card {
+  background-color: var(--apls-card-hover);
+
+  .card-title,
+  .listing-title,
+  .listing-title a {
+    color: var(--apls-heading);
+  }
+
+  .card-text,
+  .listing-description,
+  .listing-description p {
+    color: var(--apls-fg);
+  }
+
+  .listing-categories .listing-category {
+    color: var(--apls-heading);
+    border-color: var(--apls-heading) !important;
+  }
+}
+
 .quarto-grid-item {
   transition: transform 0.5s;
 
@@ -234,6 +287,23 @@ h5,
     min-height: 8.375rem;
     border-bottom: 0.0625rem solid var(--apls-border);
     border-right: 0.0625rem solid var(--apls-border);
+    box-shadow: var(--apls-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--apls-shadow-hover);
+      // Darken the card AND flip text/icon to cream so hover stays legible
+      background-color: var(--apls-primary);
+
+      .boxed-feature-grid__title {
+        color: var(--apls-nav-fg);
+      }
+
+      .boxed-feature-grid__icon i {
+        color: var(--apls-nav-fg);
+      }
+    }
 
     @media (max-width: 767px) {
       width: calc(100% / 2);
@@ -267,6 +337,22 @@ h5,
   &__link {
     border-bottom: 0;
     text-decoration: none;
+  }
+}
+
+// Dark mode: the hover fill uses the lightened --apls-primary (#6B9FD4), so
+// cream hover text collapses to ~2.6:1. Use the lighter primary-dark fill
+// with dark text instead (~7.5:1).
+[data-bs-theme="dark"] .boxed-feature-grid__item:hover,
+.quarto-dark .boxed-feature-grid__item:hover {
+  background-color: var(--apls-primary-dark);
+
+  .boxed-feature-grid__title {
+    color: var(--apls-bg);
+  }
+
+  .boxed-feature-grid__icon i {
+    color: var(--apls-bg);
   }
 }
 

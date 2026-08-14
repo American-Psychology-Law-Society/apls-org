@@ -13,10 +13,12 @@
     box-shadow: 0 20px 35px 0 hsl(67deg 37% 57%);
     &::after { width: 100%; }
   }
-  &-header   { background-color: var(--apls-); padding-left: 0; border-bottom: 0; }
+  &-header   { background-color: var(--apls-card-bg); padding-left: 0; border-bottom: 0; }
   &-title    { margin-bottom: 1rem; padding-left: 0; font-size: 1.5rem; color: var(--apls-heading); }
   &-block    { padding-top: 0; }
-  &-subtitle { letter-spacing: 0; padding-left: 0; color: var(--apls-primary-light); font-size: 0.9rem; margin-left: 0; margin-bottom: 0.6rem; }
+  // opacity: Quarto's default heading styles set h3/h4 to opacity .9, which
+  // dilutes the subtitle below WCAG AA on the cream card background.
+  &-subtitle { letter-spacing: 0; padding-left: 0; color: var(--apls-primary-light); font-size: 0.9rem; margin-left: 0; margin-bottom: 0.6rem; opacity: 1; }
   .list-group-item {
     border: 0; padding: 0.5rem; color: var(--apls-heading); font-weight: 300; font-size: 1rem;
     list-style: none; position: relative; margin-left: 30px; margin-bottom: 0.5rem;

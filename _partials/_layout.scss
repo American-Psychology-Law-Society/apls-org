@@ -40,6 +40,11 @@
   background-color: var(--apls-nav-bg);
   border-top: 1px solid var(--apls-border);
   border-bottom: 1px solid var(--apls-border);
+  // Full-bleed band regardless of the width of the container it sits in
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
 }
 
 // ── Heading guard ─────────────────────────────────────────────────────
@@ -114,6 +119,14 @@
   color: var(--apls-accent-contrast);
 }
 
+// Dark mode: primary becomes a light blue, so gold text on it drops to
+// ~2.7:1. Switch the badge to the dark band background and keep the gold.
+[data-bs-theme="dark"] .highlight,
+.quarto-dark .highlight {
+  background-color: var(--apls-banner-bg);
+  color: var(--apls-accent);
+}
+
 // ── Avatar ────────────────────────────────────────────────────────────
 
 .avatar {
@@ -174,6 +187,23 @@
   background-color: transparent;
 }
 
+// Vertical spacers used in page layouts
+.vspace {
+  height: 1.5rem;
+}
+
+.vspace2 {
+  height: 3rem;
+}
+
+.info-bar-wrapper {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
 .info-bar-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -207,6 +237,25 @@ blockquote,
 .blockquote {
   color: var(--apls-muted) !important;
   border-left: 4px solid var(--apls-primary);
+}
+
+// ── Figure captions ───────────────────────────────────────────────────
+// Bootstrap's $figure-caption-color / .blockquote-footer color resolve to
+// $gray-600 (#95a5a6, ≈2.4:1 on cream — fails WCAG AA), and Quarto's own
+// caption rules compile to the cream body color here (invisible on cream).
+// One rule, after all of those, covering every caption variant Quarto and
+// Bootstrap emit. Pandoc puts blockquote attributions in
+// <figcaption class="blockquote-footer">, so that class must be listed
+// explicitly — a bare `figcaption` selector loses to it on specificity.
+
+figcaption,
+.figure-caption,
+.blockquote-footer,
+.panel-caption,
+.subfigure-caption,
+.table-caption,
+caption {
+  color: var(--apls-muted);
 }
 
 // ── Sidebar ───────────────────────────────────────────────────────────
@@ -378,5 +427,19 @@ div.quarto-post .listing-categories .listing-category,
       background-color: var(--apls-banner-fg) !important;
       color: var(--apls-banner-bg) !important;
     }
+  }
+}
+
+// Front-matter `links:` buttons (e.g. newsletter PDF downloads) render as
+// .btn-outline-primary directly inside the navy title block — navy text on
+// navy is 1.35:1, so flip them to the on-navy palette.
+#title-block-header.award-post .btn-outline-primary {
+  color: var(--apls-banner-fg) !important;
+  border-color: var(--apls-banner-fg) !important;
+
+  &:hover,
+  &:focus {
+    color: var(--apls-banner-bg) !important;
+    background-color: var(--apls-banner-fg) !important;
   }
 }

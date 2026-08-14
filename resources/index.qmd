@@ -31,6 +31,8 @@ content = rowwise_table(
   "general", "Telepsychology", "telephone", "telepsychology/telepsychology.html", "Collection of articles and resources about telepsychology",
   "general", "Reports", "folder", "reports/index.html", "Access reports by AP-LS committees and taskforces", 
   "general", "Forensic Guidelines", "file-earmark-ruled", "guidelines/index.html", "Specialty Guidelines for Forensic Psychologists from APA",
+  "general", "Student Committee", "mortarboard", "students/index.html", "AP-LS Student Committee resources, funding, and opportunities",
+  "general", "Campus Representatives", "people", "students/campus_reps.html", "Campus Representative Program for student affiliates",
   "general", "Pets of AP-LS", "emoji-heart-eyes", "https://emmarshall.github.io/apls-pets/", "Gallery of pets")
 setkeyv(content, "category")
 ```

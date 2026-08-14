@@ -17,8 +17,7 @@ url: https://www.youtube.com/watch?v=DW_oyZD7C0Y
 
 This video was a part of the **Introduction to AP-LS Series** hosted by the BRIDGE Committee (formerly MAC). It features professionals' discussing topics related to diversity in the field of psychology and law.  
 
-<button type="button" class="btn btn-outline-primary">
-<a href="https://www.youtube.com/watch?v=DW_oyZD7C0Y" target="_blank">{{< fa circle-play >}} Link to video</a></button>
+<a class="btn btn-outline-primary" href="https://www.youtube.com/watch?v=DW_oyZD7C0Y" target="_blank" role="button">{{< fa circle-play >}} Link to video</a>
 <br></br>
 
 <div id="youtube-frame-DW_oyZD7C0Y" class="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/DW_oyZD7C0Y" title="YouTube video: Sam Sommers on his Research about the Impact of Jury Diversity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>

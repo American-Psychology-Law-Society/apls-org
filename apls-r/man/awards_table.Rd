@@ -26,7 +26,7 @@ column. Extra columns are hidden unless named in \code{detail}.}
 \item{page_size}{Rows per page. Default \code{60}.}
 }
 \value{
-An \code{\link[htmltools:builder]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
+An \code{\link[htmltools:div]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
 }
 \description{
 Renders a two- (or three-) column table of award recipients by year, in the

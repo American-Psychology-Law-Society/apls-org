@@ -91,6 +91,6 @@ quarto render conferences/cfp/index.qmd
 quarto render conferences/preconference
 ```
 
-or render the whole site with `quarto render`. Details are in
-`UPDATING.md` at the project root, and a co-chair walkthrough is in
-`conference-guide/`.
+or render the whole site with `quarto render`. A co-chair walkthrough is in
+the AP-LS Webeditor Guide (`apls-website-guide/`, "The conference website"
+part), and the site overview is in `README.md` at the project root.

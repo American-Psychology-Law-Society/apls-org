@@ -30,7 +30,9 @@ library(data.table) # setkeyv()
 
 
 
-::: {.hero-banner .column-screen}
+::::: {role="main"}
+
+:::: {.hero-banner .hero-bg-soft .column-screen}
 ::: {.inner-container}
 
 ```{r}
@@ -44,10 +46,9 @@ carousel("gallery-carousel", 5000,
 
 
 :::
-:::
+::::
 
 ::: {.column-screen}
-::: grid
 ::: {.alt-background-blue}
 
 ```{r}
@@ -63,8 +64,8 @@ content = rowwise_table(~name, ~icon, ~link,
     "Students", "mortarboard-fill", "resources/students/index.html"
   
 )
-div(class = "bg-light",
- div(class = "bg-breakout",
+div(
+  class = "bg-breakout",
     div(class = "inner-container",
       div(class = "boxed-wrapper",
             div(class = "boxed-feature-grid",
@@ -82,27 +83,20 @@ div(class = "bg-light",
       )
     )
   )
-)
 
 ```
 :::
 :::
+
+
+
+::: {.column .welcome-spacer width="15%"}
 :::
 
-::: {.column .col-v-center width="15%"}
-:::
-
-::: {.column .col-v-center width="70%"}
+::: {.column .welcome-text width="49%"}
 
 ::: vspace
-::: 
-
-```{r}
-#| echo: false
-#| fig.alt: "Headshot of AP-LS President Randy Salekin"
-#| out.extra: 'class="avatar img-fluid"'
-knitr::include_graphics("about/presidents/imgs/randy_salekin.jpg")
-```
+:::
 
 # Welcome from Our President
 ::: vspace
@@ -121,38 +115,17 @@ knitr::include_graphics("about/presidents/imgs/randy_salekin.jpg")
 :::
 :::
 
+::: {.column .welcome-avatar width="20%"}
 
-::: column-screen
-::: {.simple-info-blue .alt-background-blue}
-::: content-block-blue
-::: heading-guard
-:::
-## Get ready for the 2027 American Psychology-Law Society Conference!
-
-Louisville, KY---March 18-20
-
-[Learn more {{< fa arrow-right >}}](conferences/index.html){.btn-action .btn .btn-secondary .btn-lg role="button"}
-:::
+```{r}
+#| echo: false
+#| fig.alt: "Headshot of AP-LS President Randy Salekin"
+#| out.extra: 'class="avatar img-fluid"'
+knitr::include_graphics("about/presidents/imgs/randy_salekin.jpg")
+```
 :::
 
-::: {.column .col-v-center width="15%"}
-:::
-
-::: {.column .col-v-center .latest-news width="70%"}
-
-::: vspace2
-:::
-
-## The Latest from AP-LS News
-
-::: {#latest-news}
-:::
-
-[Browse past issues](newsletter/index.html)
-
-:::
-
-::: {.column .col-v-center width="15%"}
+::: {.column .welcome-spacer width="15%"}
 :::
 
 ::: {.column .col-v-center width="70%"}
@@ -180,10 +153,44 @@ setkeyv(content, "category")
 
 
 ```{r, echo = FALSE}
-resource_grid(content[.("general")])
+# This grid directly follows the h1 president welcome, so its card titles
+# are h2 to keep the heading outline contiguous (axe heading-order).
+resource_grid(content[("general")], title_level = 2L)
 ```
 
 :::
+
+
+::: column-screen
+::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+::: heading-guard
+:::
+## Get ready for the 2027 American Psychology-Law Society Conference!
+
+Louisville, KY---March 18-20
+
+[Learn more {{< fa arrow-right >}}](conferences/index.html){.btn-action .btn .btn-secondary .btn-lg role="button"}
+:::
+:::
 :::
 
+::: {.column .col-v-center width="15%"}
+:::
 
+::: {.column .col-v-center .latest-news width="70%"}
+
+::: vspace2
+:::
+
+## The Latest from AP-LS News
+
+::: {#latest-news}
+:::
+
+::: about-link
+[Browse past issues](newsletter/index.html)
+:::
+
+:::
+:::::

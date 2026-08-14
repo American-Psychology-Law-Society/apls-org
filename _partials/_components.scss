@@ -240,6 +240,7 @@
   padding: 0;
   background-color: var(--apls-card-bg);  // was lighten(#FBF9F4, 5%) — hardcoded
   color: var(--apls-fg);
+  border-radius: 0 0 8px 8px;
 }
 
 .tab-pane { padding: 5px; margin: 20px; }
@@ -256,51 +257,19 @@
     min-width: 102px;
     border-radius: inherit;
     border: inherit;
+    background-color: transparent;
+    transition: all 0.2s ease;
 
-    &:hover  { border-bottom: 4px solid var(--apls-primary); }
+    &:hover  {
+      border-bottom: 4px solid var(--apls-primary);
+      background-color: var(--apls-bg-alt);
+    }
     &.active {
       color: var(--apls-primary);    // was hardcoded #1B3264
       border-bottom: 4px solid var(--apls-primary);
       background-color: transparent;
     }
   }
-}
-
-// ── Carousel ─────────────────────────────────────────────────────────
-
-.carousel-caption {
-  position: absolute;
-  text-transform: uppercase;
-  right: 15%; bottom: 1.25rem; left: 15%;
-  padding: 1.1rem 0;
-  color: var(--apls-fg);             // was $body-color — SCSS var baked at compile
-  text-align: center;
-}
-
-.carousel .carousel-control-prev-icon,
-.carousel .carousel-control-next-icon { margin-bottom: 110px; }
-
-.carousel-dark {
-  .carousel-indicators [data-bs-target] { background-color: var(--apls-bg); }
-  .carousel-caption { color: var(--apls-fg); }
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 0; bottom: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15%;
-  padding: 0;
-  color: var(--apls-fg) !important;  // was $body-color
-  text-align: center;
-  background: none;
-  border: 0;
-  opacity: 0.5;
-  transition: opacity 0.15s ease;
 }
 
 // ── Custom metadata layout ────────────────────────────────────────────

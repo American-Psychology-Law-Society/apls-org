@@ -133,7 +133,7 @@ tbl_grid <- reactable(
     grid,
     merged_name     = "author_affiliation",
     merged_size     = 13,
-    merged_color    = "#737475",   # $gray
+    merged_color    = "var(--apls-muted, #5A6268)",   # AA-safe muted
     merged_position = "below",
     size            = 16,
     color           = "#1B3264"    # $blue
@@ -146,7 +146,7 @@ course_name = colDef(
     grid,
     merged_name     = "date",
     merged_size     = 13,
-    merged_color    = "#737475",   # $gray
+    merged_color    = "var(--apls-muted, #5A6268)",   # AA-safe muted
     merged_position = "below",
     size            = 16,
     color           = "#1B3264"    # $blue
@@ -159,7 +159,7 @@ course_name = colDef(
       html       = TRUE,
       cell       = function(value, index) {
         sprintf(
-          '<a href="%s" target="_blank"><image src="%s" style="width:20px;height:30px;"/></a>',
+          '<a href="%s" target="_blank" aria-label="Open syllabus file"><image src="%s" alt="" style="width:20px;height:30px;"/></a>',
           grid$attachment[index], value
         )
       }

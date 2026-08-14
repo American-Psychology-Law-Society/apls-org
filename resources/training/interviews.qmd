@@ -85,6 +85,8 @@ format:
 
 ## Graduate School
 
+:::: {.panel-accordion multiple="true"}
+
 ##### **What do you consider to be the most important skill and/or the most important lesson for students to learn in graduate school?**
 
 
@@ -328,7 +330,11 @@ format:
 
 -   The ability to think critically. (Darryl Johnson)
 
+::::
+
 ## Internships
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What was the most helpful advice you received when you were applying for internship?**
 
@@ -354,7 +360,11 @@ format:
 
 -   Research Experience. The more, the better. Ideally, an undergraduate honor's thesis, where you can really do something independently (or quasi-independently). My strongest undergraduate students have not only completed honor's theses, but have published them in strong peer-review journals. This sort of experience stands out head and shoulders above the typical applicant. Note: this advice is true even for students who want a purely clinical career. You're going to have to do research to get out of graduate school and knowing how to do that before you begin is the best evidence that you'll be able to get through the program. This process should begin immediately, but with the focus on classes and research. I would recommend waiting until the 3 rd year to do a specialized externship, after first getting some general training. Balancing forensic and general clinical experience is crucial throughout training. Overconfidence and anxiety. Some students believe they have a \"sure thing\" because a site where they did their externship training has winked at them when discussing internship. Usually this backfires. The flip side is excessive anxiety. Nothing can kill an applicant's chance more than appearing highly anxious. You should be comfortable with your skills **and** your limitations, and capable of discussing both. (Barry Rosenfield)
 
+::::
+
 ## Legal training
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **How can students with backgrounds primarily in law (e.g., JD students) but with an interest in forensic psychology become more involved in the field? Should law students with an interest in forensic psychology scholarship consider an LL.M. or JSD/SJD degree? What would you advise those students of?**
 
@@ -402,7 +412,11 @@ format:
 
 -   There is so much work needed to be done in the intersection of international human rights and mental disability law that screams out for individuals with joint degrees and \"crossover\" training. There are NGOs working in this area. There are many areas of sophisticated litigation for which this cohort of individuals is especially suited. And much more. (Michael Perlin)
 
+::::
+
 ## Dual degree training
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What do you typically apprise students interested in pursuing dual-degree training of?**
 
@@ -444,7 +458,11 @@ format:
 
 -   I don't have one of these jobs, so my advice may not be all that good. My only advice would be to try to do some work like this while in graduate school. My university has a number of centers that focus on policy where students can often get some hands-on experience. If your university does not have something like that, then try to find someplace in your community (or apply for a fellowship to work someplace in D.C.) that will let you volunteer or work to give you this experience. (Eve Brank)
 
+::::
+
 ## Early career and mentoring
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What are your \"keys to success\" in productivity? In teaching? In mentoring?**
 
@@ -524,7 +542,11 @@ format:
 
 -   I wish I knew just how competitive it is out there on the job market. There are lots of highly qualified young academics who are struggling to find positions. Don't feel bad if you don't get an offer the first (or second) year you are on the market. There are very few positions out there and it may take some time to find one. (Jennifer Eno Louden)
 
+::::
+
 ## Professional development
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What advice can you offer about maintaining balance between your professional life and your personal life?**
 
@@ -598,7 +620,7 @@ format:
 
 -   While I did a lot of \"networking\" in my younger days, I'm really not sure it did any good other than making a lot of friends. So now I have plenty of people to have dinner with at conferences, which is good -- it makes the conferences much more fun to attend. But that's really all it gets you. For any real career enhancement, I think you need to let your CV do the talking. Networking will only get you so far -- the rest has to be earned. The networker who is only in the room because he or she has schmoozed their way in doesn't get any real benefit from the exposure. You want senior scholars to speak highly of your accomplishments, not your social skills. But once you get into the room, just relax. Don't try to overwhelm people with your accomplishments or connections. (Barry Rosenfield)
 
-#### What advice do you have for students submitting manuscripts for publication/ What is the most common mistake?
+##### **What advice do you have for students submitting manuscripts for publication/ What is the most common mistake?**
 
 -   Starting out, students need a mentor who knows the process. There are some tricky issues along the way. The first is journal selection. I give a lot of thought to the journal to which I send a particular paper---depending on the topic fit, the magnitude of contribution, and so forth. If you have data that are both new and important, don't sell yourself short---go to the most visible, most respected, highest impact journal of relevance to the topic. Journal choice is an often-overlooked first consideration. In fact, I usually make this decision before I write the manuscript because of the implications it has for length, language, and assumptions you can make about the readership. If I am writing for the *American Psychologist* I am acutely aware that readers will include psychologists who are not forensic. With *Psychological Science* you have to know that they will only publish data that demonstrate something completely new; a variant on an existing phenomenon is not enough. With *Law and Human Behavior* , of course, you know you're aiming for the flagship journal of our field---a journal that rejects more manuscripts than it accepts. The newer *Psychology, Crime and Law* reaches a similar audience. The second bit of advice I have about submitting manuscripts for publication is don't ever submit a paper that you have not put through two, three, or four drafts. My students sometimes complain about the way I butcher their first efforts, but I butcher my own first drafts in the same way. I'd say produce a draft, work it over, give it to a friend to read, and then work it over again. You only get one shot at the journal you've chosen; make it your best shot. Third, I would encourage students to take some care in the letter they write to the editor accompanying their submission. It's in this letter that you indicate to the editor why you see the research as important and that particular journal as appropriate. Even more important is how you handle the possible next phase. Often you will get a revise-and-resubmit decision, an opportunity to address reviewer concerns in a revision and convince the editor that the revised paper is worthy of publication. What you produce at this time should be careful, conscientious, and responsive to the reviewers. At this stage, your revision letter to the editor\--in which you describe what changes you made or did not make\--can be as important as the revision itself. (Saul Kassin)
 
@@ -690,7 +712,11 @@ format:
 
 -   I mentor undergraduates in a non-research setting. My most important job is to help them gain an appreciation and excitement for learning. I also need to help them understand what makes someone a good and successful learner so that one day when they come to you they are ready. (Ryann Leonard)
 
+::::
+
 ## Service 
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What have you gained from organization memberships such as APA and AP-LS? How have these experiences contributed to your career goals?**
 
@@ -728,7 +754,11 @@ format:
 
 -   I do. For years, I had an identity crisis as I straddled the line between being social psychology and psychology-and-law. I like to think that we are psychologists first and forensic second. This enables us to bring one-hundred plus years of basic psychology to bear on law and legal decision-making rather than reinvent the wheel. As far as keeping a foot in another division---very good idea. Whether neuro, social, cognitive, developmental, or clinical, I think students should join another division and publish in non-forensic journals. It makes the field as a whole stronger. (Saul Kassin)
 
+::::
+
 ## General psychology and law information
+
+:::: {.panel-accordion multiple="true"}
 
 ##### **What do you think are the most important research areas in the next 10 years?\***
 
@@ -817,6 +847,8 @@ format:
 ##### **What do you think have been the most significant developments in the field since you entered it?**
 
 -   Believe it or not, I think the most profound development comes from outside the field---it comes from the science of DNA. I remember when the promise of using new DNA technologies to identify criminals and exclude innocent suspects first started to become a reality. Everyone assumed it would render psychology useless. In fact, by shining a spotlight on eyewitness mistakes, false confessions, informants, and other human \"errors,\" DNA has had the exact opposite effect. Another significant development has to do with the impact our work has had in the legal system. When I first entered the field, the courts were not much citing the work published in psychology journals. The news media were not all that engaged either. In this CSI generation, all that has changed. I think the credit for this development can be shared across the areas of the field as a whole. We now know that when we publish in our journals, there is a wider audience out there. *Law and Human Behavior* has become successful in terms of all standard metrics of readership, impact, and market value. It is now a valuable asset for the organization as a whole. We should not take that for granted---it is not happening in most other divisions of APA. It's one way that our division has moved forward significantly over the last 30 years. (Saul Kassin)
+
+::::
 
 :::
 

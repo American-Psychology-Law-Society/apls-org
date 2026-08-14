@@ -13,7 +13,7 @@ book_awards_table(data, page_size = 20)
 \item{page_size}{Rows per page. Default \code{20}.}
 }
 \value{
-An \code{\link[htmltools:builder]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
+An \code{\link[htmltools:div]{htmltools::div()}} wrapping a \code{\link[reactable:reactable]{reactable::reactable()}} widget.
 }
 \description{
 Renders the Lawrence S. Wrightsman Book Award recipients as a

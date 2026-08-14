@@ -21,6 +21,14 @@
   }
 }
 
+// Quarto's listing dates (homepage news cards, listing grids) inherit
+// Bootstrap's #6c757d muted gray — 4.48:1 on cream, just under the WCAG AA
+// 4.5:1 threshold. No site rule sets their color, so pin them to the
+// AA-compliant muted token.
+.listing-date {
+  color: var(--apls-muted);
+}
+
 .event-post, .award-post {
   .quarto-title .quarto-categories {
     margin-top: 0.5rem;

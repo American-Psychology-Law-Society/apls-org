@@ -13,8 +13,7 @@ categories:
 url: https://www.youtube.com/watch?v=JvtAU3ewoZk
 ---
 
-<button type="button" class="btn btn-outline-success">
-<a href="https://www.youtube.com/watch?v=JvtAU3ewoZk" target="_blank">{{< fa circle-play >}} video</a></button>
+<a class="btn btn-outline-success" href="https://www.youtube.com/watch?v=JvtAU3ewoZk" target="_blank" role="button">{{< fa circle-play >}} video</a>
 <br></br>
 
 ## Overview 
