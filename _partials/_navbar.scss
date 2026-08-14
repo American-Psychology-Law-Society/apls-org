@@ -202,9 +202,61 @@ body.quarto-title-banner-page .navbar {
   }
 }
 
-// Breathing room between the title banner and page content. The flush
-// rules above remove the navbar-to-banner gap; this restores the gap
-// AFTER the banner.
-#quarto-content #title-block-header {
-  margin-bottom: 2rem;
+// The title block is a direct child of <body>, a sibling of
+// #quarto-content — not its descendant. Normal pages keep Quarto's
+// default 1rem gap after the banner, but when the page content opens
+// with a full-bleed band (e.g. a column-screen alt-background grid),
+// that gap reads as a rendering bug, so remove it there.
+// :has() degrades gracefully: old browsers keep the gap.
+#title-block-header:has(+ #quarto-content .column-screen:first-child) {
+  margin-bottom: 0;
+}
+
+// ── Navbar dropdown menus ─────────────────────────────────────────────
+// The navbar carries data-bs-theme="dark" (it is navy in both modes), so
+// the dark-scoped brand variables apply inside it — including over its
+// dropdown menus, which are cream in light mode. The dark-mode link blue
+// (#6B9FD4) leaked onto menu items through the generic `a:link` rule,
+// which out-specifies Bootstrap's `.dropdown-item` (2.8:1 on cream, fails
+// WCAG AA). Pin the menu item colors with the brand palette explicitly.
+.navbar .dropdown-menu {
+  .dropdown-item,
+  .dropdown-item:link,
+  .dropdown-item:visited {
+    color: #212529;                  // brand foreground (light-mode menu is cream)
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    color: #1B3264;                  // brand blue (navy)
+    background-color: #e8ebf0;       // $blue-90 tint
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    color: #FBF9F4;                  // cream on navy
+    background-color: #1B3264;
+  }
+}
+
+// In full dark mode the menu itself goes dark; flip the pinned colors.
+[data-bs-theme="dark"] .navbar .dropdown-menu,
+.quarto-dark .navbar .dropdown-menu {
+  .dropdown-item,
+  .dropdown-item:link,
+  .dropdown-item:visited {
+    color: #fdfdfd;                  // brand foreground (dark)
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    color: #E1E8F5;                  // dark-light
+    background-color: #191E29;       // dark-bg against dark-bg-alt menu
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    color: #191E29;                  // dark-bg on lightened primary
+    background-color: #6B9FD4;
+  }
 }

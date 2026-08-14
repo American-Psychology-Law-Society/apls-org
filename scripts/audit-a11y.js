@@ -117,6 +117,19 @@ function walk(dir) {
   const axePath = require.resolve('axe-core/axe.min.js');
 
   for (const rel of slice) {
+    // Quarto renders `draft: true` pages as an empty HTML shell (no
+    // <title>, empty or missing <body>) — nothing to audit, and axe
+    // would report a spurious document-title violation. Skip them.
+    const raw = fs.readFileSync(path.join(DOCS, rel), 'utf8');
+    const isDraftShell =
+      !/<title[\s>]/i.test(raw) &&
+      (/<body>\s*<\/body>/i.test(raw) || !/<body[\s>]/i.test(raw));
+    if (isDraftShell) {
+      results[rel] = { skipped: 'draft stub (empty render)' };
+      console.log('skip ' + rel + ' — draft stub');
+      fs.writeFileSync(RESULTS, JSON.stringify(results, null, 1));
+      continue;
+    }
     try {
       await page.goto(`http://127.0.0.1:${port}${rel}`, { waitUntil: 'domcontentloaded' });
       await new Promise((r) => setTimeout(r, 700));
@@ -151,9 +164,10 @@ function walk(dir) {
 
   const bad = Object.entries(results).filter(([, v]) => (v.violations || []).length > 0);
   const errs = Object.entries(results).filter(([, v]) => v.error);
+  const skipped = Object.entries(results).filter(([, v]) => v.skipped);
   console.log('------------------------------------------------------------');
   console.log(`Audited ${slice.length} page(s) this run, ${Object.keys(results).length} total in ${path.basename(RESULTS)}.`);
-  console.log(`Pages with violations: ${bad.length}. Pages with errors: ${errs.length}.`);
+  console.log(`Pages with violations: ${bad.length}. Pages with errors: ${errs.length}. Draft stubs skipped: ${skipped.length}.`);
   for (const [p, v] of bad) {
     console.log(`  ${p}: ${v.violations.map((x) => `${x.id}(${x.nodes})`).join(', ')}`);
   }

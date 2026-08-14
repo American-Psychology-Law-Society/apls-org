@@ -23,47 +23,78 @@ library(htmltools) # div(), tags$*, a(), span()
 library(purrr)     # pmap()
 ```
 
-::: {.column-page-inset}
-```{r}
-#| label: Submit new jobs
+
+::: {.column-screen}
+::: {.alt-background-blue}
+
+```{r toc}
 #| echo: false
 #| message: false
 #| warning: false
-#| classes: '.g-col-lg-6 .g-col-12 .g-col-md-12'
 
-content = rowwise_table(~icon, ~text, ~link,
-          "send",          
-            "Post a job",
+content = rowwise_table(~name, ~icon, ~link,
+          "Post a job",
+            "send",
               "https://apls.memberclicks.net/job-posting-request#!/",
-          "clipboard2-pulse",          
-            "Post a Clinical-forensic Postdoc",
+          "Post a Clinical-forensic Postdoc",
+            "clipboard2-pulse",
               "https://docs.google.com/forms/d/e/1FAIpQLSeyn6YEW7-mne6RsT-yzTMN8HNSXQjuHYPP1DtW7gQq11H9eA/viewform",
-          "clipboard2-data",          
-            "Post a Research Postdoc",
-              "https://docs.google.com/forms/d/e/1FAIpQLSfF4iosPXi8pDFG46leWvMk70mnu1qxNzxslH5qfp0JxBqL9A/viewform"
+          "Post a Research Postdoc",
+            "clipboard2-data",
+              "https://docs.google.com/forms/d/e/1FAIpQLSfF4iosPXi8pDFG46leWvMk70mnu1qxNzxslH5qfp0JxBqL9A/viewform",
+          "Academic Positions",
+            "mortarboard",
+              "#academic-positions",
+          "Professional Positions",
+            "briefcase",
+              "#professional-positions"
 )
-div(class = "feature-grid",
-  pmap(content, function(icon, text, link) {
-    div(class = "feature-grid__item",
-        div(class="feature-grid__icon",
-          a(href = link, class = "feature-grid__link", `aria-label` = text,
-            tags$i(class = sprintf("bi-%s feature-grid__i", icon))
-         )
-       ),
-      text
+
+div(
+  div(
+    class = "bg-breakout",
+    div(
+      class = "inner-container",
+      div(
+        class = "boxed-wrapper",
+        div(
+          class = "boxed-feature-grid",
+          pmap(content, \(name, icon, link) {
+            div(
+              class = "boxed-feature-grid__item",
+              div(
+                class = "boxed-feature-grid__icon",
+                a(
+                  href = link, 
+                  class = "boxed-feature-grid__link",
+                  `aria-label` = name,
+                  tags$i(class = sprintf("bi-%s boxed-feature-grid__i", icon))
+                )
+              ),
+              div(class = "boxed-feature-grid__title", name)
+            )
+          })
+        )
+      )
     )
-  })
+  )
 )
 ```
+
+:::
+:::
+
+::: vspace
 :::
 
 
-## {{< fa graduation-cap >}} Academic Positions
+
+## {{< fa graduation-cap >}} Academic Positions {#academic-positions}
 
 ::: {#academic}
 :::
 
-## {{< fa user-tie >}} Professional Positions
+## {{< fa user-tie >}} Professional Positions {#professional-positions}
 
 ::: {#professional}
 :::

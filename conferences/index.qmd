@@ -338,6 +338,24 @@ if (cfp_status == "open") {
 ::: vspace
 :::
 
+
+::::: column-screen
+:::: {.simple-info-blue .alt-background-blue}
+::: content-block-blue
+
+### Looking for past conferences?
+
+Explore proceedings, programs, and photos from previous AP-LS annual conferences in our archives.
+
+[Browse Archives {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+:::
+::::
+:::::
+
+::: vspace
+:::
+
 ## Registration {#registration}
 
 ::: {.panel-tabset .box-shadow}
@@ -435,27 +453,3 @@ Workshop topics, presenters, and pricing details are available on the preconfere
 
 :::
 
-::: vspace
-:::
-
----
-
-::: vspace
-:::
-
-::::: column-screen
-:::: {.simple-info-blue .alt-background-blue}
-::: content-block-blue
-
-### Looking for past conferences?
-
-Explore proceedings, programs, and photos from previous AP-LS annual conferences in our archives.
-
-[Browse Archives {{< fa arrow-right aria-hidden="true" >}}](archive/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
-
-:::
-::::
-:::::
-
-::: vspace
-:::

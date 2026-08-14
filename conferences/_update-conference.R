@@ -45,10 +45,10 @@ library(here)
 # Public sheet ("anyone with the link can view"), read-only, no login needed.
 gs4_deauth()
 
-# Paste the Sheet's ID here once the web editor creates it (the long string
-# in the Sheet's URL, between /d/ and /edit). conferences/sheet-seed/ has
-# import-ready CSVs and a walkthrough for creating the Sheet.
-SHEET_ID <- "PASTE-THE-SHEET-ID-HERE"
+# The Sheet's ID (the long string in the Sheet's URL, between /d/ and
+# /edit). conferences/sheet-id/ has the seed workbook and a walkthrough
+# for creating a fresh Sheet if one is ever needed.
+SHEET_ID <- "1269j-Ty_EEvj4C7w-EUDCUWcgWHh89gSYjfgw2II5Ds"
 
 data_dir <- here("conferences", "data")
 

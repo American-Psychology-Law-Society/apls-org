@@ -17,7 +17,7 @@ library(here)
 # Public sheet ("anyone with the link can view"), read-only, no login needed.
 gs4_deauth()
 
-SHEET_ID <- "1QZ2IU2gI5Fj91LX3coIoVXHWHWExOVuL3wb3IHu1cvE"
+SHEET_ID <- "1iePnIxlQRviQ5Hf7Vayzgh59UzidN_pS72wUUHnSTbA"
 
 out_dir <- here("awards", "data")
 

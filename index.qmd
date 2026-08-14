@@ -189,7 +189,7 @@ Louisville, KY---March 18-20
 :::
 
 ::: about-link
-[Browse past issues](newsletter/index.html)
+[Browse past issues](resources/newsletter/index.html)
 :::
 
 :::

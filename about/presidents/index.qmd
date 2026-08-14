@@ -9,7 +9,7 @@ about:
   image-width: 14em
   links:
     - icon: people-fill
-      text: 2024-2025 Leadership
+      text: EC Leadership
       href: "https://ap-ls.org/about/leadership"
       aria-label: Link to leadership page
     - icon: info-circle

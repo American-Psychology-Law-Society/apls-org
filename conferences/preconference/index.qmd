@@ -12,12 +12,8 @@ listing:
     fields: [title, subtitle, categories]
 ---
 
-<!--
-STAGE 2: when workshops are confirmed (expected Fall 2026), add one
-folder per workshop by copying conferences/_template/preconference/workshop_1/
-and editing its front matter. The grid below fills in automatically.
-Once workshops exist, set sort-ui and filter-ui above to true.
--->
+::: vspace2
+:::
 
 ```{r setup, include=FALSE}
 # Workshop rates and notes come from conferences/data/*.csv, refreshed from
@@ -59,7 +55,8 @@ rate_table <- function(day_type) {
 :::
 :::
 
-
+::: vspace2
+:::
 
 ## {{< fa circle-info >}}Pricing Information{#price}
 

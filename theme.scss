@@ -115,10 +115,13 @@ body {
   --apls-nav-fg:          #{$cream};
   --apls-nav-hl:          #{$yellow};
 
-  --apls-card-bg:         color-mix(in srgb, var(--apls-bg) 90%, white 10%);
-  // Percentages must total 100% — the previous 80/10 mix rendered the card
-  // background 10% transparent, letting dark bands bleed through the cards.
-  --apls-card-bg-alt:     color-mix(in srgb, var(--apls-bg) 88%, white 12%);
+  // Solid hexes, NOT color-mix(): browsers without color-mix support
+  // (Safari < 16.2, Chrome < 111) invalidate the variable, leaving card
+  // backgrounds transparent so the navy ::after hover shadow bleeds
+  // through and fills the card on hover. Values below are the exact
+  // mixes, precomputed: cream 90% + white 10% and 88% + 12%.
+  --apls-card-bg:         #FBFAF5;
+  --apls-card-bg-alt:     #FAF8F4;
   // Card hover tint. NOT --apls-bg-alt: in the light compile that is
   // $secondary = #FBF9F4, identical to the body background (invisible).
   --apls-card-hover:      #{$blue-90};
@@ -150,7 +153,12 @@ body {
   --apls-primary-light: #{$blue-60};
   // Dark hover tint: lighten the card surface, not $blue-90 (a fixed
   // near-white that would strand light text on a light fill).
-  --apls-card-hover:   color-mix(in srgb, var(--apls-card-bg) 75%, white 25%);
+  // Solid hexes (see the color-mix note above): card background is the
+  // dark body #212529 mixed with 10% / 12% white, precomputed; hover is
+  // that surface lightened by 25% white.
+  --apls-card-bg:      #373B3E;
+  --apls-card-bg-alt:  #3C3F43;
+  --apls-card-hover:   #696C6E;
   // Muted text must lighten on dark backgrounds: #6c757d would be ~3.5:1
   // on #191E29 (fails AA). #9AA3B0 is ≈6.4:1 on the dark body background.
   --apls-muted:        #9AA3B0;
