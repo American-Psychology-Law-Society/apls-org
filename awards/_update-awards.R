@@ -1,13 +1,11 @@
 # Update awards/data/*.csv from the AP-LS Award Winners Google Sheet.
 #
-# Mirrors about/_update-ec.R. Run manually whenever the winners Sheet changes:
-#   source("awards/_update-awards.R")     # from the project root
-# The committed CSVs are what the award pages render, so the site build never
-# depends on Google being reachable.
-#
-# ASSUMPTION: each tab in the Sheet has the same structure (tab names + column
-# headers) as the source workbook. If you rename a tab or column, update the
-# mapping in `tabs` below.
+# Run manually whenever the winners Sheet changes w/
+#   source("awards/_update-awards.R")     # do it from the project root
+# NOTE: The committed CSVs are what the award pages render, so the site build never
+# depends on Google being reachable. But each tab in the Google Sheet has 
+# the same structure (tab names + column
+# headers) as the source workbook -- RE-NAMING anything will cause problems!!
 
 library(googlesheets4)
 library(dplyr)
