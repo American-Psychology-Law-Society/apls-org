@@ -15,6 +15,16 @@ test_that("awards_table() accepts a detail column", {
   expect_s3_class(awards_table(df, detail = "detail"), "shiny.tag")
 })
 
+test_that("awards_table() accepts detail_label and subtitle", {
+  df <- data.frame(
+    year = 2025, name = "A. Smith",
+    institution = "Some University", grant = "Small grant"
+  )
+  out <- awards_table(df, detail = "institution",
+                      detail_label = "Institution", subtitle = "grant")
+  expect_s3_class(out, "shiny.tag")
+})
+
 test_that("book_awards_table() returns an htmltools tag", {
   df <- data.frame(
     year = "2026", author = "Ed.", title = "A Book",

@@ -32,7 +32,10 @@ tabs <- list(
   list(tab = "dissertation",    file = "dissertation.csv",
        cols = c("year", "first", "second", "third")),
   list(tab = "distinguished",   file = "distinguished.csv",
-       cols = c("year", "name"))
+       cols = c("year", "name")),
+  list(tab = "REID",            file = "reid.csv",
+       cols = c("year", "name", "institution", "project_title",
+                "award_type", "award_amount"))
 )
 
 write_tab <- function(spec) {

@@ -1,0 +1,99 @@
+---
+title: "Scientific Review Paper (SRP) Committee"
+#date: last-modified
+description: |
+  Terms of reference for the AP-LS Scientific Review Paper Committee and the
+  process for approving and completing Scientific Review Papers.
+title-block-banner: "../images/banners/default-banner.png"
+toc: true
+---
+
+[{{< fa arrow-left aria-hidden="true" >}} Committees & Task Forces](../about/committees.qmd){.btn .btn-outline-primary .btn-sm role="button"}
+
+## Terms of Reference of the Scientific Review Paper (SRP) Committee
+
+### Responsibilities
+
+The committee oversees the process by which scientific review papers are prepared, reviewed, and approved. Only those topics that are approved by the Executive Committee of the AP-LS will be considered for a scientific review paper. The committee chair is responsible for appointing the lead author, working with the lead author, and approving additional members of the writing group. The committee chair will ensure that the process involves extensive opportunities for wide input from AP-LS members, which will normally include postings of a draft for the AP-LS member comments, presentations of the paper at an AP-LS and an APA annual conference meeting, and targeted reviews by other experts solicited by the committee chair as appropriate, including the editor of *Law and Human Behavior*. The manuscript will be submitted to *Law and Human Behavior* for publication and requires approval of the Executive Committee of AP-LS before it becomes an official scientific review paper of the AP-LS.
+
+### Relation to AP-LS Vision, Mission, and Values
+
+The Scientific Review Paper Committee supports the following aspects of the AP-LS mission: A unifying force for psychology-law science and practice; the major catalyst for the stimulation and growth and dissemination of psychology-law science and practice; the primary resource for all psychology-law scholars and practitioners and for members of other disciplines with interest in psychology-law science and practice; the leading advocate for psychology-law knowledge and practice informing practitioners, policymakers, and the public to use psychology-law knowledge in the pursuit of justice for all citizens; a principle leader and global partner promoting psychology-law knowledge and methods to improve justice in diverse, multicultural and international contexts; and an effective champion of the application of psychology-law to promote human rights, dignity, and justice.
+
+The Scientific Review Paper Committee also supports the AP-LS core values of: continual pursuit of excellence; knowledge and application based on methods of science; outstanding service to its members and to society; social justice, diversity and inclusion; and ethical action in all that we do. Scientific Review Paper topics must reach a high point of scientific clarity and consensus among the AP-LS members to justify consideration.
+
+### Meetings
+
+The SRP chair and committee members meet on an as-needed basis.
+
+### Membership
+
+The Committee consists of a Chair and additional AP-LS members as determined by the committee needs. The Chair and Members are appointed by the AP-LS President and typically serve 3-year terms each. Committee members should be relatively senior in the field. To the extent possible, members of the committee should ideally represent different areas of research and/or practice. Typically, the Chair of the SRP committee is first designated by their fellow SRP committee members and then officially appointed by the AP-LS President.
+
+### Reporting
+
+The Committee provides a semi-annual written report to the Executive Committee as requested by the AP-LS President. The Chair attends the Executive Committee meetings to discuss the report as needed.
+
+## Process for Approving and Completing Scientific Review Papers
+
+### Goals of American Psychology-Law Society Scientific Review Papers
+
+In 1995, the AP-LS Executive Committee approved an initiative to "write Scientific Review Papers summarizing the psychological research in specific policy areas" (Wiener, 1998). The key goals are:
+
+1.  to objectively summarize the research literature in areas where there is a high degree of scientific clarity and consensus; and
+
+2.  to serve as a science translation document, providing guidelines and recommendations useful to police, lawyers, judges, legislators, and the public.
+
+The Scientific Review Paper (SRP) Committee also supports the AP-LS core values of: continual pursuit of excellence; knowledge and application based on methods of science; outstanding service to its members and to society; social justice, diversity and inclusion; and ethical action in all that we do.
+
+### SRP Approval and Completion Process
+
+A researcher (or researchers) who is a leader in their field and who would like to propose an SRP in their research area that fulfills the above goals can submit a proposal to the Chair of the SRP Committee via email. Proposals may also be solicited by the SRP Committee after the committee agrees that a particular area has potential for an SRP. Potential authors should note that writing an AP-LS SRP is a significant, long-term commitment. The process can take years from topic approval to publication, and anyone submitting a proposal should have the capacity to invest in the SRP and the associated approval process long term. The process is author-led with the SRP Committee working with the author(s) to guide the paper through the approval process.
+
+Authors must agree to follow and adhere to the "Steps in the development and completion of an SRP" described below.
+
+### Proposal Guidelines
+
+Proposals should be approximately 2-4 pages single spaced. The following proposal sections are required:
+
+1.  **Background/Significance:** Please describe why an SRP in the proposed area is justified and how an SRP on the topic fulfills the SRP goals described above.
+
+2.  **List of Authors:** Please indicate why you are qualified to lead the proposed SRP. Also, please provide a list of potential co-authors and describe their suitability to fulfill the co-author role in the proposed topic area.
+
+3.  **Proposed Timeline:** Please propose a timeline for completion of the proposed SRP that is in line with the "steps in the development and completion of an SRP" section described next.
+
+4.  **Suggested Reviewers:** Please provide the names, affiliations, and email addresses of up to three individuals who would be well suited to review your SRP proposal.
+
+There is no specific deadline for these proposals, and the SRP Committee will review them on a rolling basis. Proposals that are considered to have merit will progress to the AP-LS Executive Committee (EC) discussion and an EC vote.
+
+### Steps in the Development and Completion of an SRP
+
+1.  Submission of a proposal to the Scientific Review Paper (SRP) Committee.
+
+2.  Approval of the proposed SRP topic by a vote of the AP-LS Executive Committee.
+
+3.  Approval of the authors by the SRP Committee Chair in consultation with the SRP Committee and the AP-LS Executive Committee.
+
+4.  Once a draft of the paper has been produced, it is made available to members of the AP-LS in order to solicit members' feedback on the draft.
+
+5.  Presentations and open hearings are held at the APA and AP-LS meetings to provide members with an opportunity to publicly comment on the paper. The order of these hearings will depend on when the paper is ready for such hearings.
+
+6.  A draft of the SRP is sent out to three or more reviewers selected by the SRP Committee in consultation with the AP-LS Executive Committee.
+
+7.  Once the authors incorporate feedback from the outside reviewers and AP-LS membership, the paper is submitted to *Law and Human Behavior* for possible publication. The paper goes through the typical LHB peer-review process, and is accepted or rejected for publication. If the paper is accepted, as a condition of financial support from AP-LS, the authors must select the gold open access option for publication. AP-LS will pay the article processing charge.
+
+8.  If the paper is accepted for publication in LHB, the AP-LS Executive Committee must vote to approve the paper as an official SRP of the AP-LS.
+
+9.  LHB Editors are encouraged to invite the submission of brief commentaries on the SRP for possible publication in LHB.
+
+Depending on the feedback received at open hearings and/or review of posted drafts of the SRP, there may also be additional steps, such as further vetting of the emerging draft by a Scientific Advisory Board appointed by the Executive Committee, and/or another open hearing.
+
+Papers that become official Scientific Review Papers of AP-LS are expected to be revisited by the SRP Committee every 7-10 years, in consultation with experts in that topic area, following their publication. Updated SRPs will be approved and completed following the above steps.
+
+### References
+
+Committee Terms of Reference and By-Laws on the American Psychology-Law Society website
+
+Costanzo, M., & Levett, L. M. (2020). The American Psychology–Law Society scientific review paper on the collection and preservation of eyewitness identification evidence. *Law and Human Behavior, 44*(1), 1-2. doi: [10.1037/lhb0000366](https://doi.org/10.1037/lhb0000366)
+
+Thompson, W. (2010). An American Psychology-Law Society Scientific Review Paper on Police Interrogation and Confession. *Law and Human Behavior, 34*, 1-2. doi: [10.1007/s10979-009-9213-9](https://doi.org/10.1007/s10979-009-9213-9)

@@ -7,7 +7,7 @@ categories:
 submission-info: 
   sponsor: AP-LS Research Committee
   deadline: 
-  - "October 15, `r if (Sys.Date() > lubridate::mdy(paste('October 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Pre-proposal)"
+  - "October 16, `r if (Sys.Date() > lubridate::mdy(paste('October 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Pre-proposal)"
   - "December 16, `r if (Sys.Date() > lubridate::mdy(paste('December 16', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Full-proposal)"
 links:
 - icon: envelope-at
@@ -147,4 +147,19 @@ PIs of funded projects are expected to submit annual and final reports to the AP
 
 4.  **Overall rating.** What is the overall assessment of the proposal? What is the funding recommendation?
 
+## Past Recipients
+
+```{r}
+#| label: reid-winners
+#| warning: false
+#| echo: false
+library(dplyr)
+
+# Data: awards/data/reid.csv (refresh via awards/_update-awards.R)
+data <- read.csv("../data/reid.csv") |>
+  mutate(grant = paste(trimws(award_type), "grant"))
+
+awards_table(data, name = "name", detail = "institution",
+             detail_label = "Institution", subtitle = "grant")
+```
 :::

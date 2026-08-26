@@ -31,10 +31,14 @@ apls_table_theme <- function() {
 #' year (e.g. Saleem Shah, Distinguished Contributions, Teaching, Undergraduate).
 #'
 #' @param data A data frame with at least a year column and a recipient-name
-#'   column. Extra columns are hidden unless named in `detail`.
+#'   column. Extra columns are hidden unless named in `detail` or `subtitle`.
 #' @param name Name of the recipient column. Default `"name"`.
 #' @param detail Optional name of a column shown as a muted second column
 #'   (e.g. award type, affiliation, advisor). Default `NULL`.
+#' @param detail_label Header shown above the `detail` column. Default `""`
+#'   (no header, the historical behaviour).
+#' @param subtitle Optional name of a column rendered in muted italics under
+#'   the recipient's name (e.g. "Small grant"). Default `NULL`.
 #' @param group Name of the year column to sort and label by. Default `"year"`.
 #' @param page_size Rows per page. Default `60`.
 #'
@@ -44,6 +48,7 @@ apls_table_theme <- function() {
 #' awards_table(df)
 #' @export
 awards_table <- function(data, name = "name", detail = NULL,
+                         detail_label = "", subtitle = NULL,
                          group = "year", page_size = 60) {
   data <- as.data.frame(data)
 
@@ -52,13 +57,32 @@ awards_table <- function(data, name = "name", detail = NULL,
     name = "Year", maxWidth = 110, align = "left",
     style = list(fontWeight = 700, color = "var(--apls-primary, #1B3264)", fontSize = "1.05rem")
   )
-  cols[[name]] <- reactable::colDef(
-    name = "Recipient",
-    style = list(fontWeight = 600, color = "var(--apls-fg, #1f2937)")
-  )
+  name_style <- list(fontWeight = 600, color = "var(--apls-fg, #1f2937)")
+  cols[[name]] <- if (is.null(subtitle)) {
+    reactable::colDef(name = "Recipient", style = name_style)
+  } else {
+    reactable::colDef(
+      name = "Recipient", style = name_style,
+      cell = function(value, index) {
+        sub <- data[[subtitle]][index]
+        htmltools::div(
+          htmltools::div(value),
+          if (!is.na(sub) && nzchar(sub)) {
+            htmltools::div(
+              sub,
+              style = paste(
+                "font-style: italic; font-weight: 400;",
+                "color: var(--apls-muted, #6c757d); font-size: 0.9em;"
+              )
+            )
+          }
+        )
+      }
+    )
+  }
   if (!is.null(detail)) {
     cols[[detail]] <- reactable::colDef(
-      name = "", vAlign = "center", align = "left",
+      name = detail_label, vAlign = "center", align = "left",
       style = list(color = "var(--apls-muted, #6c757d)")
     )
   }

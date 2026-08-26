@@ -30,7 +30,7 @@ library(aplsr)
 
 The American Psychology-Law Society confers Dissertation Awards for scientific research and scholarship that is relevant to the promotion of the interdisciplinary study of psychology and law. Students who complete dissertations involving basic or applied research in psychology and law, including its application to public policy, are encouraged to apply for these awards.
 
-First, second and third-place awards are conferred annually, and winners will be invited to present their research at the AP-LS Annual Conference.
+First (\$1,000), second (\$750) and third place (\$500) winners are conferred annually, and winners will be invited to present their research at the AP-LS Annual Conference.
 
 ## Eligibility
 
@@ -42,17 +42,17 @@ You do not need to have graduated by December 31 to apply.
 
 ## Criteria
 
--   **Originality**: A dissertation exhibits original work when it brings innovative and unique perspectives, advancing the breadth of knowledge with novel findings or methodologies that challenge and expand upon existing paradigms.
+- **Originality**: A dissertation exhibits original work when it brings innovative and unique perspectives, advancing the breadth of knowledge with novel findings or methodologies that challenge and expand upon existing paradigms.
 
--   **Quality**: Exceptional research is characterized by meticulous attention to detail, sophistication, and a rigorous, well-executed qualitative, quantitative, or mixed-method study design.
+- **Quality**: Exceptional research is characterized by meticulous attention to detail, sophistication, and a rigorous, well-executed qualitative, quantitative, or mixed-method study design.
 
--   **Contribution**: The value of a dissertation is measured by its capacity to significantly enhance the field, whether through pioneering ideas or the insightful re-evaluation of established data.
+- **Contribution**: The value of a dissertation is measured by its capacity to significantly enhance the field, whether through pioneering ideas or the insightful re-evaluation of established data.
 
--   **Presentation**: Clarity and structure in the dissertation are essential, with visual elements like tables and figures enhancing the narrative by being self-explanatory and succinct.
+- **Presentation**: Clarity and structure in the dissertation are essential, with visual elements like tables and figures enhancing the narrative by being self-explanatory and succinct.
 
--   **Contributions to Equity, Diversity, and Inclusion (EDI)**: The dissertation addresses and furthers AP-LS's commitment to EDI, providing insights that extend to traditionally underrepresented groups. The work may examine specific subgroups and/or propose broader applications that encourage inclusivity and address systemic disparities.
+- **Contributions to Equity, Diversity, and Inclusion (EDI)**: The dissertation addresses and furthers AP-LS's commitment to EDI, providing insights that extend to traditionally underrepresented groups. The work may examine specific subgroups and/or propose broader applications that encourage inclusivity and address systemic disparities.
 
--   **Open-Science Practice**: The dissertation demonstrates transparency, reproducibility, and open science practices (e.g., preregistration, data/materials sharing, clear reporting).
+- **Open-Science Practice**: The dissertation demonstrates transparency, reproducibility, and open science practices (e.g., preregistration, data/materials sharing, clear reporting).
 
 ## How to Apply
 
@@ -88,5 +88,4 @@ data <- read.csv("../data/dissertation.csv")
 
 dissertation_table(data)
 ```
-
 :::::

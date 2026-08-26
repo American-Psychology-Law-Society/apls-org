@@ -21,6 +21,10 @@ In its history, the Executive Committee has only approved three official Scienti
 If you have any questions, contact the [AP-LS Scientific Paper Committee](../about/committees.html). 
 
 ::: about-link
+[SRP Committee terms of reference & approval process](srp-terms-of-reference.qmd)
+:::
+
+::: about-link
 [Learn more about the selection process](https://psycnet.apa.org/fulltext/2020-06220-001.html)
 :::
 

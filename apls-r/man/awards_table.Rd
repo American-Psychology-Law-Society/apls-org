@@ -8,18 +8,26 @@ awards_table(
   data,
   name = "name",
   detail = NULL,
+  detail_label = "",
+  subtitle = NULL,
   group = "year",
   page_size = 60
 )
 }
 \arguments{
 \item{data}{A data frame with at least a year column and a recipient-name
-column. Extra columns are hidden unless named in \code{detail}.}
+column. Extra columns are hidden unless named in \code{detail} or \code{subtitle}.}
 
 \item{name}{Name of the recipient column. Default \code{"name"}.}
 
 \item{detail}{Optional name of a column shown as a muted second column
 (e.g. award type, affiliation, advisor). Default \code{NULL}.}
+
+\item{detail_label}{Header shown above the \code{detail} column. Default \code{""}
+(no header, the historical behaviour).}
+
+\item{subtitle}{Optional name of a column rendered in muted italics under
+the recipient's name (e.g. "Small grant"). Default \code{NULL}.}
 
 \item{group}{Name of the year column to sort and label by. Default \code{"year"}.}
 
