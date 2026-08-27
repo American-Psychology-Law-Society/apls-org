@@ -270,7 +270,7 @@
     },
     "aplsr": {
       "Package": "aplsr",
-      "Version": "0.2.2",
+      "Version": "0.3.0",
       "Source": "Local",
       "Title": "Shared R Helpers for the AP-LS Website",
       "Authors@R": "c( person(\"American Psychology-Law Society\", role = c(\"aut\", \"cph\")), person(\"AP-LS\", \"Website Editor\", email = \"office@ap-ls.org\", role = \"cre\", comment = \"Update to the current maintainer\"))",
@@ -287,8 +287,11 @@
       "Suggests": [
         "altdoc",
         "countrycode",
+        "googledrive",
+        "knitr",
         "quarto",
-        "testthat (>= 3.0.0)"
+        "testthat (>= 3.0.0)",
+        "xml2"
       ],
       "VignetteBuilder": "quarto",
       "Config/testthat/edition": "3",

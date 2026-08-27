@@ -152,7 +152,7 @@ website:
     left: |
       Copyright &copy; 2026 [American Psychology-Law Society](https://apls.memberclicks.net/)
     center: |
-       [Report an issue](https://docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/viewform?usp=sf_link)
+       [Request a website update](https://docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/viewform?usp=sf_link)
     right:
       - text: "{{< iconify fa6-brands bluesky size=1.1em title='Bluesky' >}}"
         href: https://bsky.app/profile/ap-ls.org
@@ -189,4 +189,3 @@ format:
 execute:
     freeze: auto
     
-

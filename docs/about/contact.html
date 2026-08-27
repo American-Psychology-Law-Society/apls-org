@@ -619,6 +619,11 @@ background-size: cover;
 
 </main> <!-- /main -->
 <script>
+// Filled after running showWebsitePrefillSetting() in the Form automation.
+// Leave this empty until Apps Script prints a verified entry number; the
+// ordinary Form link will continue to work without automatic prefilling.
+window.APLS_PAGE_URL_ENTRY = "";
+
 // Quarto generates some listing UI with heading levels that skip the page
 // outline (h5 category labels, h5 card titles sitting under h2 sections).
 // Styling on these elements is class-based, so swapping the tag does not
@@ -639,6 +644,21 @@ document.addEventListener("DOMContentLoaded", function () {
     h3.className = el.className;
     while (el.firstChild) h3.appendChild(el.firstChild);
     el.replaceWith(h3);
+  });
+
+  // Carry the current page into the website-update Form after setup has saved
+  // the verified Google Forms entry number above. If the Form changes or the
+  // value is absent, the ordinary link still works; only prefilling is lost.
+  document.querySelectorAll('a[href*="docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/"]').forEach(function (el) {
+    if (!/^entry\.\d+$/.test(window.APLS_PAGE_URL_ENTRY || "")) return;
+    try {
+      var formUrl = new URL(el.href);
+      formUrl.searchParams.set("usp", "pp_url");
+      formUrl.searchParams.set(window.APLS_PAGE_URL_ENTRY, window.location.href);
+      el.href = formUrl.toString();
+    } catch (error) {
+      // Keep the original Form link when URL parsing is unavailable.
+    }
   });
 });
 
@@ -1116,7 +1136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>Copyright © 2026 <a href="https://apls.memberclicks.net/">American Psychology-Law Society</a></p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/viewform?usp=sf_link">Report an issue</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfOL2JsE-YbvqH09-S6zcukZ6qiOycK98DjXa08MDygMTWBYA/viewform?usp=sf_link">Request a website update</a></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

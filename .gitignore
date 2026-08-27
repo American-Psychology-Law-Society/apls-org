@@ -9,3 +9,6 @@
 # Accessibility audit tooling (installed with npm install, output is local)
 node_modules/
 audit-results.json
+
+# Generated Word copies used for Google Docs review
+review-exports/
