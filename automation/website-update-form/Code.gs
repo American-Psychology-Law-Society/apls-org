@@ -276,7 +276,70 @@ function reprocessLatestFormResponse() {
   if (!responses.length) {
     throw new Error('The Form has no responses to reprocess.');
   }
-  onWebsiteUpdateRequest({response: responses[responses.length - 1]});
+  const response = responses[responses.length - 1];
+  const spreadsheet = SpreadsheetApp.openById(form.getDestinationId());
+  const logSheet = ensureLogSheet_(spreadsheet);
+  const rowNumber = findLogRow_(logSheet, 'response_id', response.getId());
+  if (!rowNumber) {
+    onWebsiteUpdateRequest({response: response});
+    return;
+  }
+  repairLoggedResponse_(response, settings, spreadsheet, logSheet, rowNumber);
+}
+
+function repairLoggedResponse_(response, settings, spreadsheet, logSheet, rowNumber) {
+  const headers = headerMap_(
+    logSheet.getRange(1, 1, 1, AP_LS_LOG_HEADERS.length).getValues()[0]
+  );
+  const logged = requestFromLogRow_(
+    logSheet.getRange(rowNumber, 1, 1, AP_LS_LOG_HEADERS.length).getValues()[0],
+    headers
+  );
+  const request = requestFromResponse_(response, settings);
+  request.responseId = response.getId();
+  request.requestId = logged.requestId;
+  request.attachmentLinks = logged.attachmentLinks;
+  request.attachmentStatus = logged.attachmentStatus;
+  request.emailStatus = logged.emailStatus;
+  request.confirmationStatus = logged.confirmationStatus;
+  request.attempts = logged.attempts;
+
+  const reviewDocument = reviewDocumentForRequest_(request, settings);
+  request.reviewDocumentUrl = reviewDocument.url;
+  request.reviewDocumentStatus = reviewDocument.status;
+  request.lastError = reviewDocument.errors.join(' | ');
+
+  updateLogCells_(logSheet, rowNumber, {
+    review_document_url: request.reviewDocumentUrl,
+    review_document_status: request.reviewDocumentStatus,
+    last_error: request.lastError,
+    updated_at: new Date()
+  });
+  updateTrackerReviewDocument_(
+    spreadsheet,
+    request.requestId,
+    request.reviewDocumentUrl
+  );
+
+  if (!reviewDocumentAccessReady_(request)) {
+    throw new Error(
+      request.lastError || 'Google Doc access could not be granted.'
+    );
+  }
+  try {
+    sendConfirmationEmail_(request);
+    updateLogCells_(logSheet, rowNumber, {
+      confirmation_status: 'SENT',
+      updated_at: new Date()
+    });
+  } catch (error) {
+    updateLogCells_(logSheet, rowNumber, {
+      confirmation_status: 'FAILED',
+      last_error: joinErrors_(request.lastError, error.message),
+      updated_at: new Date()
+    });
+    throw error;
+  }
 }
 
 /**
@@ -1005,6 +1068,21 @@ function findTrackerRow_(sheet, requestId) {
     if (String(ids[index][0]) === String(requestId)) return index + 2;
   }
   return 0;
+}
+
+function updateTrackerReviewDocument_(spreadsheet, requestId, documentUrl) {
+  const sheets = ensureWorkflowSheets_(spreadsheet);
+  const documentColumn =
+    AP_LS_TRACKER_HEADERS.indexOf('review_document_url') + 1;
+  const updatedColumn =
+    AP_LS_TRACKER_HEADERS.indexOf('workflow_updated_at') + 1;
+  [sheets.active, sheets.archived].some(function(sheet) {
+    const rowNumber = findTrackerRow_(sheet, requestId);
+    if (!rowNumber) return false;
+    sheet.getRange(rowNumber, documentColumn).setValue(documentUrl || '');
+    sheet.getRange(rowNumber, updatedColumn).setValue(new Date());
+    return true;
+  });
 }
 
 function archiveTrackerRow_(spreadsheet, rowNumber) {

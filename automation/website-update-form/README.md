@@ -112,10 +112,11 @@ The script validates page addresses with its own Apps Script-compatible URL
 parser. Browser-only globals such as `URL` are not used because they are not
 available in Google Apps Script trigger executions.
 
-If a submission trigger fails before writing to **Automation Log**, correct
-the underlying problem and run `reprocessLatestFormResponse()`. It processes
-only the newest Form response and is safe to run again because the response ID
-prevents duplicates.
+If a submission trigger fails, correct the underlying problem and run
+`reprocessLatestFormResponse()`. It processes only the newest Form response.
+If the response is already in **Automation Log**, it repairs the document
+lookup and access permission, updates the tracker, and resends the confirmation
+instead of skipping the response or creating a duplicate.
 
 ## Safeguards
 
