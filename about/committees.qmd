@@ -28,27 +28,22 @@ library(reactable)
 library(htmltools)
 library(dplyr)
 library(stringr)
-library(googlesheets4)
-
-# ── Auth ──────────────────────────────────────────────────────────────
-gs4_deauth()
 
 # ── Data ──────────────────────────────────────────────────────────────
-cmts <- read_sheet("https://docs.google.com/spreadsheets/d/17aXj7E4OE-vIgnRkNVZyw8BBjJ1MoXuroS71IqJ9rsI/edit?usp=sharing")
-
-leadership_url <- "https://docs.google.com/spreadsheets/d/16RGHgDI7snPwaHfvF1gxTLAMet1V5_kM_4iHog2h7m8/edit?usp=sharing"
-sheet_names <- sheet_names(leadership_url)
-
-combined_data <- bind_rows(
-  lapply(sheet_names, function(sheet_name) {
-    read_sheet(leadership_url, sheet = sheet_name) |>
-      mutate(sheet_name = sheet_name)
-  })
+# Refreshed manually with source("about/_update-committees.R"). Rendering
+# reads only the reviewed, committed files below.
+cmts <- read.csv(
+  here::here("about", "data", "committee-descriptions.csv"),
+  colClasses = "character",
+  na.strings = "",
+  check.names = FALSE
 )
-
-members <- combined_data |>
-  rename(key = sheet_name) |>
-  select(key, Position, Name, Email, Term, Additional)
+members <- read.csv(
+  here::here("about", "data", "committee-members.csv"),
+  colClasses = "character",
+  na.strings = "",
+  check.names = FALSE
+)
 
 # ── Helpers ───────────────────────────────────────────────────────────
 
@@ -119,7 +114,8 @@ row_details <- function(index) {
   chair_name <- if (nrow(chair_rows) > 0) {
     paste(chair_rows$Name, collapse = " & ")
   } else {
-    cmt$chair[1]
+    fallback_chair <- cmt$chair[1]
+    if (is.null(fallback_chair) || is.na(fallback_chair)) "" else fallback_chair
   }
 
   # Build email content for all chairs
@@ -188,7 +184,7 @@ row_details <- function(index) {
 # ── Table ─────────────────────────────────────────────────────────────
 
 tbl <- reactable(
-  cmts[, c("name")],
+  cmts[, c("name"), drop = FALSE],
   defaultPageSize = 30,
   onClick = "expand",
   defaultColDef = colDef(headerClass = "header"),
