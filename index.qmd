@@ -93,9 +93,16 @@ div(
 ::: {.column .welcome-spacer width="15%"}
 :::
 
-::: {.column .welcome-text width="49%"}
+::: {.column .welcome-content width="70%"}
 
-::: vspace
+::: {.welcome-avatar}
+
+```{r}
+#| echo: false
+#| fig-alt: "Headshot of AP-LS President Virginia Barber Rioja"
+#| out-extra: 'class="avatar img-fluid"'
+knitr::include_graphics("about/presidents/imgs/virginia_barber-rioja.png")
+```
 :::
 
 # Welcome from Our President
@@ -113,16 +120,6 @@ div(
 ::: about-link
 [MORE FROM THE PRESIDENT](about/presidents/index.html)
 :::
-:::
-
-::: {.column .welcome-avatar width="20%"}
-
-```{r}
-#| echo: false
-#| fig.alt: "Headshot of AP-LS President Virginia Barber Rioja"
-#| out.extra: 'class="avatar img-fluid"'
-knitr::include_graphics("about/presidents/imgs/virginia_barber-rioja.png")
-```
 :::
 
 ::: {.column .welcome-spacer width="15%"}

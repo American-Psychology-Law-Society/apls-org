@@ -1,4 +1,21 @@
 // ── Buttons ───────────────────────────────────────────────────────────
+// Bootstrap's primary buttons are links, so the site's global link rules
+// otherwise replace their light foreground with the primary blue. Keep all
+// states on the high-contrast, on-blue text color.
+.btn.btn-primary {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &:disabled,
+  &.disabled {
+    color: var(--apls-nav-fg) !important;
+  }
+}
+
 .btn-outline-primary,
 .btn-outline-light {
   appearance: none;
