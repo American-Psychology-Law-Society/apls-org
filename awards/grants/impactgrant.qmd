@@ -1,14 +1,14 @@
 ---
 title: Research to Enhance the Impact and Diversification of Psychology and Law Research
 date: last-modified
-description: Small/seed grants ($1,000-$5,000) and large grants ($15,000-$50,000) for interdisciplinary research that addresses understudied topics in psychology and law.
+description: Small/seed grants ($5,000-$10,000) and large grants ($15,000-$50,000) for interdisciplinary research that addresses understudied topics in psychology and law.
 categories: 
   - Research
 submission-info: 
   sponsor: AP-LS Research Committee
   deadline: 
   - "October 16, `r if (Sys.Date() > lubridate::mdy(paste('October 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Pre-proposal)"
-  - "December 16, `r if (Sys.Date() > lubridate::mdy(paste('December 16', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Full-proposal)"
+  - "Mid-December, `r if (Sys.Date() > lubridate::mdy(paste('Mid-December', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())` (Full-proposal)"
 links:
 - icon: envelope-at
   name: Contact
@@ -34,17 +34,25 @@ As part of the AP-LS initiative toward a more inclusive society, grant applicati
 
 Proposals may be submitted into one of two funding categories:
 
--   Small/Seed proposals (\$1,000-\$5,000 for a 12-month research period)
+-   Small/Seed proposals (\$5,000-\$10,000 for a 12-month research period)
 -   Large proposals (\$15,000-\$50,000 over a 12-18 month research period)
 
 
 ::: callout-tip
-Funding should primarily support research activities and data collection efforts. Support for research assistants and necessary travel may be requested, but should not constitute the majority of the requested funds. Applicants may request up to 100% of funds to cover faculty FTE in the form of a stipend. This means that salary support and fringe can be covered.
+Funding should primarily support research activities and data collection efforts. Support for research assistants and travel may be requested, but should not constitute the majority of the requested funds. One-time conference travel is limited to the PI and/or co-PI only.
 
 Funds for successful proposals will be awarded to the PI's academic institution (via the institution's Office of Sponsored Research or Foundation). No institutional indirect cost recovery will be permitted, and proposals submitted for consideration by this program must not be submitted for consideration by other grant programs (including AP-LS programs). 
 
 Proposals submitted but not funded in previous funding cycles may be resubmitted, but all proposals will be evaluated as new proposals.
+
+Applicants should carefully consider anticipated project costs and associated budget expenditures. In the event of proposal funding, budget reallocation requests will be considered only in exceptional circumstances. All budget reallocation requests must be aligned with the original scope of work and be necessary to fulfill the project objectives.
+
+**New for 2026-2027 applications:** funds cannot be used to support the salary of the PI or co-PI. Funds must be used for expenses associated with research activities, data collection, and dissemination. 
+
+Please email one or both of the co-chairs of the Research Committee, Mel Baker or Evan Lowder, with any questions: research@ap-ls.org.
+
 :::
+
 ## Eligibility
 Applicants may submit only one small and one large proposal per funding cycle. Each proposal must describe a unique project; you may not submit the same project as both a large and small proposal in the same cycle.
 
@@ -71,7 +79,7 @@ The prospectus should include four sections:
 Your pre-proposal submission should also include the PI/co-PI name, title and email address.
 :::
 
-Based on review of the pre-proposals, investigators will be notified by November 15 about whether they are invited to submit a full proposal application. Full proposal applications will be due by December 16, `r format(Sys.Date(), '%Y')` at 11:59 p.m. PST.
+Based on review of the pre-proposals, investigators will be notified in November if they are invited to submit a full proposal application. Full proposal applications will be due by Mid-December, `r format(Sys.Date(), '%Y')`.
 
 ### Pre-proposal review criteria
 
@@ -95,7 +103,7 @@ Contribution to the research initiative: To what extent and in what ways does th
 
 ## Full proposal process
 
-For investigators invited to submit full proposal applications, full proposal applications are due by December 16, `r format(Sys.Date(), '%Y')` at 11:59pm PST.
+For investigators invited to submit full proposal applications, full proposal applications are due in Mid-December, `r format(Sys.Date(), '%Y')`.
 
 <a class="btn btn-primary " href="https://awards.ap-ls.org/default.asp" role="button">Click to Apply</a>
 

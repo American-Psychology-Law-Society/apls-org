@@ -3,8 +3,8 @@ pagetitle: "Welcome From Our President"
 about: 
   id: hero-heading
   template: trestles
-  image: imgs/randy_salekin.jpg
-  image-alt: "Headshot of AP-LS President Randy Salekin"
+  image: imgs/virginia_barber-rioja.png
+  image-alt: "Headshot of AP-LS President Virginia Barber Rioja"
   image-shape: round
   image-width: 14em
   links:
@@ -48,6 +48,6 @@ Thank you for visiting our website, and please feel free to reach out to any mem
 
 Interested in joining? Please find details about [membership](../../membership/index.html) on our site, and we look forward to welcoming you into our organization!
 
-**Randy Salekin**
+**Virginia Barber Rioja**
 
 *President, American Psychology-Law Society*

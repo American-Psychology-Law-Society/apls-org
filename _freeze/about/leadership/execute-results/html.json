@@ -3,7 +3,9 @@
   "result": {
     "engine": "knitr",
     "markdown": "---\ntitle: \"Leadership\"\ntitle-block-banner: \"../images/banners/default-banner.png\"\ntoc: false\nlisting:\n  - id: ec\n    contents: executive-committee.yml\n    template: ../_partials/about/leadership-grid.ejs\n  - id: conf-chairs\n    contents: conf-chairs.yml\n    template: ../_partials/about/leadership-grid.ejs\n---\n\n\n\n## Officers of the Executive Committee\n\n::: {#ec}\n:::\n\n### 2027 Conference Co-Chairs\n\n::: {#conf-chairs}\n:::\n\n\n",
-    "supporting": [],
+    "supporting": [
+      "leadership_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

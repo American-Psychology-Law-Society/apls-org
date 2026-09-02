@@ -119,9 +119,9 @@ div(
 
 ```{r}
 #| echo: false
-#| fig.alt: "Headshot of AP-LS President Randy Salekin"
+#| fig.alt: "Headshot of AP-LS President Virginia Barber Rioja"
 #| out.extra: 'class="avatar img-fluid"'
-knitr::include_graphics("about/presidents/imgs/randy_salekin.jpg")
+knitr::include_graphics("about/presidents/imgs/virginia_barber-rioja.png")
 ```
 :::
 

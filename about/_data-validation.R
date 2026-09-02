@@ -83,11 +83,16 @@ assert_valid_emails <- function(data, column, label, allow_blank = FALSE) {
   invisible(data)
 }
 
+optional_mailto <- function(email) {
+  values <- trimws(as.character(email))
+  ifelse(is_blank_value(values), NA_character_, paste0("mailto:", values))
+}
+
 validate_leadership_inputs <- function(ec_data, conf_data) {
   assert_required_columns(ec_data, c("Name", "Position", "Email"), "EC")
   assert_non_empty(ec_data, "EC")
-  assert_required_values(ec_data, c("Name", "Position", "Email"), "EC")
-  assert_valid_emails(ec_data, "Email", "EC")
+  assert_required_values(ec_data, c("Name", "Position"), "EC")
+  assert_valid_emails(ec_data, "Email", "EC", allow_blank = TRUE)
   assert_unique_rows(ec_data, c("Name", "Position"), "EC")
 
   assert_required_columns(conf_data, c("Name", "Term", "Position"), "Conf_Chairs")

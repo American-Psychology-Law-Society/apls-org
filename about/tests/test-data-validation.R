@@ -27,6 +27,13 @@ valid_conf <- data.frame(
   Position = "Co-chair"
 )
 stopifnot(isTRUE(validate_leadership_inputs(valid_ec, valid_conf)))
+blank_email <- valid_ec
+blank_email$Email[2] <- ""
+stopifnot(isTRUE(validate_leadership_inputs(blank_email, valid_conf)))
+stopifnot(identical(
+  optional_mailto(c("alex@example.org", "", NA_character_)),
+  c("mailto:alex@example.org", NA_character_, NA_character_)
+))
 expect_error(
   validate_leadership_inputs(valid_ec[c("Name", "Position")], valid_conf),
   "missing required column"

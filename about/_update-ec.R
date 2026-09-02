@@ -28,7 +28,7 @@ update_leadership_data <- function() {
 
   ec_list <- ec_data |>
     mutate(
-      url = paste0("mailto:", Email),
+      url = optional_mailto(Email),
       first = tolower(str_extract(Name, "^\\S+")),
       last = tolower(str_replace(str_extract(Name, "(?<=\\s).*$"), " ", "-")),
       base_path = paste0("presidents/imgs/", first, "_", last),
@@ -45,9 +45,10 @@ update_leadership_data <- function() {
     rename(text = Position, name = Name) |>
     select(name, text, url, image)
 
-  # Convert to list, dropping NA image fields
+  # Convert to list, dropping optional fields that have no value.
   ec_list <- lapply(seq_len(nrow(ec_list)), function(i) {
     row <- as.list(ec_list[i, ])
+    if (is.na(row$url)) row$url <- NULL
     if (is.na(row$image)) row$image <- NULL
     row
   })
