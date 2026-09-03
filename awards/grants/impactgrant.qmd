@@ -49,7 +49,7 @@ Applicants should carefully consider anticipated project costs and associated bu
 
 **New for 2026-2027 applications:** funds cannot be used to support the salary of the PI or co-PI. Funds must be used for expenses associated with research activities, data collection, and dissemination. 
 
-Please email one or both of the co-chairs of the Research Committee, Mel Baker or Evan Lowder, with any questions: research@ap-ls.org.
+Please email one or both of the co-chairs of the Research Committee, Mel Baker or Evan Lowder, with any questions: {{< var email.research >}}
 
 :::
 
@@ -62,7 +62,7 @@ At least one of the co-PIs needs to be an [AP-LS member](../../membership/index.
 
 ## Pre-Proposal Process
 
-Interested researchers should submit a 1,000-word prospectus to the committee by October 15, `r format(Sys.Date(), '%Y')` at 11:59 p.m. PST. All materials are submitted through the Div. 41 (AP-LS) awards page.
+Interested researchers should submit a 1,000-word prospectus to the committee by {{< meta submission-info.deadline.1 >}} at 11:59 p.m. PST. All materials are submitted through the Div. 41 (AP-LS) awards page.
 
 <a class="btn btn-primary " href="https://awards.ap-ls.org/default.asp" role="button">Click to Apply</a>
 

@@ -207,12 +207,15 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 .session-description li {
-  position: relative;
-  padding-left: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-.session-description li::before {
+.session-description ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.session-description ul > li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -364,6 +367,32 @@ h1, .h1, h2, .h2, h3, .h3 {
   line-height: 1.5;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 1.5rem;
+}
+
+/* Keep the date, location, and hotel from breaking into partial lines. */
+.hero-banner .conference-meta {
+  color: var(--apls-cream);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-banner .conference-meta p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.hero-banner .conference-meta-item {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-banner .conference-meta-separator {
+  display: none;
 }
 
 /* Buttons */
@@ -667,7 +696,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
   .hero-banner .content-block {
     width: 30%;
-    min-width: 400px;
+    min-width: 460px;
     max-width: 600px;
     margin-left: 5vw;
     margin-right: auto;
@@ -692,6 +721,24 @@ h1, .h1, h2, .h2, h3, .h3 {
 @media (min-width: 1400px) {
   .hero-banner .hero-image {
     width: 440px;
+  }
+}
+
+/* On very wide screens the panel expands enough to hold all three details. */
+@media (min-width: 1500px) {
+  .hero-banner .content-block {
+    width: calc(100% - 10vw);
+    max-width: 1100px;
+  }
+
+  .hero-banner .conference-meta p {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-banner .conference-meta-separator {
+    display: inline;
   }
 }
 
