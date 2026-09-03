@@ -167,6 +167,10 @@ h1, .h1, h2, .h2, h3, .h3 {
   color: var(--text-color);
 }
 
+.cfp-proposal-title {
+  line-height: 1.2;
+}
+
 .session-time {
   font-weight: 900;
   font-size: 1.1rem;
@@ -198,6 +202,11 @@ h1, .h1, h2, .h2, h3, .h3 {
   margin-left: 30px;
   margin-top: 0;
   color: var(--text-color);
+}
+
+.session-description a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .session-description ul {
