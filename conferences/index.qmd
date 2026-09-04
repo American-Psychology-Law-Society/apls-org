@@ -94,7 +94,7 @@ if (length(hero_btns) > 0) {
 content <- rowwise_table(
   ~name, ~icon, ~link,
   "General", "info-circle", "#info",
-  "Proposals", "send", "#proposals",
+  "Proposals", "send", "cfp/index.qmd",
   "Registration", "person-add", "#registration",
   "Schedule", "person-workspace", "#schedule",
   "Workshops", "easel", "#preconference"
@@ -222,8 +222,7 @@ if (cfp_status == "open") {
     '',
     info$submissions_note,
     '',
-    sprintf('[Submit a Proposal {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-action-primary .btn-lg role="button"}',
-            info$submission_portal_url),
+    '[Full CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}',
     ':::\n',
     sep = "\n"
   )
@@ -262,7 +261,19 @@ if (cfp_status == "open") {
 
 [`r info$cfp_note`]{.h5}
 
-[Full CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}
+```{r cfp-details-button}
+#| echo: false
+#| results: asis
+
+if (cfp_status == "open" && nzchar(info$submission_portal_url)) {
+  cat(sprintf(
+    '[Submit a Proposal {{< fa arrow-right aria-hidden="true" >}}](%s){.btn-action .btn .btn-action-primary .btn-lg role="button"}',
+    info$submission_portal_url
+  ))
+} else {
+  cat('[Full CFP Details {{< fa arrow-right aria-hidden="true" >}}](cfp/index.qmd){.btn-action .btn .btn-secondary .btn-lg role="button"}')
+}
+```
 
 :::
 
@@ -452,4 +463,3 @@ Workshop topics, presenters, and pricing details are available on the preconfere
 :::
 
 :::
-

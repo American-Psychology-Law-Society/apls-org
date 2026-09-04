@@ -1,40 +1,4 @@
 # Update the conference pages from the AP-LS Conference Google Sheet.
-#
-# Mirrors awards/_update-awards.R. Co-chairs edit the Sheet during the
-# conference year; this script pulls it into local files that the pages
-# render. Run manually whenever the Sheet changes:
-#   source("conferences/_update-conference.R")     # from the project root
-# The committed CSVs and generated workshop pages are what the site renders,
-# so the site build never depends on Google being reachable.
-#
-# ---------------------------------------------------------------
-# SHEET STRUCTURE (one Google Sheet, "anyone with the link can view"):
-#
-# Tab "info"                 columns: key, value
-#   keys: submissions_note, cfp_note, cfp_deadline, submission_portal_url,
-#         reviewer_form_url, hotel_note, hotel_booking_url, schedule_note,
-#         schedule_preview, registration_note, registration_url,
-#         preconference_note, rates_note, workshop_rates_note
-#         reviewer_form_url, hotel_note, hotel_booking_url, schedule_note,
-#         registration_note, registration_url, preconference_note,
-#         rates_note, workshop_rates_note
-#
-# Tab "registration-rates"   columns: status, early_bird, regular
-#   one row per attendee status, in display order
-#
-# Tab "workshop-rates"       columns: type, status, early_bird, regular
-#   type is "Full-Day" or "Half-Day"; one row per status within each type
-#
-# Tab "workshops"            columns: slug, title, subtitle, date, authors,
-#                            categories, description, objectives, credits,
-#                            time
-#   slug       folder name for the workshop page, e.g. workshop_1
-#   date       MM/DD/YYYY
-#   authors    presenters, separated by semicolons
-#   categories level and length, separated by semicolons
-#              (e.g. "Intermediate; Half Day")
-#   objectives learning objectives, separated by semicolons
-#   credits    e.g. "7 CE hours";  time e.g. "8:30 AM - 4:30 PM"
 # ---------------------------------------------------------------
 
 library(googlesheets4)
@@ -42,12 +6,14 @@ library(dplyr)
 library(readr)
 library(here)
 
-# Public sheet ("anyone with the link can view"), read-only, no login needed.
-gs4_deauth()
+# Private sheet: reuse the OAuth token established by
+# googledrive::drive_auth(). This does not change the Sheet's permissions.
+if (!googledrive::drive_has_token()) {
+  googledrive::drive_auth()
+}
+googlesheets4::gs4_auth(token = googledrive::drive_token())
 
-# The Sheet's ID (the long string in the Sheet's URL, between /d/ and
-# /edit). conferences/sheet-id/ has the seed workbook and a walkthrough
-# for creating a fresh Sheet if one is ever needed.
+# sheet id remains the same 
 SHEET_ID <- "1269j-Ty_EEvj4C7w-EUDCUWcgWHh89gSYjfgw2II5Ds"
 
 data_dir <- here("conferences", "data")
@@ -86,7 +52,7 @@ write_tab <- function(spec) {
   message("Wrote ", spec$file, " (", nrow(d), " rows)")
 }
 
-# ---- part 2: build workshop pages from workshops.csv ---------------------
+# build workshop pages from workshops.csv 
 
 yaml_scalar <- function(x) {
   # double-quote a YAML scalar, escaping quotes and backslashes
@@ -155,7 +121,7 @@ build_workshop_pages <- function() {
   }
 }
 
-# ---- run -----------------------------------------------------------------
+# run it 
 
 if (identical(SHEET_ID, "PASTE-THE-SHEET-ID-HERE")) {
   message("No SHEET_ID set yet, so nothing was pulled from Google Drive.")

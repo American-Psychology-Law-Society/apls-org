@@ -48,7 +48,7 @@ format:
 [Call for Conference Proposals: AP-LS 2027 Annual Conference]{.h4}
 
 [{{< fa paper-plane aria-hidden="true" >}} Submit a proposal](https://ap-ls2027.exordo.com/){.btn .btn-primary role="button"}
-[{{< fa file-pdf aria-hidden="true" >}} Download CFP](https://drive.google.com/file/d/1S1SpUplrwBA7VAqc8eyl2OxZhFTOe5wm/view?usp=sharing){.btn .btn-outline-primary role="button"}
+[{{< fa file-pdf aria-hidden="true" >}} Download CFP](https://drive.google.com/file/d/1sgFqlFDUBU6ttkJPNVLKno9BZbQwiDkt/view?usp=sharing){.btn .btn-outline-primary role="button"}
 
 :::
 
