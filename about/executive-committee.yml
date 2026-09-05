@@ -1,11 +1,9 @@
 - name: Virginia Barber Rioja
   text: President
-  url: mailto:vibarber@hotmail.com
   image: presidents/imgs/virginia_barber-rioja.png
-- name: Christian Meissner
+- name: Randy Salekin
   text: Past President
-  url: mailto:cameissn@iastate.edu
-  image: presidents/imgs/christian_meissner.jpeg
+  image: presidents/imgs/randy_salekin.jpg
 - name: Neil Gowensmith
   text: President Elect
   image: presidents/imgs/neil_gowensmith.jpg
@@ -16,8 +14,6 @@
 - name: Ashley Batastini
   text: Member-at-Large
 - name: Caitlin Cavanagh
-  text: Member-at-Large
-- name: Jessica Salerno
   text: Member-at-Large
 - name: Emily Haney-Caron
   text: Member-at-Large
