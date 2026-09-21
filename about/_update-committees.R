@@ -63,10 +63,30 @@ update_committee_data <- function() {
   )
 
   committee_tabs <- setdiff(all_tabs, NON_COMMITTEE_TABS)
+  # Committee tabs store the beginning and ending years separately. Keep the
+  # committed CSV schema unchanged by combining them into one Term value here.
+  source_member_columns <- c("Position", "Name", "Email", "Term Start", "Term End")
   member_columns <- c("Position", "Name", "Email", "Term", "Additional")
+
+  combine_terms <- function(data) {
+    starts <- trimws(as.character(data[["Term Start"]]))
+    ends <- trimws(as.character(data[["Term End"]]))
+    start_blank <- is_blank_value(starts)
+    end_blank <- is_blank_value(ends)
+    term <- rep(NA_character_, nrow(data))
+    both <- !start_blank & !end_blank
+    term[both] <- paste0(starts[both], "-", ends[both])
+    term[!both & !start_blank] <- starts[!both & !start_blank]
+    term[!both & start_blank & !end_blank] <- ends[!both & start_blank & !end_blank]
+    data$Term <- term
+    data
+  }
+
   members_by_tab <- lapply(committee_tabs, function(tab) {
     data <- tab_data[[tab]]
-    assert_required_columns(data, member_columns, sprintf("Leadership tab '%s'", tab))
+    assert_required_columns(data, source_member_columns, sprintf("Leadership tab '%s'", tab))
+    data <- add_optional_columns(data, "Additional")
+    data <- combine_terms(data)
     data <- data[member_columns]
     data$key <- tab
     data[c("key", member_columns)]

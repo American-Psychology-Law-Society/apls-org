@@ -69,9 +69,7 @@ Applicants are to provide the proposal through the Grant-in-Aid portal. Applican
 
 1.  An up to date CV
 
-2.  A **title page** indicating the title of the project, name, address, phone number, and email address of the investigator. Please also include the research mentor's name and title.
-
-3.  A **Grant-in-Aid proposal**, which should include the following sections: Title Page (title of the project, name, address, phone number, and email address of the investigator, research mentor’s name and title), Abstract (200 words), Project Background, Project Method, Analytic Plan, Significance, Budget and Justification, Timeline, and References. All sections, except the Title Page, Abstract and References, should not exceed 3000 words. Proposals that exceed this word limit will not be considered. The proposal should be single-spaced with 1-inch margins.
+2.  A **Grant-in-Aid proposal**, which should include the following sections: Title Page (title of the project, name, address, phone number, and email address of the investigator, research mentor’s name and title), Abstract (200 words), Project Background, Project Method, Analytic Plan, Significance, Budget and Justification, Timeline, and References. All sections, except the Title Page, Abstract and References, should not exceed 3000 words. Proposals that exceed this word limit will not be considered. The proposal should be single-spaced with 1-inch margins.
 
     Applicants who previously received Grant-in-Aid funding from the committee must include an additional abstract (200 words) in their proposal that succinctly summarizes the previous research funded by the award. This abstract will not count toward the 3000 word limit of the proposal.
 
