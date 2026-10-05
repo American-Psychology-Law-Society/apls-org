@@ -7,7 +7,7 @@ categories:
   - American Academy of Forensic Psychology
 submission-info:
   sponsor: AP-LS & American Academy of Forensic Psychology
-  deadline: "November 30, `r if (Sys.Date() > lubridate::mdy(paste('November 30', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+  deadline: "November 15, `r if (Sys.Date() > lubridate::mdy(paste('November 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
 links:
 - icon: info-circle
   name: Learn More
@@ -66,7 +66,7 @@ If candidate has earned more than one eligible degrees, the latest degree is con
 
 ## How to Apply
 
-Email nominations in PDF or Word format to the [President-Elect of AAFP](https://aafpforensic.org/who-we-are/) before midnight EST on November 30.
+Email nominations in PDF or Word format to the [President-Elect of AAFP](https://aafpforensic.org/who-we-are/) before midnight EST on November 15.
 
 ::: callout-tip
 ## Anyone wishing to nominate a candidate should send:

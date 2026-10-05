@@ -15,10 +15,10 @@ submission-info:
 links:
 - icon: envelope-at
   name: Contact
-  url: "mailto:andretta@bridgetownpsychological.com"
+  url: "mailto:EvelynMaeder@cunet.carleton.ca"
 - icon: send
   name: Apply here
-  url: "https://forms.gle/zrZgy2rzLuZbpWK86"
+  url: "https://forms.gle/rjCUM6nfsQurMy5n7"
 ---
 
 
@@ -55,7 +55,7 @@ Applicants cannot receive more than one mini-grant from AP-LS for the same proje
 
 ## How to Apply
 
-For more information about the Diversity Program, please contact the program chair, [James Andretta](mailto:andretta@bridgetownpsychological.com).
+For more information about the Diversity Program, please contact the program chair, [Evelyn Maeder](mailto:EvelynMaeder@cunet.carleton.ca).
 
 ::: callout-tip
 ## A complete application should contain:

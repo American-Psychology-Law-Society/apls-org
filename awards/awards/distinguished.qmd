@@ -6,7 +6,7 @@ categories:
   - Distinguished Career
 submission-info:  
   sponsor: AP-LS Executive Committee
-  deadline: "December 1, `r if (Sys.Date() > lubridate::mdy(paste('December 1', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
+  deadline: "November 15, `r if (Sys.Date() > lubridate::mdy(paste('November 15', lubridate::year(Sys.Date())))) lubridate::year(Sys.Date()) + 1 else lubridate::year(Sys.Date())`"
 links:
 - icon: send
   name: Submit here
