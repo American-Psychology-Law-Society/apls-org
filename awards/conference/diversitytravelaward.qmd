@@ -18,7 +18,7 @@ links:
   url: "mailto:ann38@drexel.edu"
 - icon: send
   name: Apply here
-  url: "https://forms.gle/zrZgy2rzLuZbpWK86"
+  url: "https://forms.gle/rjCUM6nfsQurMy5n7"
 ---
 
 ```{r setup, include=FALSE}
@@ -35,14 +35,14 @@ library(aplsr)
 
 As part of an initiative to increase diversity within AP-LS, the BRIDGE Committee will provide travel awards to students from underrepresented groups who are presenting research at the American Psychology-Law Society Conference.
 
-Four competitive travel awards in the amount of `$1,000` will be given each year.
+Nine competitive travel awards in the amount of `$1,000` will be given each year.
 
 Applications will be judged by members of the BRIDGE Committee. Awards will be made on a competitive basis, with consideration given to applicants' financial need.
 
 ::: callout-caution
 Please be aware that students can only receive funding from one BRIDGE program/award per year.
 
-For more information about the Diversity Travel Award program, please contact the BRIDGE Travel Award program chair to [ann38@drexel.edu](mailto:ann38@drexel.edu).
+For more information about the Diversity Travel Award program, please contact the BRIDGE Travel Award program chair to Amanda NeMoyer at [ann38@drexel.edu](mailto:ann38@drexel.edu).
 
 :::
 
@@ -71,7 +71,7 @@ These awards are intended to increase diversity at the conferences, especially a
 
 3.  A completed W-9 (U.S. citizen) or W-8 (non-citizen) tax form.
 
-4.  A letter of support from a faculty mentor addressing the importance of presenting the project at the AP-LS conference for the student's advancement in their Psychology and Law career. Letters must be emailed to the [BRIDGE Travel Award program chair](https://www.apadivisions.org/division-41/leadership/committees/representation-inclusion-diversity) no later than January 15.
+4.  A letter of support from a faculty mentor addressing the importance of presenting the project at the AP-LS conference for the student's advancement in their Psychology and Law career. Letters must be emailed to the [BRIDGE Travel Award program chair](mailto:ann38@drexel.edu) no later than January 15.
 :::
 
 ## Award Recipients

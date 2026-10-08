@@ -13,10 +13,10 @@ submission-info:
 links:
 - icon: info-circle
   name: Learn More
-  url: "http://www.apls-students.org/student-presentation-awards.html"
-- icon: send
-  name: Apply here
-  url: "https://docs.google.com/forms/d/e/1FAIpQLSe80sfriAr71KEVvaj5CSVmR-UALYeB04ewjvv8M1NaBsjNIQ/viewform"
+  url: "http://www.apls-students.org/"
+#- icon: send
+#  name: Apply here
+#  url: "https://docs.google.com/forms/d/e/1FAIpQLSe80sfriAr71KEVvaj5CSVmR-UALYeB04ewjvv8M1NaBsjNIQ/viewform"
 - icon: envelope-at
   name: Contact
   url: "mailto:aplsstudents@gmail.com"
@@ -55,7 +55,7 @@ These include:
 
 -   One (1) Outstanding Student Presentation in Novel-Topic Research award (\$175), for research on a topic not traditionally studied in law and psychology.
 
-    Full information on submission criteria, submission instructions, and the evaluation process is available on the [student committee website](https://www.apls-students.org/student-presentation-awards.html).
+    Full information on submission criteria, submission instructions, and the evaluation process is available on the [student committee website](https://www.apls-students.org/conference-presentation-awards.html).
 
 Completed submissions are due on the date of the deadline by 11:59 PM EST. Late or incomplete submissions will not be considered.
 :::
