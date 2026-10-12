@@ -14,10 +14,10 @@ submission-info:
 links:
 - icon: envelope-at
   name: Contact
-  url: "mailto:cwillis-esqueda1@unl.edu"
+  url: "mailto:amiller0@illinois.edu"
 - icon: send
   name: Apply here
-  url: "https://forms.gle/zrZgy2rzLuZbpWK86"
+  url: "https://forms.gle/rjCUM6nfsQurMy5n7"
 ---
 
 ```{r setup, include=FALSE}
@@ -65,7 +65,7 @@ It is the intention of the BRIDGE Committee that many of the students in the AP 
 
 ## How to Apply
 
-For more information about the AP Program, please contact the program chair, [Cynthia Willis-Esqueda](mailto:cwillis-esqueda1@unl.edu).
+For more information about the AP Program, please contact the program chair, [Andrea Miller](mailto:amiller0@illinois.edu).
 
 ::: callout-tip
 ## Award applications should include:

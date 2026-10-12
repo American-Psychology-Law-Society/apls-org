@@ -15,7 +15,7 @@ links:
   url: "mailto:dissertation@ap-ls.org"
 - icon: send
   name: Submit here
-  url: "https://forms.gle/Q2i4nknLaiKMq3fs8"
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSeuF64Opdsz_yIarFSmpZH57JZvAT1-s_yNpA7r6MtS7kCN6g/viewform?usp=header"
 ---
 
 ```{r setup, include=FALSE}
@@ -50,13 +50,13 @@ You do not need to have graduated by December 31 to apply.
 
 - **Presentation**: Clarity and structure in the dissertation are essential, with visual elements like tables and figures enhancing the narrative by being self-explanatory and succinct.
 
-- **Contributions to Equity, Diversity, and Inclusion (EDI)**: The dissertation addresses and furthers AP-LS's commitment to EDI, providing insights that extend to traditionally underrepresented groups. The work may examine specific subgroups and/or propose broader applications that encourage inclusivity and address systemic disparities.
+- **Contributions to the Mission of AP-LS**: The dissertation addresses and furthers AP-LS’s Mission and Core Values, which can be found at https://ap-ls.org/about/. 
 
 - **Open-Science Practice**: The dissertation demonstrates transparency, reproducibility, and open science practices (e.g., preregistration, data/materials sharing, clear reporting).
 
 ## How to Apply
 
-Please upload your submission to the [AP-LS Dissertation Award Google Form](https://forms.gle/Q2i4nknLaiKMq3fs8) before December 31 annually.
+Please upload your submission to the [AP-LS Dissertation Award Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeuF64Opdsz_yIarFSmpZH57JZvAT1-s_yNpA7r6MtS7kCN6g/viewform?usp=header) before December 31 annually.
 
 ::: callout-tip
 ## Submissions should include:
