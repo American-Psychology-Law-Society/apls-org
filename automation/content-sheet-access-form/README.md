@@ -20,7 +20,7 @@ Use **Active Requests** to track work. Do not rename headers or alter raw Form r
 
 The optional headshot upload is copied only for eligible registry entries, after authorization, when it is JPEG/PNG/WebP and no larger than 10 MB. The original is retained. Review and prepare any accepted image separately; no upload publishes to the site.
 
-## Recovery
+## Recovery if things go wrong or you delete stuff?
 
 - `reprocessLatestFormResponse()` processes the newest response or retries its failed operations after the cause is fixed.
 - `retryFailedOperations()` retries failed work immediately; hourly retry handles failures automatically, up to five attempts.

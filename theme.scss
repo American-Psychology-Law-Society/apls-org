@@ -89,6 +89,11 @@ body {
   --apls-primary-light:   #{$steel};
   --apls-primary-dark:    #{$blue-10};
 
+  // Button fills need their own palette: link blue becomes light in dark mode.
+  --apls-button-bg:       #{$primary};
+  --apls-button-inverse-fg: #{$cream};
+  --apls-button-accent-fg: #{$dark-bg};
+
   --apls-accent:          #{$gold};
   --apls-accent-contrast: #{$body-bg};
 
@@ -141,6 +146,7 @@ body {
 }
 
 [data-bs-theme="dark"],
+[data-bs-theme="dark"] body,
 .quarto-dark {
   --apls-banner-bg:    #{$dark-bg-alt};
   --apls-banner-fg:    #{$dark-light};
@@ -151,6 +157,8 @@ body {
   --apls-primary:      #6B9FD4;
   --apls-primary-dark: #{$blue-60};   // #a4adc1 — 7.4:1 on dark-bg (AAA)
   --apls-primary-light: #{$blue-60};
+  --apls-button-bg:    #{$steel};
+  --apls-button-inverse-fg: #{$dark-bg};
   // Dark hover tint: lighten the card surface, not $blue-90 (a fixed
   // near-white that would strand light text on a light fill).
   // Solid hexes (see the color-mix note above): card background is the

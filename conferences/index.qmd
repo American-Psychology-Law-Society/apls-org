@@ -463,3 +463,20 @@ Workshop topics, presenters, and pricing details are available on the preconfere
 :::
 
 :::
+
+
+### {{< fa chalkboard-user >}} Partner with AP-LS
+
+::: vspace
+:::
+
+::: simple-info-center
+New for 2027, AP-LS is structuring sponsorship as a year-round relationship, with the Annual Conference as the flagship opportunity to connect in person. Organizations can select an annual partnership level or participate through conference-only exhibits and targeted activations.
+
+[Learn about the new opportunities for 2027 {{< fa arrow-right aria-hidden="true" >}}](https://drive.google.com/file/d/13h-_22pzEHYeqpjuBLNyn4McI6QfC2ZJ/view?usp=drive_link){.btn-action .btn .btn-secondary .btn-lg role="button"}
+
+[Sponsor application  {{< fa arrow-right aria-hidden="true" >}}](https://apls.memberclicks.net/2027sponsor#/){.btn-action .btn .btn-primary .btn-lg role="button"}
+
+:::
+
+

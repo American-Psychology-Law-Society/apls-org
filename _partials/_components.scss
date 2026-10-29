@@ -1,29 +1,47 @@
 // ── Buttons ───────────────────────────────────────────────────────────
-// Bootstrap's primary buttons are links, so the site's global link rules
-// otherwise replace their light foreground with the primary blue. Keep all
-// states on the high-contrast, on-blue text color.
-.btn.btn-primary {
+// Keep Bootstrap's state variables and the custom button styles in sync.
+// Foreground and fill must change together, including for keyboard focus.
+@mixin apls-button-colors($fg, $bg, $border: $bg, $hover-fg: $fg, $hover-bg: $bg, $hover-border: $border) {
+  --bs-btn-color: #{$fg};
+  --bs-btn-bg: #{$bg};
+  --bs-btn-border-color: #{$border};
+  --bs-btn-hover-color: #{$hover-fg};
+  --bs-btn-hover-bg: #{$hover-bg};
+  --bs-btn-hover-border-color: #{$hover-border};
+  --bs-btn-active-color: #{$hover-fg};
+  --bs-btn-active-bg: #{$hover-bg};
+  --bs-btn-active-border-color: #{$hover-border};
+  --bs-btn-disabled-color: #{$fg};
+  --bs-btn-disabled-bg: #{$bg};
+  --bs-btn-disabled-border-color: #{$border};
+
   &,
   &:link,
   &:visited,
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
   &:disabled,
   &.disabled {
-    color: var(--apls-nav-fg) !important;
+    color: $fg;
+    background-color: $bg;
+    border-color: $border;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active,
+  &.active {
+    color: $hover-fg;
+    background-color: $hover-bg;
+    border-color: $hover-border;
   }
 }
 
 .btn-outline-primary,
 .btn-outline-light {
   appearance: none;
-  background-color: transparent;
-  border: 2px solid var(--apls-primary-dark);
+  border: 2px solid var(--apls-accent);
   border-radius: 15px;
   box-sizing: border-box;
-  color: var(--apls-primary-dark);
   cursor: pointer;
   display: inline-block;
   font-size: 0.85rem;
@@ -45,9 +63,6 @@
     opacity: 0.5;
   }
   &:hover {
-    color: var(--apls-nav-fg);                   /* was --apls-card-bg causing clash */
-    background-color: var(--apls-primary-dark);  /* was --apls-card-bg, now fills */
-    border-color: var(--apls-primary-dark);
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
   }
@@ -57,25 +72,13 @@
   }
 }
 
-.btn-outline-light {
-  border-color: var(--apls-border);
-  color: var(--apls-fg);
-  &:hover {
-    background-color: var(--apls-fg);
-    border-color: var(--apls-fg);
-    color: var(--apls-card-bg);
-  }
-}
-
 // Filled style (btn-action, btn-action-primary, btn-secondary, job-btn)
 .btn-action,
 .job-btn {
   align-items: center;
-  background-color: var(--apls-card-bg);
   border-radius: 12px;
   box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
-  color: var(--apls-fg);
   cursor: pointer;
   display: inline-flex;
   font-size: 0.85rem;
@@ -96,46 +99,22 @@
   min-width: 165px;
 
   &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    color: var(--apls-fg);
+    box-shadow: var(--apls-accent) 0 0 0 3px, transparent 0 0 0 0;
   }
 }
 
 .btn-action-primary {
-  background-color: var(--apls-primary);
-  color: var(--apls-nav-fg);
-
-  a { color: var(--apls-nav-fg); }              /* was --apls-accent, now matches button text */
-
-  &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    color: var(--apls-nav-fg);
-    background-color: var(--apls-primary);
-  }
+  a { color: inherit; }
 }
 
 .btn-secondary.btn-action {
-  background-color: var(--apls-card-bg);
-  color: var(--apls-primary-dark);
-  border: 2px solid var(--apls-primary-dark);
-
-  &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    color: var(--apls-primary-dark);
-  }
+  border: 2px solid var(--apls-accent);
 }
 
 .job-btn {
   min-width: 130px;
-  background-color: var(--apls-primary);
-  color: var(--apls-nav-fg);
   border-radius: 5px;
 
-  &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    opacity: 0.9;
-    color: var(--apls-nav-fg);
-  }
   &:active { transform: translateY(2px); }
 }
 
@@ -153,33 +132,6 @@
 .job-listing-name {
   color: var(--apls-nav-fg);
   &:hover { color: var(--apls-accent); }
-}
-
-.btn-dark.btn-action {
-  background-color: var(--apls-primary-dark);
-  color: var(--apls-nav-fg);
-  border: 0;
-
-  &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    background-color: var(--apls-primary-dark);
-    color: var(--apls-nav-fg);
-    opacity: 0.9;
-  }
-}
-
-.btn.btn-action.btn-action-primary {
-  background-color: var(--apls-primary);
-  color: var(--apls-nav-fg) !important;  /* force over Bootstrap .btn color */
-  border: 0;
-
-  a { color: var(--apls-nav-fg); }
-
-  &:hover {
-    box-shadow: var(--apls-primary-dark) 0 0 0 3px, transparent 0 0 0 0;
-    background-color: var(--apls-primary);
-    color: var(--apls-nav-fg) !important;
-  }
 }
 
 // ── Shared button motion ─────────────────────────────────────────────
@@ -212,41 +164,57 @@
   }
 }
 
-// ── Dark-mode button contrast overrides ──────────────────────────────
-// In dark mode the desaturated blue palette can't simultaneously give
-// 4.5:1 with white text AND stand out on #191E29.  Use $steel (#4271B3)
-// for filled buttons (white text 4.9:1 AA) and flip outline hover text
-// to the dark background colour on the lighter fill (7.4:1 AAA).
+// ── Shared button palettes ────────────────────────────────────────────
+// Anchor selectors also outrank the site's global light/dark link colors.
+.btn-action,
+a.btn-action {
+  @include apls-button-colors(var(--apls-fg), var(--apls-card-bg));
+}
 
-[data-bs-theme="dark"],
-.quarto-dark {
-  .btn-action-primary,
-  .btn.btn-action.btn-action-primary {
-    background-color: $steel;
+.btn.btn-primary,
+.btn-action-primary,
+a.btn-action-primary,
+.job-btn,
+a.job-btn {
+  @include apls-button-colors(var(--apls-nav-fg), var(--apls-button-bg));
 
-    &:hover {
-      background-color: $steel;
-    }
+  &:hover {
+    box-shadow: var(--apls-accent) 0 0 0 3px, transparent 0 0 0 0;
   }
+}
 
-  .job-btn {
-    background-color: $steel;
+.btn-secondary.btn-action {
+  @include apls-button-colors(var(--apls-primary-dark), var(--apls-card-bg), var(--apls-accent), var(--apls-button-accent-fg), var(--apls-accent));
+}
 
-    &:hover {
-      background-color: $steel;
-    }
-  }
+.btn-dark.btn-action {
+  @include apls-button-colors(var(--apls-button-inverse-fg), var(--apls-primary-dark));
+}
 
-  .btn-outline-primary {
-    &:hover {
-      color: var(--apls-bg);  // dark text on light fill (#a4adc1)
-    }
-  }
+.btn-outline-primary,
+a.btn-outline-primary {
+  @include apls-button-colors(var(--apls-primary-dark), transparent, var(--apls-accent), var(--apls-button-accent-fg), var(--apls-accent));
+}
 
-  .btn-dark.btn-action {
-    &:hover {
-      color: var(--apls-bg);
-    }
+.btn-outline-light,
+a.btn-outline-light {
+  @include apls-button-colors(var(--apls-fg), transparent, var(--apls-accent), var(--apls-button-accent-fg), var(--apls-accent));
+}
+
+.btn.btn-primary,
+.btn.btn-action,
+.btn-action,
+.btn-action-primary,
+.btn-outline-primary,
+.btn-outline-light,
+.job-btn,
+.price-btn,
+.btn-banner {
+  &:focus-visible {
+    outline: 3px solid var(--apls-accent);
+    outline-offset: 3px;
+    // Dark backing keeps the yellow focus ring visible on light surfaces.
+    box-shadow: 0 0 0 7px var(--apls-button-accent-fg);
   }
 }
 

@@ -355,20 +355,29 @@ div.quarto-post .listing-categories .listing-category,
 
 // ── Banner buttons ────────────────────────────────────────────────────
 
-.btn-banner {
+.btn-banner,
+a.btn-banner {
   color: var(--apls-banner-fg);
   background-color: transparent;
-  border: 1px solid var(--apls-banner-fg);
+  border: 1px solid var(--apls-accent);
   border-radius: 4px;
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 
+  &:link,
+  &:visited {
+    color: var(--apls-banner-fg);
+  }
+
   &:hover,
-  &:focus {
-    background-color: var(--apls-banner-fg);
-    color: var(--apls-banner-bg);
+  &:focus,
+  &:active,
+  &.active {
+    background-color: var(--apls-accent);
+    color: var(--apls-button-accent-fg);
+    border-color: var(--apls-accent);
     text-decoration: none;
   }
 }
@@ -419,27 +428,35 @@ div.quarto-post .listing-categories .listing-category,
 
   .btn-banner {
     color: var(--apls-banner-fg) !important;
-    border: 1px solid var(--apls-banner-fg) !important;
+    border: 1px solid var(--apls-accent) !important;
     background-color: transparent !important;
 
     &:hover,
-    &:focus {
-      background-color: var(--apls-banner-fg) !important;
-      color: var(--apls-banner-bg) !important;
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--apls-accent) !important;
+      color: var(--apls-button-accent-fg) !important;
     }
   }
 }
 
 // Front-matter `links:` buttons (e.g. newsletter PDF downloads) render as
 // .btn-outline-primary directly inside the navy title block — navy text on
-// navy is 1.35:1, so flip them to the on-navy palette.
+// navy is 1.35:1, so use light text with the shared yellow outline.
 #title-block-header.award-post .btn-outline-primary {
   color: var(--apls-banner-fg) !important;
-  border-color: var(--apls-banner-fg) !important;
+  border-color: var(--apls-accent) !important;
 
   &:hover,
-  &:focus {
-    color: var(--apls-banner-bg) !important;
-    background-color: var(--apls-banner-fg) !important;
+  &:focus,
+  &:active,
+  &.active {
+    color: var(--apls-button-accent-fg) !important;
+    background-color: var(--apls-accent) !important;
+  }
+
+  &:focus-visible {
+    outline-color: var(--apls-accent);
   }
 }
